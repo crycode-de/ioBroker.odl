@@ -1,0 +1,68 @@
+{
+    "common": {
+        "name": "odl",
+        "version": "1.0.0",
+        "news": {
+            "1.0.0": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Ortsdosisleistung (ODL) des BfS",
+        "desc": {
+            "en": "Ambient dose rate data from the German Federal Office for Radiation Protection.",
+            "de": "Ortsdosisleistungsdaten des Bundesamtes für Strahlenschutz (BfS).",
+            "ru": "Данные о мощности дозы от Федерального ведомства по радиационной защите Германии.",
+            "pt": "Dados da taxa de dose ambiente do Escritório Federal Alemão para Proteção contra Radiação.",
+            "nl": "Omgevingsdosisgegevens van het Duitse federale kantoor voor stralingsbescherming.",
+            "fr": "Données relatives au débit de dose ambiante fournies par l'Office fédéral allemand de protection contre les radiations.",
+            "it": "Dati sulla velocità di dose ambientale dall'Ufficio federale tedesco per la radioprotezione.",
+            "es": "Datos de la tasa de dosis ambiental de la Oficina Federal Alemana de Protección Radiológica.",
+            "pl": "Dane dotyczące dawki w warunkach otoczenia z niemieckiego Federalnego Urzędu Ochrony przed Promieniowaniem.",
+            "zh-cn": "来自德国联邦辐射防护局的环境剂量率数据。"
+        },
+        "authors": [
+            "Peter Müller <peter@crycode.de>"
+        ],
+        "keywords": [
+            "odl",
+            "Gamma Ortsdosisleistung",
+            "Umweltradioaktivität",
+            "BfS"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "build/main.js",
+        "icon": "odl.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/crycode-de/ioBroker.odl/master/admin/odl.png",
+        "readme": "https://github.com/crycode-de/ioBroker.odl/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "schedule",
+        "schedule": "30 * * * *",
+        "allowInit": true,
+        "type": "misc-data",
+        "compact": true,
+        "materialize": true,
+        "messagebox": false,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "localityCode": [],
+        "pastHours": 48
+    },
+    "objects": [],
+    "instanceObjects": []
+}
