@@ -28,18 +28,18 @@
       function load(settings, onChange) { // eslint-disable-line @typescript-eslint/no-unused-vars
         if (!settings) return;
 
-        $('.value').each(function () {
-          const $key = $(this);
-          const id = $key.attr('id');
-          if ($key.attr('type') === 'checkbox') {
+        $('.value').each((i, elem) => {
+          const $elem = $(elem);
+          const id = $elem.attr('id');
+          if ($elem.attr('type') === 'checkbox') {
             // do not call onChange direct, because onChange could expect some arguments
-            $key.prop('checked', settings[id])
+            $elem.prop('checked', settings[id])
               .on('change', () => {
                 onChange();
               });
           } else {
             // do not call onChange direct, because onChange could expect some arguments
-            $key.val(settings[id])
+            $elem.val(settings[id])
               .on('change', () => onChange())
               .on('keyup', () => onChange())
             ;
@@ -128,9 +128,9 @@
       function save(callback) {
         const obj = {};
 
-        $('.value').each(() => {
-          const $this = $(this);
-          obj[$this.attr('id')] = $this.val();
+        $('.value').each((i, elem) => {
+          const $elem = $(elem);
+          obj[$elem.attr('id')] = $elem.val();
         });
 
         obj.localityCode = chips.chipsData.map((chip) => chip.localityCode);
@@ -156,6 +156,11 @@
       <input type="text" id="pastHours" class="value" />
       <label class="translate" for="pastHours">Past Hours</label>
       <span class="translate">Hours in the past to load from the server. 48h are recommended to get data even if a measuring point is currently unavailable. To log historical data you have to enable a history adapter for each data object.</span>
+    </div>
+    <div class="input-field col s12 m8 l4">
+      <input type="text" id="timeout" class="value" />
+      <label class="translate" for="pastHours">Timeout while loading data</label>
+      <span class="translate">Timeout for each request to the server in seconds. Default is 30.</span>
     </div>
   </div>
 

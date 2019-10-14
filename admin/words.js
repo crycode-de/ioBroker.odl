@@ -144,5 +144,32 @@ systemDictionary = {
     "es": "¡Respuesta inesperada del servidor BfS! Autocompletar y mostrar nombres no funcionará.",
     "pl": "Nieoczekiwana odpowiedź z serwera BfS! Autouzupełnianie i wyświetlanie nazw nie będzie działać.",
     "zh-cn": "来自BfS服务器的意外答案！自动完成和显示名称将不起作用。"
+  },
+
+  "Timeout while loading data": {
+    "en": "Timeout while loading data",
+    "de": "Zeitlimit beim Laden der Daten",
+    "ru": "Тайм-аут при загрузке данных",
+    "pt": "Tempo limite ao carregar dados",
+    "nl": "Time-out tijdens het laden van gegevens",
+    "fr": "Délai d'attente lors du chargement des données",
+    "it": "Timeout durante il caricamento dei dati",
+    "es": "Tiempo de espera al cargar datos",
+    "pl": "Limit czasu podczas ładowania danych",
+    "zh-cn": "加载数据时超时"
+  },
+
+  "Timeout for each request to the server in seconds. Default is 30.": {
+    "en": "Timeout for each request to the server in seconds. Default is 30.",
+    "de": "Zeitlimit für jede Anforderung an den Server in Sekunden. Die Standardeinstellung ist 30.",
+    "ru": "Тайм-аут для каждого запроса к серверу в секундах. По умолчанию 30.",
+    "pt": "Tempo limite para cada solicitação ao servidor em segundos. O padrão é 30.",
+    "nl": "Time-out voor elk verzoek aan de server in seconden. Standaard is 30.",
+    "fr": "Délai d'attente pour chaque demande au serveur en secondes. La valeur par défaut est 30.",
+    "it": "Timeout per ogni richiesta al server in secondi. L'impostazione predefinita è 30.",
+    "es": "Tiempo de espera para cada solicitud al servidor en segundos. El valor predeterminado es 30.",
+    "pl": "Limit czasu dla każdego żądania do serwera w sekundach. Domyślnie jest to 30.",
+    "zh-cn": "对服务器的每个请求的超时时间（以秒为单位）。默认值为30。"
   }
+
 };

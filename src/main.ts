@@ -16,6 +16,7 @@ declare global {
     interface AdapterConfig {
       localityCode: string[];
       pastHours: number;
+      timeout: number;
     }
   }
 }
@@ -47,7 +48,7 @@ class OdlAdapter extends utils.Adapter {
    * Is called when databases are connected and adapter received configuration.
    */
   private async onReady(): Promise<void> {
-    this.log.debug('adapter ready');
+    this.log.debug('start reading data...');
 
     await this.read();
 
@@ -115,16 +116,46 @@ class OdlAdapter extends utils.Adapter {
     const filter = this.filterTpl.replace('#from#', from.toISOString()).replace('#to#', to.toISOString());
     const url = this.url.replace('#localityCode#', encodeURIComponent(loc)).replace('#filter#', encodeURIComponent(filter));
 
+    this.log.debug(`url for ${loc}: ${url}`);
+
     // load data
-    const featureCollection: FeatureCollection = await new Promise ((resolve, reject) => {
-      request(url, (err, _res, body: string) => {
-        if (err) {
-          return reject(err);
+    const featureCollection: FeatureCollection | null = await new Promise ((resolve) => {
+      request({
+        url,
+        timeout: (this.config.timeout || 30) * 1000,
+        headers: {
+          'User-Agent': `Mozilla/5.0 (compatible; ioBroker.odl/${this.version})`
         }
-        this.log.debug(`got ${body.length} bytes for ${loc}`);
-        resolve(JSON.parse(body));
+      }, (err, res, body: string) => {
+        if (err) {
+          this.log.warn('Error loadind data from server!');
+          this.log.warn(err);
+          return resolve(null);
+        }
+        this.log.debug(`got ${body.length} bytes for ${loc}, http status ${res.statusCode}`);
+        if (res.statusCode !== 200) {
+          this.log.warn('Error loadind data from server!');
+          this.log.warn(`HTTP status ${res.statusCode} ${res.statusMessage}`);
+          this.log.debug(body);
+          return resolve(null);
+        }
+
+        try {
+          resolve(JSON.parse(body));
+        } catch (e) {
+          this.log.warn('Error parsing response from server!');
+          this.log.warn(e);
+          this.log.debug(body);
+          resolve(null);
+        }
       });
     });
+
+    // check if we got data
+    if (!featureCollection || !Array.isArray(featureCollection.features)) {
+      this.log.warn(`Got no data for ${loc}`);
+      return;
+    }
 
     this.log.debug(`data contains ${featureCollection.features.length} features for ${loc}`);
 

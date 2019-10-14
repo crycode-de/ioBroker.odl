@@ -36,7 +36,7 @@ class OdlAdapter extends utils.Adapter {
      */
     onReady() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.log.debug('adapter ready');
+            this.log.debug('start reading data...');
             yield this.read();
             this.log.debug('done');
             this.terminate ? this.terminate(0) : process.exit(0);
@@ -95,16 +95,44 @@ class OdlAdapter extends utils.Adapter {
             // create request url
             const filter = this.filterTpl.replace('#from#', from.toISOString()).replace('#to#', to.toISOString());
             const url = this.url.replace('#localityCode#', encodeURIComponent(loc)).replace('#filter#', encodeURIComponent(filter));
+            this.log.debug(`url for ${loc}: ${url}`);
             // load data
-            const featureCollection = yield new Promise((resolve, reject) => {
-                request(url, (err, _res, body) => {
-                    if (err) {
-                        return reject(err);
+            const featureCollection = yield new Promise((resolve) => {
+                request({
+                    url,
+                    timeout: (this.config.timeout || 30) * 1000,
+                    headers: {
+                        'User-Agent': `Mozilla/5.0 (compatible; ioBroker.odl/${this.version})`
                     }
-                    this.log.debug(`got ${body.length} bytes for ${loc}`);
-                    resolve(JSON.parse(body));
+                }, (err, res, body) => {
+                    if (err) {
+                        this.log.warn('Error loadind data from server!');
+                        this.log.warn(err);
+                        return resolve(null);
+                    }
+                    this.log.debug(`got ${body.length} bytes for ${loc}, http status ${res.statusCode}`);
+                    if (res.statusCode !== 200) {
+                        this.log.warn('Error loadind data from server!');
+                        this.log.warn(`HTTP status ${res.statusCode} ${res.statusMessage}`);
+                        this.log.debug(body);
+                        return resolve(null);
+                    }
+                    try {
+                        resolve(JSON.parse(body));
+                    }
+                    catch (e) {
+                        this.log.warn('Error parsing response from server!');
+                        this.log.warn(e);
+                        this.log.debug(body);
+                        resolve(null);
+                    }
                 });
             });
+            // check if we got data
+            if (!featureCollection || !Array.isArray(featureCollection.features)) {
+                this.log.warn(`Got no data for ${loc}`);
+                return;
+            }
             this.log.debug(`data contains ${featureCollection.features.length} features for ${loc}`);
             // get the last feature (current value) from the feature collection
             const lastFeature = featureCollection.features[featureCollection.features.length - 1];

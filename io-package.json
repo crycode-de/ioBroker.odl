@@ -16,7 +16,11 @@
                 "zh-cn": "首次出版"
             }
         },
-        "title": "Ortsdosisleistung (ODL) des BfS",
+        "title": "Ortsdosisleistung",
+        "titleLang": {
+            "en": "Abient Dose Rate",
+            "de": "Ortsdosisleistung"
+        },
         "desc": {
             "en": "Ambient dose rate data from the German Federal Office for Radiation Protection.",
             "de": "Ortsdosisleistungsdaten des Bundesamtes für Strahlenschutz (BfS).",
@@ -61,7 +65,8 @@
     },
     "native": {
         "localityCode": [],
-        "pastHours": 48
+        "pastHours": 48,
+        "timeout": 30
     },
     "objects": [],
     "instanceObjects": []
