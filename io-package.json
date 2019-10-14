@@ -37,10 +37,11 @@
             "Peter Müller <peter@crycode.de>"
         ],
         "keywords": [
-            "odl",
+            "ODL",
             "Gamma Ortsdosisleistung",
             "Umweltradioaktivität",
-            "BfS"
+            "BfS",
+            "µSv/h"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
@@ -59,7 +60,7 @@
         "messagebox": false,
         "dependencies": [
             {
-                "js-controller": ">=1.4.2"
+                "js-controller": ">=1.5.14"
             }
         ]
     },
