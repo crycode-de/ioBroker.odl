@@ -33,7 +33,7 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 
 ## Changelog
-### 1.0.0 (2019-10-14)
+### 1.0.1 (2019-10-14)
 * (Peter Müller) initial release
 
 
