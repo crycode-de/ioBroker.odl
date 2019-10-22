@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "news": {
             "1.0.1": {
                 "en": "initial release",
@@ -14,6 +14,18 @@
                 "es": "Versión inicial",
                 "pl": "Pierwsze wydanie",
                 "zh-cn": "首次出版"
+            },
+            "1.0.2": {
+                "en": "Minimum required js-controller version is now 1.5.7",
+                "de": "Die minimal erforderliche Version von js-controller ist jetzt 1.5.7",
+                "ru": "Минимально необходимая версия js-controller теперь 1.5.7",
+                "pt": "A versão mínima necessária do js-controller agora é 1.5.7",
+                "nl": "De minimaal vereiste js-controller-versie is nu 1.5.7",
+                "fr": "La version minimale requise de js-controller est 1.5.7",
+                "it": "La versione js-controller minima richiesta è ora 1.5.7",
+                "es": "La versión mínima requerida de js-controller ahora es 1.5.7",
+                "pl": "Minimalna wymagana wersja js-controller to teraz 1.5.7",
+                "zh-cn": "现在所需的最低js-controller版本为1.5.7"
             }
         },
         "title": "Ortsdosisleistung",
@@ -60,7 +72,7 @@
         "messagebox": false,
         "dependencies": [
             {
-                "js-controller": ">=1.5.14"
+                "js-controller": ">=1.5.7"
             }
         ]
     },
