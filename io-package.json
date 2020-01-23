@@ -1,19 +1,19 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
-            "1.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
+            "1.0.3": {
+                "en": "Added connectionType in io-package.json and updated dependencies.",
+                "de": "ConnectionType in io-package.json hinzugefügt und Abhängigkeiten aktualisiert.",
+                "ru": "Добавлен connectionType в io-package.json и обновлены зависимости.",
+                "pt": "Adicionado connectionType no io-package.json e dependências atualizadas.",
+                "nl": "ConnectionType toegevoegd in io-package.json en bijgewerkte afhankelijkheden.",
+                "fr": "ConnectionType ajouté dans io-package.json et mises à jour des dépendances.",
+                "it": "Aggiunto connectionType in io-package.json e dipendenze aggiornate.",
+                "es": "ConnectionType agregado en io-package.json y dependencias actualizadas.",
+                "pl": "Dodano connectionType w pliku io-package.json i zaktualizowano zależności.",
+                "zh-cn": "在io-package.json中添加了connectionType并更新了依赖项。"
             },
             "1.0.2": {
                 "en": "Minimum required js-controller version is now 1.5.7",
@@ -26,6 +26,18 @@
                 "es": "La versión mínima requerida de js-controller ahora es 1.5.7",
                 "pl": "Minimalna wymagana wersja js-controller to teraz 1.5.7",
                 "zh-cn": "现在所需的最低js-controller版本为1.5.7"
+            },
+            "1.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
             }
         },
         "title": "Ortsdosisleistung",
@@ -67,6 +79,7 @@
         "schedule": "30 * * * *",
         "allowInit": true,
         "type": "misc-data",
+        "connectionType": "cloud polling",
         "compact": true,
         "materialize": true,
         "messagebox": false,
