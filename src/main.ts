@@ -94,7 +94,7 @@ class OdlAdapter extends utils.Adapter {
           native: {}
         };
         await this.setObjectAsync(this.config.localityCode[i], objState);
-        this.log.debug(`created state ${objChan._id}`);
+        this.log.debug(`created state ${objState._id}`);
       }
 
       await this.readLocality(this.config.localityCode[i], objChan, objState);
@@ -174,11 +174,17 @@ class OdlAdapter extends utils.Adapter {
     if (objChan.common.name !== lastFeature.properties.locality_name) {
       this.log.debug(`update name for ${loc} (${lastFeature.properties.locality_name})`);
 
-      objChan.common.name = lastFeature.properties.locality_name;
-      await this.setObjectAsync(loc, objChan);
+      await this.extendObjectAsync(loc, {
+        common: {
+          name: lastFeature.properties.locality_name
+        }
+      });
 
-      objState.common.name = 'ODL ' + lastFeature.properties.locality_name;
-      await this.setObjectAsync(odlStateId, objState);
+      await this.extendObjectAsync(odlStateId, {
+        common: {
+          name: 'ODL ' + lastFeature.properties.locality_name
+        }
+      });
     }
 
     // set the current state to the value of the last feature if the value or the feature changed

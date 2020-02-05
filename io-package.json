@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "news": {
+            "1.0.5": {
+                "en": "Use of extendObject to update names of existing objects.",
+                "de": "Verwendung von extendObject zum Aktualisieren der Namen vorhandener Objekte.",
+                "ru": "Использование exteObject для обновления имен существующих объектов.",
+                "pt": "Uso de extendObject para atualizar nomes de objetos existentes.",
+                "nl": "Gebruik van ExtensionObject om namen van bestaande objecten bij te werken.",
+                "fr": "Utilisation de extendObject pour mettre à jour les noms des objets existants.",
+                "it": "Utilizzo di extensionObject per aggiornare i nomi di oggetti esistenti.",
+                "es": "Uso de extendObject para actualizar nombres de objetos existentes.",
+                "pl": "Wykorzystanie extObject do aktualizacji nazw istniejących obiektów.",
+                "zh-cn": "使用extendObject更新现有对象的名称。"
+            },
             "1.0.4": {
                 "en": "Updated connectionType and dataSource in io-package.json",
                 "de": "connectionType und dataSource in io-package.json aktualisiert",

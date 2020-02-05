@@ -33,6 +33,9 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 
 ## Changelog
+### 1.0.5 (2020-02-05)
+* (Peter Müller) Use of `extendObject` to update names of existing objects.
+
 ### 1.0.4 (2020-02-03)
 * (Peter Müller) Updated connectionType and dataSource in io-package.json.
 
