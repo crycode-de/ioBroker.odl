@@ -1,25 +1,13 @@
 /**
  * ioBroker ODL adapter.
  *
- * (C) 2019 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
+ * (C) 2019-2020 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 
 import * as utils from '@iobroker/adapter-core';
 
 // import { autobind } from 'core-decorators';
 import * as request from 'request';
-
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace ioBroker {
-    interface AdapterConfig {
-      localityCode: string[];
-      pastHours: number;
-      timeout: number;
-    }
-  }
-}
 
 /**
  * The ODL adapter.
@@ -34,7 +22,7 @@ class OdlAdapter extends utils.Adapter {
    * Constructor to create a new instance of the adapter.
    * @param options The adapter options.
    */
-  constructor(options: Partial<ioBroker.AdapterOptions> = {}) {
+  constructor(options: Partial<utils.AdapterOptions> = {}) {
     super({
       ...options,
       name: 'odl',
@@ -50,9 +38,12 @@ class OdlAdapter extends utils.Adapter {
   private async onReady(): Promise<void> {
     this.log.debug('start reading data...');
 
-    await this.read();
-
-    this.log.debug('done');
+    try {
+      await this.read();
+      this.log.debug('done');
+    } catch (err) {
+      this.log.error(`Error loading data: ${err}`);
+    }
 
     this.terminate ? this.terminate(0) : process.exit(0);
   }
@@ -188,7 +179,7 @@ class OdlAdapter extends utils.Adapter {
     }
 
     // set the current state to the value of the last feature if the value or the feature changed
-    const newState: Partial<ioBroker.State> = {
+    const newState: ioBroker.SettableState = {
       val: lastFeature.properties.value,
       ack: true,
       ts: new Date(lastFeature.properties.end_measure).getTime(),
@@ -251,7 +242,7 @@ class OdlAdapter extends utils.Adapter {
 
 if (module.parent) {
   // Export the constructor in compact mode
-  module.exports = (options: Partial<ioBroker.AdapterOptions> | undefined) => new OdlAdapter(options);
+  module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new OdlAdapter(options);
 } else {
   // otherwise start the instance directly
   (() => new OdlAdapter())();
