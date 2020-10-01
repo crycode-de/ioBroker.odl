@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "news": {
+            "1.0.6": {
+                "en": "Updated dependencies, Hopefully fixed a bug where adapter did not exit as expected",
+                "de": "Abhängigkeiten aktualisiert. Hoffentlich Fehler behoben, bei dem der Adapter nicht wie erwartet beendet wurde",
+                "ru": "Обновленные зависимости, надеюсь, исправлена ошибка, из-за которой адаптер не выходил должным образом",
+                "pt": "Dependências atualizadas, esperançosamente corrigido um bug em que o adaptador não fechava conforme o esperado",
+                "nl": "Bijgewerkte afhankelijkheden, hopelijk een bug verholpen waarbij de adapter niet verliet zoals verwacht",
+                "fr": "Dépendances mises à jour, espérons-le corrigé un bogue où l'adaptateur ne se fermait pas comme prévu",
+                "it": "Dipendenze aggiornate, si spera risolto un bug in cui l'adattatore non usciva come previsto",
+                "es": "Dependencias actualizadas, con suerte se corrigió un error en el que el adaptador no se cerró como se esperaba",
+                "pl": "Zaktualizowane zależności. Mamy nadzieję, że naprawiono błąd, w wyniku którego adapter nie kończył pracy zgodnie z oczekiwaniami",
+                "zh-cn": "更新了相关性，希望修复了适配器未按预期退出的错误"
+            },
             "1.0.5": {
                 "en": "Use of extendObject to update names of existing objects.",
                 "de": "Verwendung von extendObject zum Aktualisieren der Namen vorhandener Objekte.",
