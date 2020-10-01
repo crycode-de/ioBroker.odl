@@ -2,7 +2,7 @@
 /**
  * ioBroker ODL adapter.
  *
- * (C) 2019 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
+ * (C) 2019-2020 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -37,8 +37,13 @@ class OdlAdapter extends utils.Adapter {
     onReady() {
         return __awaiter(this, void 0, void 0, function* () {
             this.log.debug('start reading data...');
-            yield this.read();
-            this.log.debug('done');
+            try {
+                yield this.read();
+                this.log.debug('done');
+            }
+            catch (err) {
+                this.log.error(`Error loading data: ${err}`);
+            }
             this.terminate ? this.terminate(0) : process.exit(0);
         });
     }
@@ -77,7 +82,7 @@ class OdlAdapter extends utils.Adapter {
                         native: {}
                     };
                     yield this.setObjectAsync(this.config.localityCode[i], objState);
-                    this.log.debug(`created state ${objChan._id}`);
+                    this.log.debug(`created state ${objState._id}`);
                 }
                 yield this.readLocality(this.config.localityCode[i], objChan, objState);
             }
@@ -145,10 +150,16 @@ class OdlAdapter extends utils.Adapter {
             // update object name if this is not the name of the last feature
             if (objChan.common.name !== lastFeature.properties.locality_name) {
                 this.log.debug(`update name for ${loc} (${lastFeature.properties.locality_name})`);
-                objChan.common.name = lastFeature.properties.locality_name;
-                yield this.setObjectAsync(loc, objChan);
-                objState.common.name = 'ODL ' + lastFeature.properties.locality_name;
-                yield this.setObjectAsync(odlStateId, objState);
+                yield this.extendObjectAsync(loc, {
+                    common: {
+                        name: lastFeature.properties.locality_name
+                    }
+                });
+                yield this.extendObjectAsync(odlStateId, {
+                    common: {
+                        name: 'ODL ' + lastFeature.properties.locality_name
+                    }
+                });
             }
             // set the current state to the value of the last feature if the value or the feature changed
             const newState = {
