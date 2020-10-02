@@ -29,7 +29,12 @@ class OdlAdapter extends utils.Adapter {
         super(Object.assign(Object.assign({}, options), { name: 'odl' }));
         this.url = 'https://www.imis.bfs.de/ogc/opendata/ows?&service=WFS&version=1.1.0&request=GetFeature&typeName=opendata%3Aodl_brutto_1h_timeseries&outputFormat=application%2Fjson&filter=#filter#&sortBy=end_measure&viewparams=locality_code%3A#localityCode#%3B';
         this.filterTpl = '<Filter xmlns="http://www.opengis.net/ogc" xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml"><And><PropertyIsBetween><PropertyName>end_measure</PropertyName><LowerBoundary><Literal>#from#</Literal></LowerBoundary><UpperBoundary><Literal>#to#</Literal></UpperBoundary></PropertyIsBetween><Or><ogc:PropertyIsEqualTo><ogc:PropertyName>source</ogc:PropertyName><ogc:Literal>BfS</ogc:Literal></ogc:PropertyIsEqualTo></Or></And></Filter>';
+        this.exitTimeout = null;
         this.on('ready', () => this.onReady());
+        this.exitTimeout = setTimeout(() => {
+            this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
+            this.exit(1);
+        }, 600000); // 10 minutes
     }
     /**
      * Is called when databases are connected and adapter received configuration.
@@ -44,8 +49,18 @@ class OdlAdapter extends utils.Adapter {
             catch (err) {
                 this.log.error(`Error loading data: ${err}`);
             }
-            this.terminate ? this.terminate(0) : process.exit(0);
+            this.exit(0);
         });
+    }
+    /**
+     * Terminate or exit the adapter.
+     * @param code The exit code.
+     */
+    exit(code) {
+        if (this.exitTimeout) {
+            clearTimeout(this.exitTimeout);
+        }
+        this.terminate ? this.terminate(code) : process.exit(code);
     }
     read() {
         return __awaiter(this, void 0, void 0, function* () {

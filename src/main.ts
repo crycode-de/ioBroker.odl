@@ -18,6 +18,8 @@ class OdlAdapter extends utils.Adapter {
 
   private readonly filterTpl: string = '<Filter xmlns="http://www.opengis.net/ogc" xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml"><And><PropertyIsBetween><PropertyName>end_measure</PropertyName><LowerBoundary><Literal>#from#</Literal></LowerBoundary><UpperBoundary><Literal>#to#</Literal></UpperBoundary></PropertyIsBetween><Or><ogc:PropertyIsEqualTo><ogc:PropertyName>source</ogc:PropertyName><ogc:Literal>BfS</ogc:Literal></ogc:PropertyIsEqualTo></Or></And></Filter>';
 
+  private exitTimeout: NodeJS.Timeout | null = null;
+
   /**
    * Constructor to create a new instance of the adapter.
    * @param options The adapter options.
@@ -30,6 +32,10 @@ class OdlAdapter extends utils.Adapter {
 
     this.on('ready', () => this.onReady());
 
+    this.exitTimeout = setTimeout(() => {
+      this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
+      this.exit(1);
+    }, 600000); // 10 minutes
   }
 
   /**
@@ -45,7 +51,19 @@ class OdlAdapter extends utils.Adapter {
       this.log.error(`Error loading data: ${err}`);
     }
 
-    this.terminate ? this.terminate(0) : process.exit(0);
+    this.exit(0);
+  }
+
+  /**
+   * Terminate or exit the adapter.
+   * @param code The exit code.
+   */
+  private exit (code: number): void {
+    if (this.exitTimeout) {
+      clearTimeout(this.exitTimeout);
+    }
+
+    this.terminate ? this.terminate(code) : process.exit(code);
   }
 
   private async read (): Promise<void> {
