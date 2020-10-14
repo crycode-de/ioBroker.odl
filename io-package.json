@@ -1,11 +1,23 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "news": {
+            "1.0.7": {
+                "en": "Updated dependencies, Added timeout to force exit the adapter after 10 minutes in case of any problems",
+                "de": "Abhängigkeiten aktualisiert, Zeitüberschreitung hinzugefügt, um das Beenden des Adapters nach 10 Minuten bei Problemen zu erzwingen",
+                "ru": "Обновлены зависимости, добавлен таймаут для принудительного выхода из адаптера через 10 минут в случае каких-либо проблем",
+                "pt": "Dependências atualizadas, tempo limite adicionado para forçar a saída do adaptador após 10 minutos em caso de problemas",
+                "nl": "Bijgewerkte afhankelijkheden, time-out toegevoegd om de adapter na 10 minuten geforceerd af te sluiten in geval van problemen",
+                "fr": "Dépendances mises à jour, délai d'expiration ajouté pour forcer la sortie de l'adaptateur après 10 minutes en cas de problème",
+                "it": "Dipendenze aggiornate, aggiunto timeout per forzare l'uscita dall'adattatore dopo 10 minuti in caso di problemi",
+                "es": "Dependencias actualizadas, tiempo de espera agregado para forzar la salida del adaptador después de 10 minutos en caso de problemas",
+                "pl": "Zaktualizowano zależności, dodano limit czasu na wymuszenie wyjścia z adaptera po 10 minutach w przypadku jakichkolwiek problemów",
+                "zh-cn": "更新了依赖性，增加了超时，如果出现任何问题，将在10分钟后强制退出适配器"
+            },
             "1.0.6": {
                 "en": "Updated dependencies, Hopefully fixed a bug where adapter did not exit as expected",
-                "de": "Abhängigkeiten aktualisiert. Hoffentlich Fehler behoben, bei dem der Adapter nicht wie erwartet beendet wurde",
+                "de": "Abhängigkeiten aktualisiert, Hoffentlich Fehler behoben, bei dem der Adapter nicht wie erwartet beendet wurde",
                 "ru": "Обновленные зависимости, надеюсь, исправлена ошибка, из-за которой адаптер не выходил должным образом",
                 "pt": "Dependências atualizadas, esperançosamente corrigido um bug em que o adaptador não fechava conforme o esperado",
                 "nl": "Bijgewerkte afhankelijkheden, hopelijk een bug verholpen waarbij de adapter niet verliet zoals verwacht",
