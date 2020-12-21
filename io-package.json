@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.0.7",
+        "version": "1.1.0",
         "news": {
+            "1.1.0": {
+                "en": "Added Sentry, Updated dependencies",
+                "de": "Sentry hinzugefügt, Abhängigkeiten aktualisiert",
+                "ru": "Добавлен Sentry, обновлены зависимости",
+                "pt": "Adicionado Sentry, Dependências atualizadas",
+                "nl": "Sentry toegevoegd, bijgewerkte afhankelijkheden",
+                "fr": "Sentry ajoutée, dépendances mises à jour",
+                "it": "Sentinella aggiunta, dipendenze aggiornate",
+                "es": "Centinela agregado, dependencias actualizadas",
+                "pl": "Dodano Działko, Zaktualizowano zależności",
+                "zh-cn": "添加了哨兵，更新了依赖项"
+            },
             "1.0.7": {
                 "en": "Updated dependencies, Added timeout to force exit the adapter after 10 minutes in case of any problems",
                 "de": "Abhängigkeiten aktualisiert, Zeitüberschreitung hinzugefügt, um das Beenden des Adapters nach 10 Minuten bei Problemen zu erzwingen",
@@ -134,9 +146,14 @@
         "messagebox": false,
         "dependencies": [
             {
-                "js-controller": ">=1.5.7"
+                "js-controller": ">=2.0.0"
             }
-        ]
+        ],
+        "plugins": {
+            "sentry": {
+                "dsn": "https://b949776de36f4caead135cd0a6380f21@sentry.cryhost.de/6"
+            }
+        }
     },
     "native": {
         "localityCode": [],

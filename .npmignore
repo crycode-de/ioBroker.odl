@@ -24,7 +24,7 @@ tsconfig.*.json
 .jshintrc
 
 # Sourcemaps
-maps/
+*.map
 
 # npm package files
 iobroker.*.tgz
