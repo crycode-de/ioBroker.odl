@@ -240,3 +240,4 @@ else {
     // otherwise start the instance directly
     (() => new OdlAdapter())();
 }
+//# sourceMappingURL=main.js.map
