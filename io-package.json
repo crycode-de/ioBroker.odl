@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "news": {
+            "1.1.2": {
+                "en": "Fix objects parameters for objects created before v1.1.1",
+                "de": "Objektparameter für Objekte, die vor v1.1.1 erstellt wurden, werden korrigiert",
+                "ru": "Исправить параметры объектов для объектов, созданных до версии 1.1.1",
+                "pt": "Corrija os parâmetros dos objetos para objetos criados antes da v1.1.1",
+                "nl": "Objectparameters repareren voor objecten die zijn gemaakt vóór v1.1.1",
+                "fr": "Correction des paramètres d'objets pour les objets créés avant la v1.1.1",
+                "it": "Correggere i parametri degli oggetti per gli oggetti creati prima della v1.1.1",
+                "es": "Corregir parámetros de objetos para objetos creados antes de v1.1.1",
+                "pl": "Napraw parametry obiektów dla obiektów utworzonych przed wersją 1.1.1",
+                "zh-cn": "修复v1.1.1之前创建的对象的对象参数"
+            },
             "1.1.1": {
                 "en": "Fixed issue creating odl state object",
                 "de": "Problem beim Erstellen von odl State-Objekten behoben",
