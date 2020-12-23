@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "news": {
+            "1.1.1": {
+                "en": "Fixed issue creating odl state object",
+                "de": "Problem beim Erstellen von odl State-Objekten behoben",
+                "ru": "Исправлена проблема с созданием объекта состояния odl",
+                "pt": "Corrigido o problema de criação de objeto de estado odl",
+                "nl": "Probleem opgelost bij het maken van odl-statusobject",
+                "fr": "Correction d'un problème de création d'objet d'état odl",
+                "it": "Risolto il problema durante la creazione di oggetti di stato odl",
+                "es": "Problema solucionado al crear un objeto de estado odl",
+                "pl": "Naprawiono problem tworzenia obiektu stanu odl",
+                "zh-cn": "解决了创建odl状态对象的问题"
+            },
             "1.1.0": {
                 "en": "Added Sentry, Updated dependencies",
                 "de": "Sentry hinzugefügt, Abhängigkeiten aktualisiert",

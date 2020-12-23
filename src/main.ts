@@ -87,7 +87,7 @@ class OdlAdapter extends utils.Adapter {
         this.log.debug(`created channel ${objChan._id}`);
       }
 
-      // create state if not exists
+      // create state object if not exists
       if (!objState) {
         objState = {
           _id: `${this.namespace}.${this.config.localityCode[i]}.odl`,
@@ -102,7 +102,7 @@ class OdlAdapter extends utils.Adapter {
           },
           native: {}
         };
-        await this.setObjectAsync(this.config.localityCode[i], objState);
+        await this.setObjectAsync(`${this.config.localityCode[i]}.odl`, objState);
         this.log.debug(`created state ${objState._id}`);
       }
 
