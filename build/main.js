@@ -68,8 +68,8 @@ class OdlAdapter extends utils.Adapter {
                 // load channel and state object info
                 let objChan = yield this.getObjectAsync(this.config.localityCode[i]);
                 let objState = yield this.getObjectAsync(this.config.localityCode[i] + '.odl');
-                // create channel if not exists
-                if (!objChan) {
+                // create channel if not exists or type is not channel to fix creation error from < v1.1.1
+                if (!objChan || objChan.type !== 'channel') {
                     objChan = {
                         _id: `${this.namespace}.${this.config.localityCode[i]}`,
                         type: 'channel',
@@ -98,6 +98,20 @@ class OdlAdapter extends utils.Adapter {
                     };
                     yield this.setObjectAsync(`${this.config.localityCode[i]}.odl`, objState);
                     this.log.debug(`created state ${objState._id}`);
+                    // update existing object if type is not state to fix creation error from < v1.1.1
+                }
+                else if (objState.type !== 'state') {
+                    yield this.extendObjectAsync(`${this.config.localityCode[i]}.odl`, {
+                        type: 'state',
+                        common: {
+                            role: 'value',
+                            type: 'number',
+                            unit: 'µSv/h',
+                            read: true,
+                            write: false
+                        }
+                    });
+                    this.log.debug(`updated state ${objState._id}`);
                 }
                 yield this.readLocality(this.config.localityCode[i], objChan, objState);
             }

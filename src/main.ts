@@ -73,8 +73,8 @@ class OdlAdapter extends utils.Adapter {
       let objChan: ioBroker.ChannelObject | null = await this.getObjectAsync(this.config.localityCode[i]) as ioBroker.ChannelObject | null;
       let objState: ioBroker.StateObject | null = await this.getObjectAsync(this.config.localityCode[i] + '.odl') as ioBroker.StateObject | null;
 
-      // create channel if not exists
-      if (!objChan) {
+      // create channel if not exists or type is not channel to fix creation error from < v1.1.1
+      if (!objChan || objChan.type !== 'channel') {
         objChan = {
           _id:`${this.namespace}.${this.config.localityCode[i]}`,
           type: 'channel',
@@ -104,6 +104,20 @@ class OdlAdapter extends utils.Adapter {
         };
         await this.setObjectAsync(`${this.config.localityCode[i]}.odl`, objState);
         this.log.debug(`created state ${objState._id}`);
+
+      // update existing object if type is not state to fix creation error from < v1.1.1
+      } else if (objState.type !== 'state') {
+        await this.extendObjectAsync(`${this.config.localityCode[i]}.odl`, {
+          type: 'state',
+          common: {
+            role: 'value',
+            type: 'number',
+            unit: 'µSv/h',
+            read: true,
+            write: false
+          }
+        });
+        this.log.debug(`updated state ${objState._id}`);
       }
 
       await this.readLocality(this.config.localityCode[i], objChan, objState);
