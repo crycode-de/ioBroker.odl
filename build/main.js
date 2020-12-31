@@ -32,8 +32,11 @@ class OdlAdapter extends utils.Adapter {
         this.exitTimeout = null;
         this.on('ready', () => this.onReady());
         this.exitTimeout = setTimeout(() => {
-            this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
-            this.exit(1);
+            // this.log may be undefined if the adapter could not connect to states/objects db
+            if (this.log) {
+                this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
+            }
+            this.exit(utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
         }, 600000); // 10 minutes
     }
     /**
