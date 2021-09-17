@@ -2,7 +2,7 @@
 /**
  * ioBroker ODL adapter.
  *
- * (C) 2019-2020 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
+ * (C) 2019-2021 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -15,7 +15,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils = require("@iobroker/adapter-core");
-// import { autobind } from 'core-decorators';
 const request = require("request");
 /**
  * The ODL adapter.

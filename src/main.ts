@@ -1,12 +1,11 @@
 /**
  * ioBroker ODL adapter.
  *
- * (C) 2019-2020 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
+ * (C) 2019-2021 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 
 import * as utils from '@iobroker/adapter-core';
 
-// import { autobind } from 'core-decorators';
 import * as request from 'request';
 
 /**
@@ -168,7 +167,7 @@ class OdlAdapter extends utils.Adapter {
 
         try {
           resolve(JSON.parse(body));
-        } catch (e) {
+        } catch (e: any) {
           this.log.warn('Error parsing response from server!');
           this.log.warn(e);
           this.log.debug(body);
@@ -222,7 +221,7 @@ class OdlAdapter extends utils.Adapter {
     };
     const currentState = await this.getStateAsync(odlStateId);
 
-    if (!currentState || currentState.val !== newState.val || currentState.ts !== newState.ts) {
+    if (!currentState || currentState.val !== (newState as ioBroker.State).val || currentState.ts !== (newState as ioBroker.State).ts) {
       await this.setStateAsync(odlStateId, newState);
     }
 
