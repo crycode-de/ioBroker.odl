@@ -73,16 +73,30 @@ class OdlAdapter extends utils.Adapter {
       this.log.error(`Could not check or adjust the schedule`);
     }
 
-    // check if it's a scheduled start (at the scheduled time) and delay some seconds to better spread API calls
+    // check schedule and if it's a scheduled start (at the scheduled time) and delay some seconds to better spread API calls
     if (instObj?.common?.schedule) {
-      const minuteSchedule = parseInt(instObj.common.schedule.split(/\s/)[0], 10);
+      const m = instObj.common.schedule.match(/^(\d+\s+)?([0-9,]+)(\s+\S+){4}$/);
+      if (!m) {
+        this.log.error(`Invalid schedule "${instObj.common.schedule}" defined! The schedule should start the adapter once per hour, e.g. "30 * * * *".`);
+        this.exit(utils.EXIT_CODES.INVALID_ADAPTER_CONFIG);
+        return;
+      }
+      const minutes = m[2].split(',').map((v) => parseInt(v, 10));
       const date = new Date();
-      if (minuteSchedule === date.getMinutes() && date.getSeconds() < 10) {
-        const delay = Math.floor(Math.random() * 60000);
-        this.log.debug(`Delay execution by ${delay}ms to better spread API calls`);
+      let delay = 0;
+      for (const minute of minutes) {
+        if (minute === date.getMinutes() && date.getSeconds() < 10) {
+          this.log.debug(`probably scheduled adapter start detected`);
+          delay = Math.floor(Math.random() * 60000) + 1;
+          break;
+        }
+      }
+
+      if (delay > 0) {
+        this.log.debug(`delay execution by ${delay}ms to better spread API calls`);
         await this.sleep(delay);
       } else {
-        this.log.debug('Seems to be not a scheduled adapter start. Not delaying execution.');
+        this.log.debug('seems to be not a scheduled adapter start, not delaying execution');
       }
     }
 
