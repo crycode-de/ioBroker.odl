@@ -1,12 +1,12 @@
 /**
  * ioBroker ODL adapter.
  *
- * (C) 2019-2021 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
+ * (C) 2019-2022 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 
 import * as utils from '@iobroker/adapter-core';
 
-import * as request from 'request';
+import axios from 'axios';
 
 /**
  * The ODL adapter.
@@ -144,37 +144,36 @@ class OdlAdapter extends utils.Adapter {
     this.log.debug(`url for ${loc}: ${url}`);
 
     // load data
-    const featureCollection: FeatureCollection | null = await new Promise ((resolve) => {
-      request({
-        url,
-        timeout: (this.config.timeout || 30) * 1000,
-        headers: {
-          'User-Agent': `Mozilla/5.0 (compatible; ioBroker.odl/${this.version})`
-        }
-      }, (err, res, body: string) => {
-        if (err) {
-          this.log.warn('Error loadind data from server!');
-          this.log.warn(err);
-          return resolve(null);
-        }
-        this.log.debug(`got ${body.length} bytes for ${loc}, http status ${res.statusCode}`);
-        if (res.statusCode !== 200) {
-          this.log.warn('Error loadind data from server!');
-          this.log.warn(`HTTP status ${res.statusCode} ${res.statusMessage}`);
-          this.log.debug(body);
-          return resolve(null);
-        }
-
-        try {
-          resolve(JSON.parse(body));
-        } catch (e: any) {
-          this.log.warn('Error parsing response from server!');
-          this.log.warn(e);
-          this.log.debug(body);
-          resolve(null);
-        }
+    const res = await axios.request<FeatureCollection>({
+      url,
+      method: 'get',
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': `Mozilla/5.0 (compatible; ioBroker.odl/${this.version})`
+      },
+      timeout: (this.config.timeout || 30) * 1000,
+    })
+      .catch((err) => {
+        this.log.warn('Error loading data from server!');
+        this.log.warn(err);
+        return null;
       });
-    });
+
+    if (!res?.data) {
+      this.log.warn(`Got no data for ${loc}`);
+      return;
+    }
+
+    this.log.debug(`got response for ${loc}, http status ${res.status} ${res.statusText}`);
+
+    if (res.status !== 200) {
+      this.log.warn('Error loading data from server!');
+      this.log.warn(`HTTP status ${res.status} ${res.statusText}`);
+      this.log.debug(JSON.stringify(res.data));
+      return;
+    }
+
+    const featureCollection: FeatureCollection = res.data;
 
     // check if we got data
     if (!featureCollection || !Array.isArray(featureCollection.features)) {

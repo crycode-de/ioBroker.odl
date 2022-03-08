@@ -1,0 +1,16 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.enable": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+
+    // add json schemas for well-known-messages
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "io-package.json"
+            ],
+            "url": "https://json.schemastore.org/io-package"
+        },
+    ],
+}

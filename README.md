@@ -36,6 +36,13 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 ## Changelog
 
+### 1.2.0 (Pending)
+
+* (crycode-de) Replaced `request` with `axios`
+* (crycode-de) Updated dependencies
+* (crycode-de) Use inline sourcemaps for better debugging
+* (crycode-de) Require node >=12
+
 ### 1.1.4 (2021-01-16)
 * (crycode-de) Updated BfS logo
 * (crycode-de) Updated dependencies
