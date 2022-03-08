@@ -9,6 +9,11 @@ declare global {
       localityCode: string[];
       pastHours: number;
       timeout: number;
+      scheduleAdjusted: boolean;
+    }
+
+    interface InstanceCommon {
+      schedule: string;
     }
   }
 }

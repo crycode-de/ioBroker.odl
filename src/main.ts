@@ -20,6 +20,11 @@ class OdlAdapter extends utils.Adapter {
   private exitTimeout: NodeJS.Timeout | null = null;
 
   /**
+   * If the adapter is unloaded (should stop).
+   */
+  private unloaded: boolean = false;
+
+  /**
    * Constructor to create a new instance of the adapter.
    * @param options The adapter options.
    */
@@ -29,9 +34,12 @@ class OdlAdapter extends utils.Adapter {
       name: 'odl',
     });
 
-    this.on('ready', () => this.onReady());
+    this.on('ready', this.onReady.bind(this));
+    this.on('unload', this.onUnload.bind(this));
 
     this.exitTimeout = setTimeout(() => {
+      this.unloaded = true;
+
       // this.log may be undefined if the adapter could not connect to states/objects db
       if (this.log) {
         this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
@@ -44,6 +52,40 @@ class OdlAdapter extends utils.Adapter {
    * Is called when databases are connected and adapter received configuration.
    */
   private async onReady(): Promise<void> {
+    let instObj: ioBroker.InstanceObject | null | undefined = null;
+
+    // adjust the schedule if not already adjusted
+    try {
+      instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
+      if (instObj && instObj.native && !instObj.native.scheduleAdjusted) {
+        // adjust only if default schedule
+        if (instObj.common.schedule === '30 * * * *') {
+          // create random schedule between 15 and 45
+          instObj.common.schedule = `${Math.floor(Math.random() * 31) + 15} * * * *`;
+        }
+        (instObj.native as ioBroker.AdapterConfig).scheduleAdjusted = true;
+        this.log.info(`Schedule adjusted to spread calls better over a half hour!`);
+        await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
+        this.exit(utils.EXIT_CODES.NO_ERROR);
+        return;
+      }
+    } catch (e) {
+      this.log.error(`Could not check or adjust the schedule`);
+    }
+
+    // check if it's a scheduled start (at the scheduled time) and delay some seconds to better spread API calls
+    if (instObj?.common?.schedule) {
+      const minuteSchedule = parseInt(instObj.common.schedule.split(/\s/)[0], 10);
+      const date = new Date();
+      if (minuteSchedule === date.getMinutes() && date.getSeconds() < 10) {
+        const delay = Math.floor(Math.random() * 60000);
+        this.log.debug(`Delay execution by ${delay}ms to better spread API calls`);
+        await this.sleep(delay);
+      } else {
+        this.log.debug('Seems to be not a scheduled adapter start. Not delaying execution.');
+      }
+    }
+
     this.log.debug('start reading data...');
 
     try {
@@ -53,7 +95,23 @@ class OdlAdapter extends utils.Adapter {
       this.log.error(`Error loading data: ${err}`);
     }
 
-    this.exit(0);
+    this.exit(utils.EXIT_CODES.NO_ERROR);
+  }
+
+  /**
+   * Adapter should unload.
+   */
+  private onUnload (cb: () => void): void {
+    this.unloaded = true;
+    cb && cb();
+  }
+
+  /**
+   * Wait some time and continue if not unloaded.
+   * @param ms Time to wait.
+   */
+  private sleep (ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(() => !this.unloaded && resolve(), ms));
   }
 
   /**
@@ -70,6 +128,11 @@ class OdlAdapter extends utils.Adapter {
 
   private async read (): Promise<void> {
     for (let i = 0; i < this.config.localityCode.length; i++) {
+
+      // check unloaded
+      if (this.unloaded) {
+        return;
+      }
 
       // load channel and state object info
       let objChan: ioBroker.ChannelObject | null = await this.getObjectAsync(this.config.localityCode[i]) as ioBroker.ChannelObject | null;
@@ -158,6 +221,11 @@ class OdlAdapter extends utils.Adapter {
         this.log.warn(err);
         return null;
       });
+
+    // check unloaded
+    if (this.unloaded) {
+      return;
+    }
 
     if (!res?.data) {
       this.log.warn(`Got no data for ${loc}`);

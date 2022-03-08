@@ -38,6 +38,8 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 ### 1.2.0 (Pending)
 
+* (crycode-de) Randomize adapter schedule between minute 15 and 45 on first start
+* (crycode-de) Delay execution between 0 and 60 seconds for scheduled starts
 * (crycode-de) Replaced `request` with `axios`
 * (crycode-de) Updated dependencies
 * (crycode-de) Use inline sourcemaps for better debugging

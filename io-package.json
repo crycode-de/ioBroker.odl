@@ -206,7 +206,8 @@
     "native": {
         "localityCode": [],
         "pastHours": 48,
-        "timeout": 30
+        "timeout": 30,
+        "scheduleAdjusted": false
     },
     "objects": [],
     "instanceObjects": []
