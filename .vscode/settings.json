@@ -4,7 +4,6 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
 
-    // add json schemas for well-known-messages
     "json.schemas": [
         {
             "fileMatch": [
@@ -12,5 +11,10 @@
             ],
             "url": "https://json.schemastore.org/io-package"
         },
+    ],
+
+    "cSpell.words": [
+        "kenn",
+        "msts"
     ],
 }

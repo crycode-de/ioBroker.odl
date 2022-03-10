@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "odl",
-        "version": "1.2.0",
+        "version": "2.0.0",
         "news": {
             "1.1.4": {
                 "en": "Updated BfS logo, Updated dependencies",
@@ -204,10 +204,10 @@
         }
     },
     "native": {
-        "localityCode": [],
-        "pastHours": 48,
+        "msts": [],
         "timeout": 30,
-        "scheduleAdjusted": false
+        "scheduleAdjusted": false,
+        "useCosmicTerrestrial": false
     },
     "objects": [],
     "instanceObjects": []
