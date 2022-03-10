@@ -8,7 +8,6 @@ declare global {
     interface AdapterConfig {
       msts: string[];
       timeout: number;
-      scheduleAdjusted: boolean;
       useCosmicTerrestrial: boolean;
 
       /**

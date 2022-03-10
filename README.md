@@ -47,8 +47,7 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 * (crycode-de) Added `.status` state representing the location status given from BfS
 * (crycode-de) If an enabled history (_history_, _influxdb_, _sql_) for `.value`, `.valueCosmic` or `.valueTerrestrial` is found, the adapter tries to load the timeseries data from BfS for past 7 days.
 * (crycode-de) If the status of a location is not "in operation", the value states will be `null` with `q` set to `0x81` (general problem by sensor)
-* (crycode-de) Randomize adapter schedule between minute 15 and 45 on first start
-* (crycode-de) Delay execution between 0 and 60 seconds for scheduled starts
+* (crycode-de) Randomize adapter schedule between minute 15 and 45 and also using seconds on first start to better spread API calls
 * (crycode-de) Replaced `request` with `axios`
 * (crycode-de) Updated dependencies
 * (crycode-de) Use inline sourcemaps for better debugging

@@ -206,7 +206,6 @@
     "native": {
         "msts": [],
         "timeout": 30,
-        "scheduleAdjusted": false,
         "useCosmicTerrestrial": false
     },
     "objects": [],

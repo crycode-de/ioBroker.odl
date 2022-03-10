@@ -69,16 +69,17 @@ class OdlAdapter extends utils.Adapter {
   private async onReady(): Promise<void> {
     let instObj: ioBroker.InstanceObject | null | undefined = null;
 
-    // adjust the schedule if not already adjusted
+    /*
+     * Adjust the schedule if not already adjusted.
+     * Default schedule is `30 * * * *`.
+     * The adjusted schedule uses also seconds to spread API calls better.
+     */
     try {
       instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
-      if (instObj && instObj.native && !instObj.native.scheduleAdjusted) {
-        // adjust only if default schedule
-        if (instObj.common.schedule === '30 * * * *') {
-          // create random schedule between 15 and 45
-          instObj.common.schedule = `${Math.floor(Math.random() * 31) + 15} * * * *`;
-        }
-        (instObj.native as ioBroker.AdapterConfig).scheduleAdjusted = true;
+      if (instObj?.common?.schedule === '30 * * * *') {
+        const second = Math.floor(Math.random() * 60); // 0 to 59
+        const minute = Math.floor(Math.random() * 31) + 15; // 15 to 45
+        instObj.common.schedule = `${second} ${minute} * * * *`;
         this.log.info(`Schedule adjusted to spread calls better over a half hour!`);
         await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
         this.exit(utils.EXIT_CODES.NO_ERROR);
@@ -86,33 +87,6 @@ class OdlAdapter extends utils.Adapter {
       }
     } catch (e) {
       this.log.error(`Could not check or adjust the schedule`);
-    }
-
-    // check schedule and if it's a scheduled start (at the scheduled time) and delay some seconds to better spread API calls
-    if (instObj?.common?.schedule) {
-      const m = instObj.common.schedule.match(/^(\d+\s+)?([0-9,]+)(\s+\S+){4}$/);
-      if (!m) {
-        this.log.error(`Invalid schedule "${instObj.common.schedule}" defined! The schedule should start the adapter once per hour, e.g. "30 * * * *".`);
-        this.exit(utils.EXIT_CODES.INVALID_ADAPTER_CONFIG);
-        return;
-      }
-      const minutes = m[2].split(',').map((v) => parseInt(v, 10));
-      const date = new Date();
-      let delay = 0;
-      for (const minute of minutes) {
-        if (minute === date.getMinutes() && date.getSeconds() < 10) {
-          this.log.debug(`probably scheduled adapter start detected`);
-          delay = Math.floor(Math.random() * 60000) + 1;
-          break;
-        }
-      }
-
-      if (delay > 0) {
-        this.log.debug(`delay execution by ${delay}ms to better spread API calls`);
-        await this.sleep(delay);
-      } else {
-        this.log.debug('seems to be not a scheduled adapter start, not delaying execution');
-      }
     }
 
     // get the system language
@@ -138,14 +112,6 @@ class OdlAdapter extends utils.Adapter {
   private onUnload (cb: () => void): void {
     this.unloaded = true;
     cb && cb();
-  }
-
-  /**
-   * Wait some time and continue if not unloaded.
-   * @param ms Time to wait.
-   */
-  private sleep (ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(() => !this.unloaded && resolve(), ms));
   }
 
   /**
