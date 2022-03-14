@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "odl",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "news": {
-            "2.0.0": {
+            "2.0.1": {
                 "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
                 "de": "Großer Umbau des Adapters, Verwendung der offiziellen API, Neue States, ...",
                 "ru": "Огромный ребилд адаптера, Используйте официальный API, Новые состояния, ...",
