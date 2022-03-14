@@ -1,181 +1,24 @@
 <html>
+
 <head>
+
     <!-- Load ioBroker scripts and styles-->
     <link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
-    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
-
-    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
-
-    <script type="text/javascript" src="../../js/translate.js"></script>
-    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
-    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
 
     <!-- Load our own files -->
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="words.js"></script>
-
-    <script type="text/javascript">
-      const bfsFeaturesUrl = 'https://www.imis.bfs.de/ogc/opendata/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&QUERY_LAYERS=opendata%3Aodl_sondenstandorte&LAYERS=opendata%3Aodl_sondenstandorte&viewparams=&cql_filter=network%20IN%20(%27BfS%27)&INFO_FORMAT=application%2Fjson&FEATURE_COUNT=2000&X=50&Y=50&SRS=EPSG%3A3857&STYLES=&WIDTH=101&HEIGHT=101&BBOX=-7000000%2C-1500000%2C9200000%2C15000000';
-
-      let chips = null;
-      let knownLocalityCodes = {};
-      let knownLocalityCodesAutocomplete = {};
-
-      /**
-       * This will be called by the admin adapter when the settings page loads.
-       */
-      function load(settings, onChange) { // eslint-disable-line @typescript-eslint/no-unused-vars
-        if (!settings) return;
-
-        $('.value').each((i, elem) => {
-          const $elem = $(elem);
-          const id = $elem.attr('id');
-          if ($elem.attr('type') === 'checkbox') {
-            // do not call onChange direct, because onChange could expect some arguments
-            $elem.prop('checked', settings[id])
-              .on('change', () => {
-                onChange();
-              });
-          } else {
-            // do not call onChange direct, because onChange could expect some arguments
-            $elem.val(settings[id])
-              .on('change', () => onChange())
-              .on('keyup', () => onChange())
-            ;
-          }
-        });
-
-        // load currently available measuring point from BfS server
-        $.ajax(bfsFeaturesUrl)
-
-        // when we got data
-        .done((data) => {
-          if (!data || !Array.isArray(data.features)) {
-            console.warn('response was', data);
-            showError(_('Unexpected answer from BfS server! Autocomplete and displaying names will not work.'));
-            return;
-          }
-
-          // init locality codes objects
-          data.features.forEach((feature) => {
-            knownLocalityCodes[feature.properties.locality_code] = feature.properties.locality_name;
-            knownLocalityCodesAutocomplete[`${feature.properties.locality_code} - ${feature.properties.locality_name}`] = null;
-          });
-        })
-
-        // on error loading data
-        .fail((jqXHR, textStatus, errorThrown) => {
-          console.error(errorThrown);
-          showError(_('Error loading currently available measuring points from the BfS server! Autocomplete and displaying names will not work.'));
-        })
-
-        // init the chips
-        .always(() => {
-          const $chips = $('.chips-autocomplete').chips({
-            placeholder: _('Enter a locality code or name'),
-            secondaryPlaceholder: _('+Locality'),
-            autocompleteOptions: {
-              data: knownLocalityCodesAutocomplete,
-              limit: Infinity,
-              minLength: 2
-            },
-            onChipAdd: () => {
-              // check for invalid chips and delete them
-              const toDelete = [];
-              for (let i = 0; i < chips.chipsData.length; i++) {
-                if (chips.chipsData[i].localityCode) continue;
-                const m = chips.chipsData[i].tag.match(/^(DEZ\d{4})/);
-                if (m) {
-                  // save the localityCode
-                  chips.chipsData[i].localityCode = m[1];
-                } else {
-                  // mark invalid chip for removal
-                  toDelete.push(i);
-                }
-              }
-              toDelete.forEach((i) => {
-                chips.deleteChip(i);
-              });
-
-              onChange();
-            },
-            onChipDelete: () => {
-              onChange();
-            }
-          });
-
-          chips = M.Chips.getInstance($chips);
-
-          // add chips for currently set localityCodes
-          settings.localityCode.forEach((loc) => {
-            chips.addChip({
-              tag: knownLocalityCodes[loc] ? `${loc} - ${knownLocalityCodes[loc]}` : loc,
-              localityCode: loc
-            });
-          });
-
-          onChange(false);
-          if (M) M.updateTextFields();
-        });
-
-        onChange(false);
-        if (M) M.updateTextFields();
-      }
-
-
-      // This will be called by the admin adapter when the user presses the save button
-      function save(callback) {
-        const obj = {};
-
-        $('.value').each((i, elem) => {
-          const $elem = $(elem);
-          obj[$elem.attr('id')] = $elem.val();
-        });
-
-        obj.localityCode = chips.chipsData.map((chip) => chip.localityCode);
-
-        callback(obj);
-      }
-
-    </script>
 
 </head>
+
 <body>
-<div class="m adapter-container">
 
-  <div class="row">
-    <div class="col s12 m4 l2">
-      <img src="odl.png" class="logo">
-    </div>
-  </div>
+    <!-- this is where the React components are loaded into -->
+    <div class="m adapter-container" id="root"></div>
 
-  <!-- main settings -->
-  <div class="row">
-    <div class="input-field col s12 m8 l4">
-      <input type="text" id="pastHours" class="value" />
-      <label class="translate" for="pastHours">Past Hours</label>
-      <span class="translate">Hours in the past to load from the server. 48h are recommended to get data even if a measuring point is currently unavailable. To log historical data you have to enable a history adapter for each data object.</span>
-    </div>
-    <div class="input-field col s12 m8 l4">
-      <input type="text" id="timeout" class="value" />
-      <label class="translate" for="pastHours">Timeout while loading data</label>
-      <span class="translate">Timeout for each request to the server in seconds. Default is 30.</span>
-    </div>
-  </div>
+    <!-- load compiled React scripts -->
+    <script type="text/javascript" src="build/index.js"></script>
 
-  <div class="row">
-    <div class="input-field col s12">
-      <div class="chips chips-autocomplete"></div>
-      <label class="translate active">Measuring points</label>
-      <span class="translate">Enter one or more measuring points to load data for. When you type at least two chars, an autocomplete will be done with the currently active measuring points from the BfS. Also locality codes of currently inactive measuring points may be added.</span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col right"><span class="translate">Data</span> © <a href="http://www.bfs.de" target="_blank" class="translate">Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)</a>, <a href="http://www.govdata.de/dl-de/by-2-0" target="_blank" class="translate">Data licence Germany – attribution – Version 2.0</a></div>
-  </div>
-
-</div>
 </body>
+
 </html>
