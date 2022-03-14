@@ -3,6 +3,18 @@
         "name": "odl",
         "version": "2.0.0",
         "news": {
+            "2.0.0": {
+                "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
+                "de": "Großer Umbau des Adapters, Verwendung der offiziellen API, Neue States, ...",
+                "ru": "Огромный ребилд адаптера, Используйте официальный API, Новые состояния, ...",
+                "pt": "Grande reconstrução do adaptador, Use a API oficial, Novos estados, ...",
+                "nl": "Enorme herbouw van de adapter, gebruik de officiële API, nieuwe staten, ...",
+                "fr": "Énorme reconstruction de l'adaptateur, Utiliser l'API officielle, Nouveaux états, ...",
+                "it": "Ricostruzione enorme dell'adattatore, Usa l'API ufficiale, Nuovi stati, ...",
+                "es": "Enorme reconstrucción del adaptador, use la API oficial, nuevos estados, ...",
+                "pl": "Ogromna przebudowa adaptera, Użyj oficjalnego API, Nowe stany, ...",
+                "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ..."
+            },
             "1.1.4": {
                 "en": "Updated BfS logo, Updated dependencies",
                 "de": "Aktualisiertes BfS-Logo, Aktualisierte Abhängigkeiten",
@@ -151,7 +163,15 @@
         "title": "Ortsdosisleistung",
         "titleLang": {
             "en": "Abient Dose Rate",
-            "de": "Ortsdosisleistung"
+            "de": "Ortsdosisleistung",
+            "ru": "Абиентная мощность дозы",
+            "pt": "Taxa de Dose Abiente",
+            "nl": "Abient dosistempo",
+            "fr": "Débit de dose ambiant",
+            "it": "Dose Abitante",
+            "es": "Tasa de dosis ambiental",
+            "pl": "Abient Dawka",
+            "zh-cn": "体外剂量率"
         },
         "desc": {
             "en": "Ambient dose rate data from the German Federal Office for Radiation Protection.",
