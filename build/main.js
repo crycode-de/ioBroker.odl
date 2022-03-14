@@ -75,6 +75,10 @@ class OdlAdapter extends utils.Adapter {
     const objSystemConfig = await this.getForeignObjectAsync("system.config");
     this.systemLanguage = ((_b = objSystemConfig == null ? void 0 : objSystemConfig.common) == null ? void 0 : _b.language) || "en";
     this.log.debug(`system language: ${this.systemLanguage}`);
+    if (this.config.msts.length > 10) {
+      this.log.debug("More than 10 measuring points are configured, so the history update will be disabled.");
+      this.config.updateHistory = false;
+    }
     this.log.debug("start reading data...");
     try {
       await this.read();
@@ -279,7 +283,7 @@ class OdlAdapter extends utils.Adapter {
         }
       }
       await this.setStateAsync(`${mstKenn}.status`, featureLatest.properties.site_status, true);
-      if (featureLatest.properties.site_status === 1 && featureLatest.properties.end_measure && featureLatest.properties.value && featureLatest.properties.value_cosmic) {
+      if (this.config.updateHistory && featureLatest.properties.site_status === 1 && featureLatest.properties.end_measure && featureLatest.properties.value && featureLatest.properties.value_cosmic) {
         let updateHistory = false;
         const histroyEndDate = new Date(featureLatest.properties.end_measure);
         const historyEnd = histroyEndDate.getTime();

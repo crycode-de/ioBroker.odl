@@ -206,7 +206,8 @@
     "native": {
         "msts": [],
         "timeout": 30,
-        "useCosmicTerrestrial": false
+        "useCosmicTerrestrial": false,
+        "updateHistory": false
     },
     "objects": [],
     "instanceObjects": []

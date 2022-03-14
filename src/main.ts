@@ -94,6 +94,12 @@ class OdlAdapter extends utils.Adapter {
     this.systemLanguage = objSystemConfig?.common?.language || 'en';
     this.log.debug(`system language: ${this.systemLanguage}`);
 
+    // disable history updates if more than 10 measuring points are configured
+    if (this.config.msts.length > 10) {
+      this.log.debug('More than 10 measuring points are configured, so the history update will be disabled.');
+      this.config.updateHistory = false;
+    }
+
     this.log.debug('start reading data...');
 
     try {
@@ -356,9 +362,9 @@ class OdlAdapter extends utils.Adapter {
       await this.setStateAsync(`${mstKenn}.status`, featureLatest.properties.site_status, true);
 
       /*
-       * check history when status is in operation and values are provided
+       * check history when updating the history enabled, status is in operation and values are provided
        */
-      if (featureLatest.properties.site_status === 1 && featureLatest.properties.end_measure && featureLatest.properties.value && featureLatest.properties.value_cosmic) {
+      if (this.config.updateHistory && featureLatest.properties.site_status === 1 && featureLatest.properties.end_measure && featureLatest.properties.value && featureLatest.properties.value_cosmic) {
         let updateHistory = false;
 
         // timerange for the history check

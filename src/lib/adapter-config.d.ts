@@ -9,6 +9,7 @@ declare global {
       msts: string[];
       timeout: number;
       useCosmicTerrestrial: boolean;
+      updateHistory: boolean;
 
       /**
        * @deprecated Used in versions <2.0.0. Now only used to update existing old configurations.

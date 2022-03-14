@@ -51,6 +51,9 @@ const styles = (theme: Theme): Record<string, CreateCSSProperties> => ({
   divider: {
     marginTop: '30px',
     marginBottom: '10px',
+    '&:first-child': {
+      marginTop: 0,
+    },
   },
 });
 
@@ -80,7 +83,7 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
   /**
    * Maximum number of measuring stations for which the history will be loaded.
    */
-  private readonly historyLoadingMaxCount: number = 10;
+  private readonly updateHistoryMaxMstsCount: number = 10;
 
   constructor(props: SettingsProps) {
     super(props);
@@ -205,29 +208,11 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
               <FormHelperText>
                 {I18n.t('Enter one or more measuring points to load data for.')} {I18n.t('When you type, a search will be done by the identifier, the zip code and the name.')} {I18n.t('You may also enter a valid 9-digit identifier for measuring points not listed by the search.')}
               </FormHelperText>
-              {this.props.native.msts.length > this.historyLoadingMaxCount && <FormHelperText className={this.props.classes.warning}>
-                {I18n.t('You have selected more than %s measuring points, so the history loading feature will be disabled.', this.historyLoadingMaxCount.toString())}
-              </FormHelperText>}
             </FormControl>
           </Grid>
         </Grid>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={12} md={6} lg={3}>
-            <FormControl fullWidth>
-              <TextField
-                label={I18n.t('Timeout while loading data')}
-                value={this.props.native.timeout}
-                type='number'
-                fullWidth
-                onChange={(e) => this.props.onChange('timeout', e.target.value)}
-              />
-              <FormHelperText>
-                {I18n.t('Timeout for each request to the server in seconds. Default is 30.')}
-              </FormHelperText>
-            </FormControl>
-          </Grid>
-
           <Grid item xs={12} sm={12} md={6} lg={4}>
             <FormControl>
               <FormControlLabel
@@ -239,6 +224,40 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
               />
               <FormHelperText>
                 {I18n.t('If enabled, additional states for the cosmic and terrestrial ADR components will be used.')}
+              </FormHelperText>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={6} lg={4}>
+            <FormControl>
+              <FormControlLabel
+                control={<Checkbox
+                  checked={this.props.native.msts.length <= this.updateHistoryMaxMstsCount && this.props.native.updateHistory}
+                  onChange={(e) => this.props.onChange('updateHistory', e.target.checked) }
+                  disabled={this.props.native.msts.length > this.updateHistoryMaxMstsCount}
+                />}
+                label={I18n.t('Update history')}
+              />
+              <FormHelperText>
+                {I18n.t('If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.')} {I18n.t('Supported history adapters are %s, %s and %s.', 'history', 'influxdb', 'sql')}
+              </FormHelperText>
+              {this.props.native.msts.length > this.updateHistoryMaxMstsCount && <FormHelperText className={this.props.classes.warning}>
+                {I18n.t('You have selected more than %s measuring points, so the history loading feature will be disabled.', this.updateHistoryMaxMstsCount.toString())}
+              </FormHelperText>}
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={6} lg={4}>
+            <FormControl fullWidth>
+              <TextField
+                label={I18n.t('Timeout while loading data')}
+                value={this.props.native.timeout}
+                type='number'
+                fullWidth
+                onChange={(e) => this.props.onChange('timeout', e.target.value)}
+              />
+              <FormHelperText>
+                {I18n.t('Timeout for each request to the server in seconds. Default is 30.')}
               </FormHelperText>
             </FormControl>
           </Grid>
