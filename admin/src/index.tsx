@@ -5,8 +5,8 @@ import theme from '@iobroker/adapter-react/Theme';
 import Utils from '@iobroker/adapter-react/Components/Utils';
 import App from './app';
 
-import Sentry from '@sentry/react';
-import SentryIntegrations from '@sentry/integrations';
+import * as Sentry from '@sentry/react';
+import * as SentryIntegrations from '@sentry/integrations';
 
 import * as ioPkg from '../../io-package.json';
 
