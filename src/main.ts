@@ -228,7 +228,7 @@ class OdlAdapter extends utils.Adapter {
           _id:`${this.namespace}.${mstKenn}`,
           type: 'channel',
           common: {
-            name: `${mstKenn} ${featureLatest.properties.name}`,
+            name: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name}`,
           },
           native: {},
         };
@@ -246,7 +246,7 @@ class OdlAdapter extends utils.Adapter {
           _id: `${this.namespace}.${mstKenn}.value`,
           type: 'state',
           common: {
-            name: this.systemLanguage === 'de' ? `${mstKenn} ${featureLatest.properties.name} ODL` : `${mstKenn} ${featureLatest.properties.name} GDR`,
+            name: this.systemLanguage === 'de' ? `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL` : `${mstKenn} ${featureLatest.properties.name} ADR`,
             role: 'value',
             type: 'number',
             unit: 'µSv/h',
@@ -271,7 +271,7 @@ class OdlAdapter extends utils.Adapter {
             _id: `${this.namespace}.${mstKenn}.valueCosmic`,
             type: 'state',
             common: {
-              name: this.systemLanguage === 'de' ? `${mstKenn} ${featureLatest.properties.name} ODL kosmisch` : `${mstKenn} ${featureLatest.properties.name} GDR cosmic`,
+              name: this.systemLanguage === 'de' ? `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL kosmisch` : `${mstKenn} ${featureLatest.properties.name} ADR cosmic`,
               role: 'value',
               type: 'number',
               unit: 'µSv/h',
@@ -290,7 +290,7 @@ class OdlAdapter extends utils.Adapter {
             _id: `${this.namespace}.${mstKenn}.valueTerrestrial`,
             type: 'state',
             common: {
-              name: this.systemLanguage === 'de' ? `${mstKenn} ${featureLatest.properties.name} ODL terrestrisch` : `${mstKenn} ${featureLatest.properties.name} GDR terrestrial`,
+              name: this.systemLanguage === 'de' ? `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL terrestrisch` : `${mstKenn} ${featureLatest.properties.name} ADR terrestrial`,
               role: 'value',
               type: 'number',
               unit: 'µSv/h',
@@ -313,7 +313,7 @@ class OdlAdapter extends utils.Adapter {
           _id: `${this.namespace}.${mstKenn}.status`,
           type: 'state',
           common: {
-            name: `${mstKenn} ${featureLatest.properties.name} Status`,
+            name: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} Status`,
             role: 'value',
             type: 'number',
             read: true,
