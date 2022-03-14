@@ -82,6 +82,13 @@ jobs:
 #          # If your sentry project is linked to a GitHub repository, you can enable the following option
 #          # sentry-github-integration: true
 
+      - name: Extract the version from the tag
+        id: extract_release
+        run: |
+          VERSION="${{ github.ref }}"
+          VERSION=${VERSION##*/v}
+          echo "::set-output name=VERSION::$VERSION"
+
       # Sentry Release
       # see https://github.com/marketplace/actions/create-a-sentry-io-release
       - name: Create Sentry Release
