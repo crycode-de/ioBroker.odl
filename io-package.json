@@ -212,7 +212,7 @@
     "objects": [],
     "instanceObjects": [
         {
-            "_id": "stats",
+            "_id": "statistics",
             "type": "channel",
             "common": {
                 "name": {
@@ -227,7 +227,7 @@
             "native": {}
         },
         {
-            "_id": "stats.total",
+            "_id": "statistics.total",
             "type": "state",
             "common": {
                 "name": {
@@ -242,7 +242,7 @@
             "native": {}
         },
         {
-            "_id": "stats.inOperation",
+            "_id": "statistics.inOperation",
             "type": "state",
             "common": {
                 "name": {
@@ -257,7 +257,7 @@
             "native": {}
         },
         {
-            "_id": "stats.defective",
+            "_id": "statistics.defective",
             "type": "state",
             "common": {
                 "name": {
@@ -272,7 +272,7 @@
             "native": {}
         },
         {
-            "_id": "stats.testOperation",
+            "_id": "statistics.testOperation",
             "type": "state",
             "common": {
                 "name": {
@@ -287,7 +287,7 @@
             "native": {}
         },
         {
-            "_id": "stats.valueMin",
+            "_id": "statistics.valueMin",
             "type": "state",
             "common": {
                 "name": {
@@ -303,7 +303,7 @@
             "native": {}
         },
         {
-            "_id": "stats.valueMinLocation",
+            "_id": "statistics.valueMinLocation",
             "type": "state",
             "common": {
                 "name": {
@@ -318,7 +318,7 @@
             "native": {}
         },
         {
-            "_id": "stats.valueMax",
+            "_id": "statistics.valueMax",
             "type": "state",
             "common": {
                 "name": {
@@ -334,7 +334,7 @@
             "native": {}
         },
         {
-            "_id": "stats.valueMaxLocation",
+            "_id": "statistics.valueMaxLocation",
             "type": "state",
             "common": {
                 "name": {
@@ -349,7 +349,7 @@
             "native": {}
         },
         {
-            "_id": "stats.valueAvg",
+            "_id": "statistics.valueAvg",
             "type": "state",
             "common": {
                 "name": {

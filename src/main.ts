@@ -255,7 +255,10 @@ class OdlAdapter extends utils.Adapter {
           _id: `${this.namespace}.${mstKenn}.value`,
           type: 'state',
           common: {
-            name: this.systemLanguage === 'de' ? `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL` : `${mstKenn} ${featureLatest.properties.name} ADR`,
+            name: {
+              de: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL`,
+              en: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ADR`,
+            },
             role: 'value',
             type: 'number',
             unit: 'µSv/h',
@@ -280,7 +283,10 @@ class OdlAdapter extends utils.Adapter {
             _id: `${this.namespace}.${mstKenn}.valueCosmic`,
             type: 'state',
             common: {
-              name: this.systemLanguage === 'de' ? `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL kosmisch` : `${mstKenn} ${featureLatest.properties.name} ADR cosmic`,
+              name: {
+                de: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL kosmisch`,
+                en: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ADR cosmic`,
+              },
               role: 'value',
               type: 'number',
               unit: 'µSv/h',
@@ -299,7 +305,10 @@ class OdlAdapter extends utils.Adapter {
             _id: `${this.namespace}.${mstKenn}.valueTerrestrial`,
             type: 'state',
             common: {
-              name: this.systemLanguage === 'de' ? `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL terrestrisch` : `${mstKenn} ${featureLatest.properties.name} ADR terrestrial`,
+              name: {
+                de: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ODL terrestrisch`,
+                en: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} ADR terrestrial`,
+              },
               role: 'value',
               type: 'number',
               unit: 'µSv/h',
@@ -322,7 +331,10 @@ class OdlAdapter extends utils.Adapter {
           _id: `${this.namespace}.${mstKenn}.status`,
           type: 'state',
           common: {
-            name: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} Status`,
+            name: {
+              de: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} Status`,
+              en: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name} Status`,
+            },
             role: 'value',
             type: 'number',
             read: true,
@@ -519,29 +531,39 @@ class OdlAdapter extends utils.Adapter {
     }
 
     await Promise.all([
-      this.setStateAsync('stats.total', featureCollectionLatest.features.length, true),
-      this.setStateAsync('stats.inOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
-      this.setStateAsync('stats.defective', featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
-      this.setStateAsync('stats.testOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true),
+      this.setStateAsync('statistics.total', featureCollectionLatest.features.length, true),
+      this.setStateAsync('statistics.inOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
+      this.setStateAsync('statistics.defective', featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
+      this.setStateAsync('statistics.testOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true),
     ]);
 
     const fValues = featureCollectionLatest.features.filter((f) => f.properties.value !== null).map((f) => f.properties.value as number);
-    const valMin = Math.min(...fValues);
-    const valMax = Math.max(...fValues);
-    const valAvg = Math.round(fValues.reduce((a, b) => a + b, 0) / fValues.length * 1000) / 1000;
+    if (fValues.length > 0) {
+      const valMin = Math.min(...fValues);
+      const valMax = Math.max(...fValues);
+      const valAvg = Math.round(fValues.reduce((a, b) => a + b, 0) / fValues.length * 1000) / 1000;
 
-    const fMin = featureCollectionLatest.features.find((f) => f.properties.value === valMin);
-    const fMax = featureCollectionLatest.features.find((f) => f.properties.value === valMax);
-    const fMinStr = fMin ? `${fMin.properties.kenn} - ${fMin.properties.plz} ${fMin.properties.name}` : '';
-    const fMaxStr = fMax ? `${fMax.properties.kenn} - ${fMax.properties.plz} ${fMax.properties.name}` : '';
+      const fMin = featureCollectionLatest.features.find((f) => f.properties.value === valMin);
+      const fMax = featureCollectionLatest.features.find((f) => f.properties.value === valMax);
+      const fMinStr = fMin ? `${fMin.properties.kenn} - ${fMin.properties.plz} ${fMin.properties.name}` : '';
+      const fMaxStr = fMax ? `${fMax.properties.kenn} - ${fMax.properties.plz} ${fMax.properties.name}` : '';
 
-    await Promise.all([
-      this.setStateAsync('stats.valueMin', valMin, true),
-      this.setStateAsync('stats.valueMinLocation', fMinStr, true),
-      this.setStateAsync('stats.valueMax', valMax, true),
-      this.setStateAsync('stats.valueMaxLocation', fMaxStr, true),
-      this.setStateAsync('stats.valueAvg', valAvg, true),
-    ]);
+      await Promise.all([
+        this.setStateAsync('statistics.valueMin', valMin, true),
+        this.setStateAsync('statistics.valueMinLocation', fMinStr, true),
+        this.setStateAsync('statistics.valueMax', valMax, true),
+        this.setStateAsync('statistics.valueMaxLocation', fMaxStr, true),
+        this.setStateAsync('statistics.valueAvg', valAvg, true),
+      ]);
+    } else {
+      await Promise.all([
+        this.setStateAsync('statistics.valueMin', { val: null, q: 0x01 }, true),
+        this.setStateAsync('statistics.valueMinLocation', { val: null, q: 0x01 }, true),
+        this.setStateAsync('statistics.valueMax', { val: null, q: 0x01 }, true),
+        this.setStateAsync('statistics.valueMaxLocation', { val: null, q: 0x01 }, true),
+        this.setStateAsync('statistics.valueAvg', { val: null, q: 0x01 }, true),
+      ]);
+    }
   }
 
 }

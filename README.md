@@ -43,6 +43,7 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
   * New object will be created for each location
   * Migration from locality codes to identifiers is done on first start after adapter upgrade, but custom object settings (like history) have to be migrated manually
 * (crycode-de) **Breaking**: The `.odl` state is now named `.value`
+* (crycode-de) Added statistic states
 * (crycode-de) Added optional support for cosmic and terrestrial value components (disabled by default)
 * (crycode-de) Added `.status` state representing the location status given from BfS
 * (crycode-de) If an enabled history (_history_, _influxdb_, _sql_) for `.value`, `.valueCosmic` or `.valueTerrestrial` is found, the adapter tries to load the timeseries data from BfS for past 7 days.
