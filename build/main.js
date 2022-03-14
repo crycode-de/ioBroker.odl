@@ -389,6 +389,30 @@ class OdlAdapter extends utils.Adapter {
         }
       }
     }
+    if (this.unloaded) {
+      return;
+    }
+    await Promise.all([
+      this.setStateAsync("stats.total", featureCollectionLatest.features.length, true),
+      this.setStateAsync("stats.inOperation", featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
+      this.setStateAsync("stats.defective", featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
+      this.setStateAsync("stats.testOperation", featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true)
+    ]);
+    const fValues = featureCollectionLatest.features.filter((f) => f.properties.value !== null).map((f) => f.properties.value);
+    const valMin = Math.min(...fValues);
+    const valMax = Math.max(...fValues);
+    const valAvg = Math.round(fValues.reduce((a, b) => a + b, 0) / fValues.length * 1e3) / 1e3;
+    const fMin = featureCollectionLatest.features.find((f) => f.properties.value === valMin);
+    const fMax = featureCollectionLatest.features.find((f) => f.properties.value === valMax);
+    const fMinStr = fMin ? `${fMin.properties.kenn} - ${fMin.properties.plz} ${fMin.properties.name}` : "";
+    const fMaxStr = fMax ? `${fMax.properties.kenn} - ${fMax.properties.plz} ${fMax.properties.name}` : "";
+    await Promise.all([
+      this.setStateAsync("stats.valueMin", valMin, true),
+      this.setStateAsync("stats.valueMinLocation", fMinStr, true),
+      this.setStateAsync("stats.valueMax", valMax, true),
+      this.setStateAsync("stats.valueMaxLocation", fMaxStr, true),
+      this.setStateAsync("stats.valueAvg", valAvg, true)
+    ]);
   }
 }
 if (require.main !== module) {

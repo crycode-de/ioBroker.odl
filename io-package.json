@@ -210,5 +210,159 @@
         "updateHistory": false
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "stats",
+            "type": "channel",
+            "common": {
+                "name": {
+                    "de": "Statistiken",
+                    "en": "Statistics"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.total",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "Messstellen ingesamt",
+                    "en": "Measuring points total"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.inOperation",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "Messstellen in Betrieb",
+                    "en": "Measuring points in operation"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.defective",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "Messstellen defekt",
+                    "en": "Measuring points defective"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.testOperation",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "Messstellen Testbetrieb",
+                    "en": "Measuring points test operation"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.valueMin",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "aktuell niedrigste ODL",
+                    "en": "current minimum GDR"
+                },
+                "role": "value",
+                "type": "number",
+                "unit": "µSv/h",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.valueMinLocation",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "Ort der aktuell niedrigsten ODL",
+                    "en": "location of the current minimum GDR"
+                },
+                "role": "value",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.valueMax",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "aktuell höchste ODL",
+                    "en": "current maximum GDR"
+                },
+                "role": "value",
+                "type": "number",
+                "unit": "µSv/h",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.valueMaxLocation",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "Ort der aktuell höchsten ODL",
+                    "en": "location of the current maximum GDR"
+                },
+                "role": "value",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "stats.valueAvg",
+            "type": "state",
+            "common": {
+                "name": {
+                    "de": "aktuell durchschnittliche ODL",
+                    "en": "current average GDR"
+                },
+                "role": "value",
+                "type": "number",
+                "unit": "µSv/h",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
 }
