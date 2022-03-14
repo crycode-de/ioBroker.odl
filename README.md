@@ -43,7 +43,7 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 ## Changelog
 
-### 2.0.0 (Pending)
+### 2.0.1 (2022-03-14)
 
 * (crycode-de) Use official data API from BfS
 * (crycode-de) **Breaking**: Use 9-digit identifiers instead of locality codes
