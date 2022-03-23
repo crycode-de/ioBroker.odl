@@ -94,6 +94,11 @@ class OdlAdapter extends utils.Adapter {
     this.systemLanguage = objSystemConfig?.common?.language || 'en';
     this.log.debug(`system language: ${this.systemLanguage}`);
 
+    // check config msts is an array
+    if (!Array.isArray(this.config.msts)) {
+      this.config.msts = [];
+    }
+
     // disable history updates if more than 10 measuring points are configured
     if (this.config.msts.length > 10) {
       this.log.debug('More than 10 measuring points are configured, so the history update will be disabled.');

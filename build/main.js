@@ -75,6 +75,9 @@ class OdlAdapter extends utils.Adapter {
     const objSystemConfig = await this.getForeignObjectAsync("system.config");
     this.systemLanguage = ((_b = objSystemConfig == null ? void 0 : objSystemConfig.common) == null ? void 0 : _b.language) || "en";
     this.log.debug(`system language: ${this.systemLanguage}`);
+    if (!Array.isArray(this.config.msts)) {
+      this.config.msts = [];
+    }
     if (this.config.msts.length > 10) {
       this.log.debug("More than 10 measuring points are configured, so the history update will be disabled.");
       this.config.updateHistory = false;
