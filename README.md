@@ -48,6 +48,7 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 ### 2.0.2 (2022-03-23)
 
 * (crycode-de) Fixed config error (Sentry IOBROKER-ODL-2)
+* (crycode-de) Updated dependencies
 
 ### 2.0.1 (2022-03-14)
 

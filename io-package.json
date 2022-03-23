@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "2.0.1",
+        "version": "2.0.2",
         "news": {
+            "2.0.2": {
+                "en": "Fixed config error, Updated dependencies",
+                "de": "Konfigurationsfehler behoben, Abhängigkeiten aktualisiert",
+                "ru": "Исправлена ошибка конфигурации, обновлены зависимости",
+                "pt": "Erro de configuração corrigido, dependências atualizadas",
+                "nl": "Configuratiefout opgelost, afhankelijkheden bijgewerkt",
+                "fr": "Erreur de configuration fixe, dépendances mises à jour",
+                "it": "Risolto errore di configurazione, dipendenze aggiornate",
+                "es": "Error de configuración fijo, dependencias actualizadas",
+                "pl": "Naprawiono błąd konfiguracji, Zaktualizowano zależności",
+                "zh-cn": "修复配置错误，更新依赖"
+            },
             "2.0.1": {
                 "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
                 "de": "Großer Umbau des Adapters, Verwendung der offiziellen API, Neue States, ...",

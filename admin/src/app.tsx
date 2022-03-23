@@ -47,7 +47,7 @@ class App extends GenericApp {
           onLoad={(native) => this.setState({ native: { ...native }, changed: true })}
           classes={{} as any}
         />
-        <Settings native={this.state.native} onChange={(attr, value) => this.updateNativeValue(attr, value)} />
+        <Settings native={this.state.native as ioBroker.AdapterConfig} onChange={(attr, value) => this.updateNativeValue(attr, value)} />
         {this.renderError()}
         {this.renderToast()}
         {this.renderSaveCloseButtons()}
