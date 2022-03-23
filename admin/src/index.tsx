@@ -5,9 +5,6 @@ import theme from '@iobroker/adapter-react/Theme';
 import Utils from '@iobroker/adapter-react/Components/Utils';
 import App from './app';
 
-import * as Sentry from '@sentry/react';
-import * as SentryIntegrations from '@sentry/integrations';
-
 import * as ioPkg from '../../io-package.json';
 
 let themeName = Utils.getThemeName();
@@ -15,31 +12,16 @@ let themeName = Utils.getThemeName();
 function build(): void {
   ReactDOM.render(
     <MuiThemeProvider theme={theme(themeName)}>
-      <Sentry.ErrorBoundary
-        fallback={<p>An error has occurred</p>}
-        showDialog
-      >
-        <App
-          adapterName={ioPkg.common.name}
-          onThemeChange={(_theme) => {
-            themeName = _theme;
-            build();
-          }}
-        />
-      </Sentry.ErrorBoundary>
+      <App
+        adapterName={ioPkg.common.name}
+        onThemeChange={(_theme) => {
+          themeName = _theme;
+          build();
+        }}
+      />
     </MuiThemeProvider>,
     document.getElementById('root'),
   );
-}
-
-if (window.location.host !== 'localhost:3000') {
-  Sentry.init({
-    dsn: ioPkg.common.plugins.sentry.dsn,
-    release: `iobroker.${ioPkg.common.name}@${ioPkg.common.version}`,
-    integrations: [
-      new SentryIntegrations.Dedupe(),
-    ],
-  });
 }
 
 build();

@@ -5,7 +5,11 @@ import GenericApp from '@iobroker/adapter-react/GenericApp';
 import type { GenericAppProps, GenericAppSettings } from '@iobroker/adapter-react/types';
 import Logo from '@iobroker/adapter-react/Components/Logo';
 
+import * as Sentry from '@sentry/react';
+
 import Settings from './components/settings';
+
+import * as ioPkg from '../../io-package.json';
 
 const styles = (_theme: Theme): StyleRules => ({
   root: {},
@@ -13,7 +17,7 @@ const styles = (_theme: Theme): StyleRules => ({
 
 class App extends GenericApp {
   constructor(props: GenericAppProps) {
-    const extendedProps: GenericAppSettings = {
+    const extendedProps: GenericAppSettings & { sentryDSN: string } = {
       ...props,
       encryptedFields: [],
       translations: {
@@ -28,6 +32,7 @@ class App extends GenericApp {
         'pl': require('./i18n/pl.json'),
         'zh-cn': require('./i18n/zh-cn.json'),
       },
+      sentryDSN: ioPkg.common.plugins.sentry.dsn,
     };
     super(props, extendedProps);
   }
@@ -38,20 +43,25 @@ class App extends GenericApp {
     }
 
     return (
-      <div className='App' style={{ background: this.state.theme.palette.background.default, color: this.state.theme.palette.text.primary }}>
-        <Logo
-          common={this.common}
-          instance={this.instance}
-          native={this.state.native}
-          onError={(err) => this.showError(err) }
-          onLoad={(native) => this.setState({ native: { ...native }, changed: true })}
-          classes={{} as any}
-        />
-        <Settings native={this.state.native as ioBroker.AdapterConfig} onChange={(attr, value) => this.updateNativeValue(attr, value)} />
-        {this.renderError()}
-        {this.renderToast()}
-        {this.renderSaveCloseButtons()}
-      </div>
+      <Sentry.ErrorBoundary
+        fallback={<p>An error has occurred</p>}
+        showDialog
+      >
+        <div className='App' style={{ background: this.state.theme.palette.background.default, color: this.state.theme.palette.text.primary }}>
+          <Logo
+            common={this.common}
+            instance={this.instance}
+            native={this.state.native}
+            onError={(err) => this.showError(err) }
+            onLoad={(native) => this.setState({ native: { ...native }, changed: true })}
+            classes={{} as any}
+          />
+          <Settings native={this.state.native as ioBroker.AdapterConfig} onChange={(attr, value) => this.updateNativeValue(attr, value)} />
+          {this.renderError()}
+          {this.renderToast()}
+          {this.renderSaveCloseButtons()}
+        </div>
+      </Sentry.ErrorBoundary>
     );
   }
 }

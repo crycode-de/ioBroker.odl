@@ -45,6 +45,10 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 ## Changelog
 
+### 2.0.3 (2022-03-23)
+
+* (crycode-de) Optimized Sentry integration in admin
+
 ### 2.0.2 (2022-03-23)
 
 * (crycode-de) Fixed config error (Sentry IOBROKER-ODL-2)

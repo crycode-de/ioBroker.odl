@@ -1,6 +1,6 @@
 {
   "name": "iobroker.odl",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "ioBroker adapter for ODL data from the German Federal Office for Radiation Protection",
   "author": {
     "name": "Peter Müller",

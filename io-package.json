@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "2.0.2",
+        "version": "2.0.3",
         "news": {
+            "2.0.3": {
+                "en": "Optimized Sentry integration in admin",
+                "de": "Optimierte Sentry-Integration im Admin",
+                "ru": "Оптимизирована интеграция Sentry в админку",
+                "pt": "Integração otimizada do Sentry no admin",
+                "nl": "Geoptimaliseerde Sentry-integratie in admin",
+                "fr": "Intégration optimisée de Sentry dans l'administration",
+                "it": "Integrazione ottimizzata di Sentry in admin",
+                "es": "Integración optimizada de Sentry en administración",
+                "pl": "Zoptymalizowana integracja Sentry w admin",
+                "zh-cn": "管理员中优化的哨兵集成"
+            },
             "2.0.2": {
                 "en": "Fixed config error, Updated dependencies",
                 "de": "Konfigurationsfehler behoben, Abhängigkeiten aktualisiert",
