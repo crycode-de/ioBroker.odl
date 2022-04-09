@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "2.0.3",
+        "version": "2.0.4",
         "news": {
+            "2.0.4": {
+                "en": "Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0",
+                "de": "Infomeldung über wichtige Änderungen beim Upgrade von <2.0.0 auf >=2.0.0 hinzugefügt",
+                "ru": "Добавлено информационное сообщение о критических изменениях при обновлении с <2.0.0 до >=2.0.0.",
+                "pt": "Adicionada mensagem informativa sobre alterações de quebra ao atualizar de <2.0.0 para >=2.0.0",
+                "nl": "Infobericht toegevoegd over het verbreken van wijzigingen bij het upgraden van <2.0.0 naar >=2.0.0",
+                "fr": "Ajout d'un message d'information sur les changements cassants lors de la mise à niveau de <2.0.0 à >=2.0.0",
+                "it": "Aggiunto messaggio informativo sulle modifiche sostanziali durante l'aggiornamento da <2.0.0 a >=2.0.0",
+                "es": "Se agregó un mensaje de información sobre cambios importantes al actualizar de <2.0.0 a> = 2.0.0",
+                "pl": "Dodano komunikat informacyjny o przerwaniu zmian podczas aktualizacji z <2.0.0 do >=2.0.0",
+                "zh-cn": "从 <2.0.0 升级到 >=2.0.0 时添加了有关重大更改的信息消息"
+            },
             "2.0.3": {
                 "en": "Optimized Sentry integration in admin",
                 "de": "Optimierte Sentry-Integration im Admin",
@@ -236,6 +248,59 @@
         "compact": true,
         "materialize": true,
         "messagebox": false,
+        "messages": [
+            {
+                "condition": {
+                    "operand": "and",
+                    "rules": [
+                        "oldVersion<2.0.0",
+                        "newVersion>=2.0.0"
+                    ]
+                },
+                "title": {
+                    "en": "Important notice!",
+                    "de": "Wichtiger Hinweis!",
+                    "ru": "Важное замечание!",
+                    "pt": "Notícia importante!",
+                    "nl": "Belangrijke mededeling!",
+                    "fr": "Avis important!",
+                    "it": "Avviso IMPORTANTE!",
+                    "es": "Noticia importante!",
+                    "pl": "Ważna uwaga!",
+                    "zh-cn": "重要通知!"
+                },
+                "text": {
+                    "en": "Breaking changes: Since version 2.x new ioBroker states and station identifiers are used. The adapter tries to migrate your configured stations, but you need to update your custom settings like history manually. Also the old ioBroker objects have to be deleted manually. Additionally the default schedule of the adapter will be randomized on first start.",
+                    "de": "Wichtige Änderungen: Seit Version 2.x werden neue ioBroker-States und Messstellenkennungen verwendet. Der Adapter versucht, die konfigurierten Messstellen automatisch zu migrieren, aber die benutzerdefinierten Einstellungen, wie z.B. der Verlauf, müssen manuell angepasst werden. Auch die alten ioBroker-Objekte müssen manuell gelöscht werden. Zusätzlich wird der Zeitplan zum Starten des Adapters beim ersten Start randomisiert.",
+                    "ru": "Критические изменения: Начиная с версии 2.x используются новые состояния ioBroker и идентификаторы станций. Адаптер пытается перенести настроенные вами станции, но вам необходимо вручную обновить пользовательские настройки, такие как история. Также старые объекты ioBroker необходимо удалить вручную. Кроме того, расписание адаптера по умолчанию будет выбрано случайным образом при первом запуске.",
+                    "pt": "Mudanças importantes: Desde a versão 2.x, novos estados ioBroker e identificadores de estação são usados. O adaptador tenta migrar suas estações configuradas, mas você precisa atualizar manualmente suas configurações personalizadas, como histórico. Além disso, os objetos ioBroker antigos devem ser excluídos manualmente. Além disso, o agendamento padrão do adaptador será randomizado na primeira inicialização.",
+                    "nl": "Belangrijke wijzigingen: sinds versie 2.x worden nieuwe ioBroker-statussen en station-ID's gebruikt. De adapter probeert uw geconfigureerde stations te migreren, maar u moet uw aangepaste instellingen zoals geschiedenis handmatig bijwerken. Ook de oude ioBroker-objecten moeten handmatig worden verwijderd. Bovendien wordt het standaardschema van de adapter bij de eerste start willekeurig verdeeld.",
+                    "fr": "Modifications majeures : depuis la version 2.x, de nouveaux états et identifiants de station ioBroker sont utilisés. L'adaptateur tente de migrer vos stations configurées, mais vous devez mettre à jour manuellement vos paramètres personnalisés, tels que l'historique. De plus, les anciens objets ioBroker doivent être supprimés manuellement. De plus, la planification par défaut de l'adaptateur sera randomisée au premier démarrage.",
+                    "it": "Modifiche di rilievo: dalla versione 2.x vengono utilizzati nuovi stati ioBroker e identificatori di stazione. L'adattatore tenta di migrare le stazioni configurate, ma è necessario aggiornare manualmente le impostazioni personalizzate come la cronologia. Anche i vecchi oggetti ioBroker devono essere eliminati manualmente. Inoltre, la pianificazione predefinita dell'adattatore verrà randomizzata al primo avvio.",
+                    "es": "Cambios importantes: desde la versión 2.x, se utilizan nuevos estados de ioBroker e identificadores de estación. El adaptador intenta migrar sus estaciones configuradas, pero necesita actualizar su configuración personalizada, como el historial, manualmente. Además, los objetos antiguos de ioBroker deben eliminarse manualmente. Además, la programación predeterminada del adaptador se aleatorizará en el primer inicio.",
+                    "pl": "Najważniejsze zmiany: Od wersji 2.x używane są nowe stany ioBroker oraz identyfikatory stacji. Adapter próbuje przeprowadzić migrację skonfigurowanych stacji roboczych, ale należy ręcznie zaktualizować ustawienia niestandardowe, takie jak historia. Również stare obiekty ioBroker muszą zostać usunięte ręcznie. Dodatkowo domyślny harmonogram adaptera będzie losowany przy pierwszym uruchomieniu.",
+                    "zh-cn": "重大更改：从 2.x 版开始，使用了新的 ioBroker 状态和站点标识符。适配器会尝试迁移您配置的工作站，但您需要手动更新自定义设置，例如历史记录。旧的 ioBroker 对象也必须手动删除。此外，适配器的默认计划将在第一次启动时随机化。"
+                },
+                "link": "https://github.com/crycode-de/ioBroker.odl#changelog",
+                "linkText": {
+                    "en": "See Changelog",
+                    "de": "Siehe Änderungsprotokoll",
+                    "ru": "См. журнал изменений",
+                    "pt": "Ver registro de alterações",
+                    "nl": "Zie Changelog",
+                    "fr": "Voir le journal des modifications",
+                    "it": "Vedi Registro delle modifiche",
+                    "es": "Ver registro de cambios",
+                    "pl": "Zobacz listę zmian",
+                    "zh-cn": "查看变更日志"
+                },
+                "level": "warn",
+                "buttons": [
+                    "ok",
+                    "cancel"
+                ]
+            }
+        ],
         "dependencies": [
             {
                 "js-controller": ">=2.0.0"
