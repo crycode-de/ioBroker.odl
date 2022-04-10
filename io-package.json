@@ -306,6 +306,11 @@
                 "js-controller": ">=2.0.0"
             }
         ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.1.28"
+            }
+        ],
         "plugins": {
             "sentry": {
                 "dsn": "https://b949776de36f4caead135cd0a6380f21@sentry.cryhost.de/6"
