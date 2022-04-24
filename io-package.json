@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "odl",
-        "version": "2.0.4",
+        "version": "2.0.5",
         "news": {
+            "2.0.5": {
+                "en": "Fixed spelling issue in german translation",
+                "de": "Rechtschreibfehler in der deutschen Übersetzung behoben",
+                "ru": "Исправлена проблема с орфографией в немецком переводе.",
+                "pt": "Corrigido problema de ortografia na tradução alemã",
+                "nl": "Spellingsprobleem opgelost in Duitse vertaling",
+                "fr": "Correction d'un problème d'orthographe dans la traduction allemande",
+                "it": "Risolto problema di ortografia nella traduzione tedesca",
+                "es": "Solucionado el problema de ortografía en la traducción al alemán.",
+                "pl": "Naprawiono problem z pisownią w tłumaczeniu na język niemiecki",
+                "zh-cn": "修复了德语翻译中的拼写问题"
+            },
             "2.0.4": {
                 "en": "Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0",
                 "de": "Infomeldung über wichtige Änderungen beim Upgrade von <2.0.0 auf >=2.0.0 hinzugefügt",
