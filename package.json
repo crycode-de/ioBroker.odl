@@ -20,7 +20,7 @@
     "url": "https://github.com/crycode-de/ioBroker.odl"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.0",
+    "@iobroker/adapter-core": "^2.6.6",
     "axios": "^0.26.1"
   },
   "devDependencies": {
