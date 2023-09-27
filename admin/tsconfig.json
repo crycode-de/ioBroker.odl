@@ -9,8 +9,8 @@
         "sourceRoot": "./src",
         "noImplicitAny": false,
         "lib": [
-            "es2018",
-            "DOM"
+            "es2021",
+            "dom"
         ],
         "jsx": "react"
     },

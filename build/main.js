@@ -17,6 +17,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+var import_register = require("source-map-support/register");
 var import_adapter_core = require("@iobroker/adapter-core");
 var import_axios = __toESM(require("axios"));
 class OdlAdapter extends import_adapter_core.Adapter {

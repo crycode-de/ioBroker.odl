@@ -4,6 +4,8 @@
  * (C) 2019-2023 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 
+import 'source-map-support/register';
+
 import {
   Adapter,
   AdapterOptions,
