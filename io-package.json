@@ -13,7 +13,8 @@
                 "it": "Risolto problema di ortografia nella traduzione tedesca",
                 "es": "Solucionado el problema de ortografía en la traducción al alemán.",
                 "pl": "Naprawiono problem z pisownią w tłumaczeniu na język niemiecki",
-                "zh-cn": "修复了德语翻译中的拼写问题"
+                "zh-cn": "修复了德语翻译中的拼写问题",
+                "uk": "Виправлена ​​проблема орфографії в німецькому перекладі"
             },
             "2.0.4": {
                 "en": "Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0",
@@ -25,7 +26,8 @@
                 "it": "Aggiunto messaggio informativo sulle modifiche sostanziali durante l'aggiornamento da <2.0.0 a >=2.0.0",
                 "es": "Se agregó un mensaje de información sobre cambios importantes al actualizar de <2.0.0 a> = 2.0.0",
                 "pl": "Dodano komunikat informacyjny o przerwaniu zmian podczas aktualizacji z <2.0.0 do >=2.0.0",
-                "zh-cn": "从 <2.0.0 升级到 >=2.0.0 时添加了有关重大更改的信息消息"
+                "zh-cn": "从 <2.0.0 升级到 >=2.0.0 时添加了有关重大更改的信息消息",
+                "uk": "Додано інформаційне повідомлення про критичні зміни під час оновлення з <2.0.0 до >=2.0.0"
             },
             "2.0.3": {
                 "en": "Optimized Sentry integration in admin",
@@ -37,7 +39,8 @@
                 "it": "Integrazione ottimizzata di Sentry in admin",
                 "es": "Integración optimizada de Sentry en administración",
                 "pl": "Zoptymalizowana integracja Sentry w admin",
-                "zh-cn": "管理员中优化的哨兵集成"
+                "zh-cn": "管理员中优化的哨兵集成",
+                "uk": "Оптимізована інтеграція Sentry в адмін"
             },
             "2.0.2": {
                 "en": "Fixed config error, Updated dependencies",
@@ -49,7 +52,8 @@
                 "it": "Risolto errore di configurazione, dipendenze aggiornate",
                 "es": "Error de configuración fijo, dependencias actualizadas",
                 "pl": "Naprawiono błąd konfiguracji, Zaktualizowano zależności",
-                "zh-cn": "修复配置错误，更新依赖"
+                "zh-cn": "修复配置错误，更新依赖",
+                "uk": "Виправлена ​​помилка конфігурації, оновлені залежності"
             },
             "2.0.1": {
                 "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
@@ -61,7 +65,8 @@
                 "it": "Ricostruzione enorme dell'adattatore, Usa l'API ufficiale, Nuovi stati, ...",
                 "es": "Enorme reconstrucción del adaptador, use la API oficial, nuevos estados, ...",
                 "pl": "Ogromna przebudowa adaptera, Użyj oficjalnego API, Nowe stany, ...",
-                "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ..."
+                "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ...",
+                "uk": "Величезна перебудова адаптера, використання офіційного API, нові стани, ..."
             },
             "1.1.4": {
                 "en": "Updated BfS logo, Updated dependencies",
@@ -73,7 +78,8 @@
                 "it": "Logo BfS aggiornato, dipendenze aggiornate",
                 "es": "Logotipo BfS actualizado, dependencias actualizadas",
                 "pl": "Zaktualizowane logo BfS, zaktualizowane zależności",
-                "zh-cn": "更新了BfS徽标，更新了依赖项"
+                "zh-cn": "更新了BfS徽标，更新了依赖项",
+                "uk": "Оновлений логотип BfS, оновлені залежності"
             },
             "1.1.3": {
                 "en": "Fixed issue when log is not available at startup timeout",
@@ -85,7 +91,8 @@
                 "it": "Risolto il problema quando il registro non è disponibile al timeout di avvio",
                 "es": "Problema solucionado cuando el registro no está disponible en el tiempo de espera de inicio",
                 "pl": "Naprawiono problem, gdy dziennik nie jest dostępny po przekroczeniu limitu czasu uruchamiania",
-                "zh-cn": "解决了启动超时时日志不可用的问题"
+                "zh-cn": "解决了启动超时时日志不可用的问题",
+                "uk": "Виправлена ​​проблема, коли журнал був недоступний під час очікування запуску"
             },
             "1.1.2": {
                 "en": "Fix objects parameters for objects created before v1.1.1",
@@ -97,7 +104,8 @@
                 "it": "Correggere i parametri degli oggetti per gli oggetti creati prima della v1.1.1",
                 "es": "Corregir parámetros de objetos para objetos creados antes de v1.1.1",
                 "pl": "Napraw parametry obiektów dla obiektów utworzonych przed wersją 1.1.1",
-                "zh-cn": "修复v1.1.1之前创建的对象的对象参数"
+                "zh-cn": "修复v1.1.1之前创建的对象的对象参数",
+                "uk": "Виправлено параметри об’єктів для об’єктів, створених до версії 1.1.1"
             },
             "1.1.1": {
                 "en": "Fixed issue creating odl state object",
@@ -109,7 +117,8 @@
                 "it": "Risolto il problema durante la creazione di oggetti di stato odl",
                 "es": "Problema solucionado al crear un objeto de estado odl",
                 "pl": "Naprawiono problem tworzenia obiektu stanu odl",
-                "zh-cn": "解决了创建odl状态对象的问题"
+                "zh-cn": "解决了创建odl状态对象的问题",
+                "uk": "Виправлена ​​проблема створення об’єкта стану odl"
             },
             "1.1.0": {
                 "en": "Added Sentry, Updated dependencies",
@@ -121,7 +130,8 @@
                 "it": "Sentinella aggiunta, dipendenze aggiornate",
                 "es": "Centinela agregado, dependencias actualizadas",
                 "pl": "Dodano Działko, Zaktualizowano zależności",
-                "zh-cn": "添加了哨兵，更新了依赖项"
+                "zh-cn": "添加了哨兵，更新了依赖项",
+                "uk": "Додано Sentry, оновлено залежності"
             },
             "1.0.7": {
                 "en": "Updated dependencies, Added timeout to force exit the adapter after 10 minutes in case of any problems",
@@ -133,7 +143,8 @@
                 "it": "Dipendenze aggiornate, aggiunto timeout per forzare l'uscita dall'adattatore dopo 10 minuti in caso di problemi",
                 "es": "Dependencias actualizadas, tiempo de espera agregado para forzar la salida del adaptador después de 10 minutos en caso de problemas",
                 "pl": "Zaktualizowano zależności, dodano limit czasu na wymuszenie wyjścia z adaptera po 10 minutach w przypadku jakichkolwiek problemów",
-                "zh-cn": "更新了依赖性，增加了超时，如果出现任何问题，将在10分钟后强制退出适配器"
+                "zh-cn": "更新了依赖性，增加了超时，如果出现任何问题，将在10分钟后强制退出适配器",
+                "uk": "Оновлені залежності, додано тайм-аут для примусового виходу з адаптера через 10 хвилин у разі будь-яких проблем"
             },
             "1.0.6": {
                 "en": "Updated dependencies, Hopefully fixed a bug where adapter did not exit as expected",
@@ -145,7 +156,8 @@
                 "it": "Dipendenze aggiornate, si spera risolto un bug in cui l'adattatore non usciva come previsto",
                 "es": "Dependencias actualizadas, con suerte se corrigió un error en el que el adaptador no se cerró como se esperaba",
                 "pl": "Zaktualizowane zależności. Mamy nadzieję, że naprawiono błąd, w wyniku którego adapter nie kończył pracy zgodnie z oczekiwaniami",
-                "zh-cn": "更新了相关性，希望修复了适配器未按预期退出的错误"
+                "zh-cn": "更新了相关性，希望修复了适配器未按预期退出的错误",
+                "uk": "Оновлені залежності. Сподіваємося, виправлено помилку, через яку адаптер не завершував роботу, як очікувалося"
             },
             "1.0.5": {
                 "en": "Use of extendObject to update names of existing objects.",
@@ -157,7 +169,8 @@
                 "it": "Utilizzo di extensionObject per aggiornare i nomi di oggetti esistenti.",
                 "es": "Uso de extendObject para actualizar nombres de objetos existentes.",
                 "pl": "Wykorzystanie extObject do aktualizacji nazw istniejących obiektów.",
-                "zh-cn": "使用extendObject更新现有对象的名称。"
+                "zh-cn": "使用extendObject更新现有对象的名称。",
+                "uk": "Використання extendObject для оновлення назв існуючих об’єктів."
             },
             "1.0.4": {
                 "en": "Updated connectionType and dataSource in io-package.json",
@@ -169,7 +182,8 @@
                 "it": "Tipo di connessione e dataSource aggiornati in io-package.json",
                 "es": "ConnectionType y dataSource actualizados en io-package.json",
                 "pl": "Zaktualizowano typ połączenia i źródło danych w io-package.json",
-                "zh-cn": "更新了io-package.json中的connectionType和dataSource"
+                "zh-cn": "更新了io-package.json中的connectionType和dataSource",
+                "uk": "Оновлено ConnectionType і dataSource в io-package.json"
             },
             "1.0.3": {
                 "en": "Added connectionType in io-package.json and updated dependencies.",
@@ -181,7 +195,8 @@
                 "it": "Aggiunto connectionType in io-package.json e dipendenze aggiornate.",
                 "es": "ConnectionType agregado en io-package.json y dependencias actualizadas.",
                 "pl": "Dodano connectionType w pliku io-package.json i zaktualizowano zależności.",
-                "zh-cn": "在io-package.json中添加了connectionType并更新了依赖项。"
+                "zh-cn": "在io-package.json中添加了connectionType并更新了依赖项。",
+                "uk": "Додано ConnectionType в io-package.json і оновлено залежності."
             },
             "1.0.2": {
                 "en": "Minimum required js-controller version is now 1.5.7",
@@ -193,7 +208,8 @@
                 "it": "La versione js-controller minima richiesta è ora 1.5.7",
                 "es": "La versión mínima requerida de js-controller ahora es 1.5.7",
                 "pl": "Minimalna wymagana wersja js-controller to teraz 1.5.7",
-                "zh-cn": "现在所需的最低js-controller版本为1.5.7"
+                "zh-cn": "现在所需的最低js-controller版本为1.5.7",
+                "uk": "Мінімальна необхідна версія js-контролера тепер 1.5.7"
             },
             "1.0.1": {
                 "en": "initial release",
@@ -205,7 +221,8 @@
                 "it": "Versione iniziale",
                 "es": "Versión inicial",
                 "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
+                "zh-cn": "首次出版",
+                "uk": "початковий випуск"
             }
         },
         "title": "Ortsdosisleistung",
@@ -219,7 +236,8 @@
             "it": "Dose Abitante",
             "es": "Tasa de dosis ambiental",
             "pl": "Abient Dawka",
-            "zh-cn": "体外剂量率"
+            "zh-cn": "体外剂量率",
+            "uk": "Абіентна потужність дози"
         },
         "desc": {
             "en": "Ambient dose rate data from the German Federal Office for Radiation Protection.",
@@ -231,7 +249,8 @@
             "it": "Dati sulla velocità di dose ambientale dall'Ufficio federale tedesco per la radioprotezione.",
             "es": "Datos de la tasa de dosis ambiental de la Oficina Federal Alemana de Protección Radiológica.",
             "pl": "Dane dotyczące dawki w warunkach otoczenia z niemieckiego Federalnego Urzędu Ochrony przed Promieniowaniem.",
-            "zh-cn": "来自德国联邦辐射防护局的环境剂量率数据。"
+            "zh-cn": "来自德国联邦辐射防护局的环境剂量率数据。",
+            "uk": "Дані про потужність дози навколишнього середовища від Федерального відомства радіаційного захисту Німеччини."
         },
         "authors": [
             "Peter Müller <peter@crycode.de>"
@@ -281,7 +300,8 @@
                     "it": "Avviso IMPORTANTE!",
                     "es": "Noticia importante!",
                     "pl": "Ważna uwaga!",
-                    "zh-cn": "重要通知!"
+                    "zh-cn": "重要通知!",
+                    "uk": "Важливе повідомлення!"
                 },
                 "text": {
                     "en": "Breaking changes: Since version 2.x new ioBroker states and station identifiers are used. The adapter tries to migrate your configured stations, but you need to update your custom settings like history manually. Also the old ioBroker objects have to be deleted manually. Additionally the default schedule of the adapter will be randomized on first start.",
@@ -293,7 +313,8 @@
                     "it": "Modifiche di rilievo: dalla versione 2.x vengono utilizzati nuovi stati ioBroker e identificatori di stazione. L'adattatore tenta di migrare le stazioni configurate, ma è necessario aggiornare manualmente le impostazioni personalizzate come la cronologia. Anche i vecchi oggetti ioBroker devono essere eliminati manualmente. Inoltre, la pianificazione predefinita dell'adattatore verrà randomizzata al primo avvio.",
                     "es": "Cambios importantes: desde la versión 2.x, se utilizan nuevos estados de ioBroker e identificadores de estación. El adaptador intenta migrar sus estaciones configuradas, pero necesita actualizar su configuración personalizada, como el historial, manualmente. Además, los objetos antiguos de ioBroker deben eliminarse manualmente. Además, la programación predeterminada del adaptador se aleatorizará en el primer inicio.",
                     "pl": "Najważniejsze zmiany: Od wersji 2.x używane są nowe stany ioBroker oraz identyfikatory stacji. Adapter próbuje przeprowadzić migrację skonfigurowanych stacji roboczych, ale należy ręcznie zaktualizować ustawienia niestandardowe, takie jak historia. Również stare obiekty ioBroker muszą zostać usunięte ręcznie. Dodatkowo domyślny harmonogram adaptera będzie losowany przy pierwszym uruchomieniu.",
-                    "zh-cn": "重大更改：从 2.x 版开始，使用了新的 ioBroker 状态和站点标识符。适配器会尝试迁移您配置的工作站，但您需要手动更新自定义设置，例如历史记录。旧的 ioBroker 对象也必须手动删除。此外，适配器的默认计划将在第一次启动时随机化。"
+                    "zh-cn": "重大更改：从 2.x 版开始，使用了新的 ioBroker 状态和站点标识符。适配器会尝试迁移您配置的工作站，但您需要手动更新自定义设置，例如历史记录。旧的 ioBroker 对象也必须手动删除。此外，适配器的默认计划将在第一次启动时随机化。",
+                    "uk": "Основні зміни: починаючи з версії 2.x використовуються нові стани ioBroker та ідентифікатори станцій. Адаптер намагається перенести ваші налаштовані станції, але вам потрібно вручну оновити власні параметри, наприклад історію. Також старі об’єкти ioBroker потрібно видалити вручну. Крім того, розклад за замовчуванням адаптера буде рандомізовано під час першого запуску."
                 },
                 "link": "https://github.com/crycode-de/ioBroker.odl#changelog",
                 "linkText": {
@@ -306,7 +327,48 @@
                     "it": "Vedi Registro delle modifiche",
                     "es": "Ver registro de cambios",
                     "pl": "Zobacz listę zmian",
-                    "zh-cn": "查看变更日志"
+                    "zh-cn": "查看变更日志",
+                    "uk": "Перегляньте журнал змін"
+                },
+                "level": "warn",
+                "buttons": [
+                    "ok",
+                    "cancel"
+                ]
+            },
+            {
+                "condition": {
+                    "operand": "and",
+                    "rules": [
+                        "oldVersion<3.0.0",
+                        "newVersion>=3.0.0"
+                    ]
+                },
+                "title": {
+                    "en": "Important notice!",
+                    "de": "Wichtiger Hinweis!",
+                    "ru": "Важное замечание!",
+                    "pt": "Notícia importante!",
+                    "nl": "Belangrijke mededeling!",
+                    "fr": "Avis important!",
+                    "it": "Avviso IMPORTANTE!",
+                    "es": "Noticia importante!",
+                    "pl": "Ważna uwaga!",
+                    "zh-cn": "重要通知!",
+                    "uk": "Важливе повідомлення!"
+                },
+                "text": {
+                    "en": "Breaking changes: Since version 3.x at least Node.js 16 is required.",
+                    "de": "Wichtige Änderung: Ab Version 3.x ist mindestens Node.js 16 erforderlich.",
+                    "ru": "Критические изменения: начиная с версии 3.x требуется как минимум Node.js 16.",
+                    "pt": "Mudanças importantes: desde a versão 3.x, pelo menos o Node.js 16 é necessário.",
+                    "nl": "Belangrijke wijzigingen: sinds versie 3.x is minimaal Node.js 16 vereist.",
+                    "fr": "Modifications majeures : depuis la version 3.x, au moins Node.js 16 est requis.",
+                    "it": "Modifiche importanti: dalla versione 3.x è richiesto almeno Node.js 16.",
+                    "es": "Cambios importantes: desde la versión 3.x se requiere al menos Node.js 16.",
+                    "pl": "Najważniejsze zmiany: Od wersji 3.x wymagany jest co najmniej Node.js 16.",
+                    "uk": "Головні зміни: починаючи з версії 3.x, потрібен принаймні Node.js 16.",
+                    "zh-cn": "重大更改：从版本 3.x 开始，至少需要 Node.js 16。"
                 },
                 "level": "warn",
                 "buttons": [
