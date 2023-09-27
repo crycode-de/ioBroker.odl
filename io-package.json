@@ -258,7 +258,9 @@
         "connectionType": "cloud",
         "dataSource": "poll",
         "compact": true,
-        "materialize": true,
+        "adminUI": {
+            "config": "materialize"
+        },
         "messagebox": false,
         "messages": [
             {
