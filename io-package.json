@@ -147,7 +147,7 @@
     "dataSource": "poll",
     "compact": true,
     "adminUI": {
-      "config": "react"
+      "config": "materialize"
     },
     "messagebox": false,
     "messages": [
