@@ -95,7 +95,6 @@
         "uk": "Оновлений логотип BfS, оновлені залежності"
       }
     },
-    "title": "Ortsdosisleistung",
     "titleLang": {
       "en": "Abient Dose Rate",
       "de": "Ortsdosisleistung",
@@ -148,7 +147,7 @@
     "dataSource": "poll",
     "compact": true,
     "adminUI": {
-      "config": "materialize"
+      "config": "react"
     },
     "messagebox": false,
     "messages": [
