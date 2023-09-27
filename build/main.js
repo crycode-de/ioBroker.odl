@@ -1,26 +1,10 @@
+"use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
@@ -29,14 +13,18 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
-var utils = __toESM(require("@iobroker/adapter-core"));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var import_adapter_core = require("@iobroker/adapter-core");
 var import_axios = __toESM(require("axios"));
-class OdlAdapter extends utils.Adapter {
+class OdlAdapter extends import_adapter_core.Adapter {
   constructor(options = {}) {
-    super(__spreadProps(__spreadValues({}, options), {
+    super({
+      ...options,
       name: "odl"
-    }));
+    });
     this.urlLatest = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_odl_1h_latest&outputFormat=application/json";
     this.urlTimeseries = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_timeseries_odl_1h&outputFormat=application/json&viewparams=kenn:#kenn#&sortBy=end_measure+A&maxFeatures=168";
     this.exitTimeout = null;
@@ -49,7 +37,7 @@ class OdlAdapter extends utils.Adapter {
       if (this.log) {
         this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
       }
-      this.exit(utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
+      this.exit(import_adapter_core.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
     }, 6e5);
   }
   async onReady() {
@@ -63,7 +51,7 @@ class OdlAdapter extends utils.Adapter {
         instObj.common.schedule = `${second} ${minute} * * * *`;
         this.log.info(`Schedule adjusted to spread calls better over a half hour!`);
         await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
-        this.exit(utils.EXIT_CODES.NO_ERROR);
+        this.exit(import_adapter_core.EXIT_CODES.NO_ERROR);
         return;
       }
     } catch (e) {
@@ -86,11 +74,11 @@ class OdlAdapter extends utils.Adapter {
     } catch (err) {
       this.log.error(`Error loading data: ${err}`);
     }
-    this.exit(utils.EXIT_CODES.NO_ERROR);
+    this.exit(import_adapter_core.EXIT_CODES.NO_ERROR);
   }
   onUnload(cb) {
     this.unloaded = true;
-    cb && cb();
+    cb == null ? void 0 : cb();
   }
   exit(code) {
     if (this.exitTimeout) {
@@ -136,7 +124,9 @@ class OdlAdapter extends utils.Adapter {
       try {
         const instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
         if (instObj) {
-          instObj.native = __spreadValues({}, this.config);
+          instObj.native = {
+            ...this.config
+          };
           instObj.native.msts = instObj.native.msts || [];
           for (const loc of this.config.localityCode) {
             const feature = featureCollectionLatest.features.find((f) => f.properties.id === loc);
@@ -153,7 +143,7 @@ class OdlAdapter extends utils.Adapter {
             this.log.warn("Please check and transfer your history configurations from the old objects to the new ones. Also you may delete the old DEZ\u2026 objects as they are no longer used now.");
           }
           await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
-          this.exit(utils.EXIT_CODES.NO_ERROR);
+          this.exit(import_adapter_core.EXIT_CODES.NO_ERROR);
           return;
         }
       } catch (e) {

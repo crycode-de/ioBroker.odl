@@ -39,11 +39,22 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 [![Screenshot 1](./docs/ioBroker-odl-01.png)](./docs/ioBroker-odl-01.png)
 
 [![Screenshot 2](./docs/ioBroker-odl-02.png)](./docs/ioBroker-odl-02.png)
+
 ---
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+
+* (crycode-de) Node.js >= 16 is required
+* (crycode-de) Fixed issue with history adapters
+* (crycode-de) Updated dependencies
 
 ### 2.0.5 (2022-04-24)
 

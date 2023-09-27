@@ -32,12 +32,12 @@
     // Uncomment this if you want the old behavior of catch variables being `any`
     // "useUnknownInCatchVariables": false,
 
-    // Consider targetting es2019 or higher if you only support Node.js 12+
-    "target": "es2018",
+    // Node 16
+    "target": "es2021",
+    "lib": ["es2021"],
 
     "sourceMap": true,
-    "inlineSourceMap": false,
-    "watch": false
+    "inlineSourceMap": false
   },
   "include": [
     "src/**/*.ts",

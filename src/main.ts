@@ -1,17 +1,21 @@
 /**
  * ioBroker ODL adapter.
  *
- * (C) 2019-2022 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
+ * (C) 2019-2023 Peter Müller <peter@crycode.de> (https://github.com/crycode-de/ioBroker.odl)
  */
 
-import * as utils from '@iobroker/adapter-core';
+import {
+  Adapter,
+  AdapterOptions,
+  EXIT_CODES,
+} from '@iobroker/adapter-core';
 
 import axios from 'axios';
 
 /**
  * The ODL adapter.
  */
-class OdlAdapter extends utils.Adapter {
+class OdlAdapter extends Adapter {
 
   /**
    * URL to get the latest data.
@@ -43,7 +47,7 @@ class OdlAdapter extends utils.Adapter {
    * Constructor to create a new instance of the adapter.
    * @param options The adapter options.
    */
-  constructor(options: Partial<utils.AdapterOptions> = {}) {
+  constructor(options: Partial<AdapterOptions> = {}) {
     super({
       ...options,
       name: 'odl',
@@ -59,7 +63,7 @@ class OdlAdapter extends utils.Adapter {
       if (this.log) {
         this.log.warn(`Adapter did not exit within 10 minutes. Will now terminate!`);
       }
-      this.exit(utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
+      this.exit(EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
     }, 600000); // 10 minutes
   }
 
@@ -82,7 +86,7 @@ class OdlAdapter extends utils.Adapter {
         instObj.common.schedule = `${second} ${minute} * * * *`;
         this.log.info(`Schedule adjusted to spread calls better over a half hour!`);
         await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
-        this.exit(utils.EXIT_CODES.NO_ERROR);
+        this.exit(EXIT_CODES.NO_ERROR);
         return;
       }
     } catch (e) {
@@ -114,15 +118,15 @@ class OdlAdapter extends utils.Adapter {
       this.log.error(`Error loading data: ${err}`);
     }
 
-    this.exit(utils.EXIT_CODES.NO_ERROR);
+    this.exit(EXIT_CODES.NO_ERROR);
   }
 
   /**
    * Adapter should unload.
    */
-  private onUnload (cb: () => void): void {
+  private onUnload (cb?: () => void): void {
     this.unloaded = true;
-    cb && cb();
+    cb?.();
   }
 
   /**
@@ -209,7 +213,7 @@ class OdlAdapter extends utils.Adapter {
             this.log.warn('Please check and transfer your history configurations from the old objects to the new ones. Also you may delete the old DEZ… objects as they are no longer used now.');
           }
           await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
-          this.exit(utils.EXIT_CODES.NO_ERROR);
+          this.exit(EXIT_CODES.NO_ERROR);
           return;
         }
       } catch (e) {
@@ -574,7 +578,7 @@ class OdlAdapter extends utils.Adapter {
 
 if (require.main !== module) {
   // Export the constructor in compact mode
-  module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new OdlAdapter(options);
+  module.exports = (options: Partial<AdapterOptions> | undefined) => new OdlAdapter(options);
 } else {
   // otherwise start the instance directly
   (() => new OdlAdapter())();
