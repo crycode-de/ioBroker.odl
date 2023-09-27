@@ -361,7 +361,6 @@ class OdlAdapter extends utils.Adapter {
         val: featureLatest.properties.value,
         ack: true,
         ts: featureLatest.properties.end_measure ? new Date(featureLatest.properties.end_measure).getTime() : Date.now(),
-        lc: Date.now(),
         q: featureLatest.properties.value !== null ? 0x00 : 0x81, // 0x00 = good, 0x81 = general problem by sensor
       };
       const currentState = await this.getStateAsync(`${mstKenn}.value`);
