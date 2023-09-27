@@ -50,7 +50,7 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2023-09-27)
 
 * (crycode-de) Node.js >= 16 is required
 * (crycode-de) Fixed issue with history adapters

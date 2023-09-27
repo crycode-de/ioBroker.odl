@@ -1,558 +1,428 @@
 {
-    "common": {
-        "name": "odl",
-        "version": "2.0.5",
-        "news": {
-            "2.0.5": {
-                "en": "Fixed spelling issue in german translation",
-                "de": "Rechtschreibfehler in der deutschen Übersetzung behoben",
-                "ru": "Исправлена проблема с орфографией в немецком переводе.",
-                "pt": "Corrigido problema de ortografia na tradução alemã",
-                "nl": "Spellingsprobleem opgelost in Duitse vertaling",
-                "fr": "Correction d'un problème d'orthographe dans la traduction allemande",
-                "it": "Risolto problema di ortografia nella traduzione tedesca",
-                "es": "Solucionado el problema de ortografía en la traducción al alemán.",
-                "pl": "Naprawiono problem z pisownią w tłumaczeniu na język niemiecki",
-                "zh-cn": "修复了德语翻译中的拼写问题",
-                "uk": "Виправлена ​​проблема орфографії в німецькому перекладі"
-            },
-            "2.0.4": {
-                "en": "Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0",
-                "de": "Infomeldung über wichtige Änderungen beim Upgrade von <2.0.0 auf >=2.0.0 hinzugefügt",
-                "ru": "Добавлено информационное сообщение о критических изменениях при обновлении с <2.0.0 до >=2.0.0.",
-                "pt": "Adicionada mensagem informativa sobre alterações de quebra ao atualizar de <2.0.0 para >=2.0.0",
-                "nl": "Infobericht toegevoegd over het verbreken van wijzigingen bij het upgraden van <2.0.0 naar >=2.0.0",
-                "fr": "Ajout d'un message d'information sur les changements cassants lors de la mise à niveau de <2.0.0 à >=2.0.0",
-                "it": "Aggiunto messaggio informativo sulle modifiche sostanziali durante l'aggiornamento da <2.0.0 a >=2.0.0",
-                "es": "Se agregó un mensaje de información sobre cambios importantes al actualizar de <2.0.0 a> = 2.0.0",
-                "pl": "Dodano komunikat informacyjny o przerwaniu zmian podczas aktualizacji z <2.0.0 do >=2.0.0",
-                "zh-cn": "从 <2.0.0 升级到 >=2.0.0 时添加了有关重大更改的信息消息",
-                "uk": "Додано інформаційне повідомлення про критичні зміни під час оновлення з <2.0.0 до >=2.0.0"
-            },
-            "2.0.3": {
-                "en": "Optimized Sentry integration in admin",
-                "de": "Optimierte Sentry-Integration im Admin",
-                "ru": "Оптимизирована интеграция Sentry в админку",
-                "pt": "Integração otimizada do Sentry no admin",
-                "nl": "Geoptimaliseerde Sentry-integratie in admin",
-                "fr": "Intégration optimisée de Sentry dans l'administration",
-                "it": "Integrazione ottimizzata di Sentry in admin",
-                "es": "Integración optimizada de Sentry en administración",
-                "pl": "Zoptymalizowana integracja Sentry w admin",
-                "zh-cn": "管理员中优化的哨兵集成",
-                "uk": "Оптимізована інтеграція Sentry в адмін"
-            },
-            "2.0.2": {
-                "en": "Fixed config error, Updated dependencies",
-                "de": "Konfigurationsfehler behoben, Abhängigkeiten aktualisiert",
-                "ru": "Исправлена ошибка конфигурации, обновлены зависимости",
-                "pt": "Erro de configuração corrigido, dependências atualizadas",
-                "nl": "Configuratiefout opgelost, afhankelijkheden bijgewerkt",
-                "fr": "Erreur de configuration fixe, dépendances mises à jour",
-                "it": "Risolto errore di configurazione, dipendenze aggiornate",
-                "es": "Error de configuración fijo, dependencias actualizadas",
-                "pl": "Naprawiono błąd konfiguracji, Zaktualizowano zależności",
-                "zh-cn": "修复配置错误，更新依赖",
-                "uk": "Виправлена ​​помилка конфігурації, оновлені залежності"
-            },
-            "2.0.1": {
-                "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
-                "de": "Großer Umbau des Adapters, Verwendung der offiziellen API, Neue States, ...",
-                "ru": "Огромный ребилд адаптера, Используйте официальный API, Новые состояния, ...",
-                "pt": "Grande reconstrução do adaptador, Use a API oficial, Novos estados, ...",
-                "nl": "Enorme herbouw van de adapter, gebruik de officiële API, nieuwe staten, ...",
-                "fr": "Énorme reconstruction de l'adaptateur, Utiliser l'API officielle, Nouveaux états, ...",
-                "it": "Ricostruzione enorme dell'adattatore, Usa l'API ufficiale, Nuovi stati, ...",
-                "es": "Enorme reconstrucción del adaptador, use la API oficial, nuevos estados, ...",
-                "pl": "Ogromna przebudowa adaptera, Użyj oficjalnego API, Nowe stany, ...",
-                "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ...",
-                "uk": "Величезна перебудова адаптера, використання офіційного API, нові стани, ..."
-            },
-            "1.1.4": {
-                "en": "Updated BfS logo, Updated dependencies",
-                "de": "Aktualisiertes BfS-Logo, Aktualisierte Abhängigkeiten",
-                "ru": "Обновлен логотип BfS, обновлены зависимости",
-                "pt": "Logotipo BfS atualizado, dependências atualizadas",
-                "nl": "Bijgewerkt BfS-logo, bijgewerkte afhankelijkheden",
-                "fr": "Logo BfS mis à jour, dépendances mises à jour",
-                "it": "Logo BfS aggiornato, dipendenze aggiornate",
-                "es": "Logotipo BfS actualizado, dependencias actualizadas",
-                "pl": "Zaktualizowane logo BfS, zaktualizowane zależności",
-                "zh-cn": "更新了BfS徽标，更新了依赖项",
-                "uk": "Оновлений логотип BfS, оновлені залежності"
-            },
-            "1.1.3": {
-                "en": "Fixed issue when log is not available at startup timeout",
-                "de": "Problem behoben, wenn das Protokoll zum Startzeitlimit nicht verfügbar ist",
-                "ru": "Исправлена проблема, когда журнал недоступен при тайм-ауте запуска",
-                "pt": "Corrigido o problema quando o log não está disponível no tempo limite de inicialização",
-                "nl": "Probleem opgelost wanneer het logboek niet beschikbaar is bij time-out bij het opstarten",
-                "fr": "Problème résolu lorsque le journal n'est pas disponible au moment du démarrage",
-                "it": "Risolto il problema quando il registro non è disponibile al timeout di avvio",
-                "es": "Problema solucionado cuando el registro no está disponible en el tiempo de espera de inicio",
-                "pl": "Naprawiono problem, gdy dziennik nie jest dostępny po przekroczeniu limitu czasu uruchamiania",
-                "zh-cn": "解决了启动超时时日志不可用的问题",
-                "uk": "Виправлена ​​проблема, коли журнал був недоступний під час очікування запуску"
-            },
-            "1.1.2": {
-                "en": "Fix objects parameters for objects created before v1.1.1",
-                "de": "Objektparameter für Objekte, die vor v1.1.1 erstellt wurden, werden korrigiert",
-                "ru": "Исправить параметры объектов для объектов, созданных до версии 1.1.1",
-                "pt": "Corrija os parâmetros dos objetos para objetos criados antes da v1.1.1",
-                "nl": "Objectparameters repareren voor objecten die zijn gemaakt vóór v1.1.1",
-                "fr": "Correction des paramètres d'objets pour les objets créés avant la v1.1.1",
-                "it": "Correggere i parametri degli oggetti per gli oggetti creati prima della v1.1.1",
-                "es": "Corregir parámetros de objetos para objetos creados antes de v1.1.1",
-                "pl": "Napraw parametry obiektów dla obiektów utworzonych przed wersją 1.1.1",
-                "zh-cn": "修复v1.1.1之前创建的对象的对象参数",
-                "uk": "Виправлено параметри об’єктів для об’єктів, створених до версії 1.1.1"
-            },
-            "1.1.1": {
-                "en": "Fixed issue creating odl state object",
-                "de": "Problem beim Erstellen von odl State-Objekten behoben",
-                "ru": "Исправлена проблема с созданием объекта состояния odl",
-                "pt": "Corrigido o problema de criação de objeto de estado odl",
-                "nl": "Probleem opgelost bij het maken van odl-statusobject",
-                "fr": "Correction d'un problème de création d'objet d'état odl",
-                "it": "Risolto il problema durante la creazione di oggetti di stato odl",
-                "es": "Problema solucionado al crear un objeto de estado odl",
-                "pl": "Naprawiono problem tworzenia obiektu stanu odl",
-                "zh-cn": "解决了创建odl状态对象的问题",
-                "uk": "Виправлена ​​проблема створення об’єкта стану odl"
-            },
-            "1.1.0": {
-                "en": "Added Sentry, Updated dependencies",
-                "de": "Sentry hinzugefügt, Abhängigkeiten aktualisiert",
-                "ru": "Добавлен Sentry, обновлены зависимости",
-                "pt": "Adicionado Sentry, Dependências atualizadas",
-                "nl": "Sentry toegevoegd, bijgewerkte afhankelijkheden",
-                "fr": "Sentry ajoutée, dépendances mises à jour",
-                "it": "Sentinella aggiunta, dipendenze aggiornate",
-                "es": "Centinela agregado, dependencias actualizadas",
-                "pl": "Dodano Działko, Zaktualizowano zależności",
-                "zh-cn": "添加了哨兵，更新了依赖项",
-                "uk": "Додано Sentry, оновлено залежності"
-            },
-            "1.0.7": {
-                "en": "Updated dependencies, Added timeout to force exit the adapter after 10 minutes in case of any problems",
-                "de": "Abhängigkeiten aktualisiert, Zeitüberschreitung hinzugefügt, um das Beenden des Adapters nach 10 Minuten bei Problemen zu erzwingen",
-                "ru": "Обновлены зависимости, добавлен таймаут для принудительного выхода из адаптера через 10 минут в случае каких-либо проблем",
-                "pt": "Dependências atualizadas, tempo limite adicionado para forçar a saída do adaptador após 10 minutos em caso de problemas",
-                "nl": "Bijgewerkte afhankelijkheden, time-out toegevoegd om de adapter na 10 minuten geforceerd af te sluiten in geval van problemen",
-                "fr": "Dépendances mises à jour, délai d'expiration ajouté pour forcer la sortie de l'adaptateur après 10 minutes en cas de problème",
-                "it": "Dipendenze aggiornate, aggiunto timeout per forzare l'uscita dall'adattatore dopo 10 minuti in caso di problemi",
-                "es": "Dependencias actualizadas, tiempo de espera agregado para forzar la salida del adaptador después de 10 minutos en caso de problemas",
-                "pl": "Zaktualizowano zależności, dodano limit czasu na wymuszenie wyjścia z adaptera po 10 minutach w przypadku jakichkolwiek problemów",
-                "zh-cn": "更新了依赖性，增加了超时，如果出现任何问题，将在10分钟后强制退出适配器",
-                "uk": "Оновлені залежності, додано тайм-аут для примусового виходу з адаптера через 10 хвилин у разі будь-яких проблем"
-            },
-            "1.0.6": {
-                "en": "Updated dependencies, Hopefully fixed a bug where adapter did not exit as expected",
-                "de": "Abhängigkeiten aktualisiert, Hoffentlich Fehler behoben, bei dem der Adapter nicht wie erwartet beendet wurde",
-                "ru": "Обновленные зависимости, надеюсь, исправлена ошибка, из-за которой адаптер не выходил должным образом",
-                "pt": "Dependências atualizadas, esperançosamente corrigido um bug em que o adaptador não fechava conforme o esperado",
-                "nl": "Bijgewerkte afhankelijkheden, hopelijk een bug verholpen waarbij de adapter niet verliet zoals verwacht",
-                "fr": "Dépendances mises à jour, espérons-le corrigé un bogue où l'adaptateur ne se fermait pas comme prévu",
-                "it": "Dipendenze aggiornate, si spera risolto un bug in cui l'adattatore non usciva come previsto",
-                "es": "Dependencias actualizadas, con suerte se corrigió un error en el que el adaptador no se cerró como se esperaba",
-                "pl": "Zaktualizowane zależności. Mamy nadzieję, że naprawiono błąd, w wyniku którego adapter nie kończył pracy zgodnie z oczekiwaniami",
-                "zh-cn": "更新了相关性，希望修复了适配器未按预期退出的错误",
-                "uk": "Оновлені залежності. Сподіваємося, виправлено помилку, через яку адаптер не завершував роботу, як очікувалося"
-            },
-            "1.0.5": {
-                "en": "Use of extendObject to update names of existing objects.",
-                "de": "Verwendung von extendObject zum Aktualisieren der Namen vorhandener Objekte.",
-                "ru": "Использование exteObject для обновления имен существующих объектов.",
-                "pt": "Uso de extendObject para atualizar nomes de objetos existentes.",
-                "nl": "Gebruik van ExtensionObject om namen van bestaande objecten bij te werken.",
-                "fr": "Utilisation de extendObject pour mettre à jour les noms des objets existants.",
-                "it": "Utilizzo di extensionObject per aggiornare i nomi di oggetti esistenti.",
-                "es": "Uso de extendObject para actualizar nombres de objetos existentes.",
-                "pl": "Wykorzystanie extObject do aktualizacji nazw istniejących obiektów.",
-                "zh-cn": "使用extendObject更新现有对象的名称。",
-                "uk": "Використання extendObject для оновлення назв існуючих об’єктів."
-            },
-            "1.0.4": {
-                "en": "Updated connectionType and dataSource in io-package.json",
-                "de": "connectionType und dataSource in io-package.json aktualisiert",
-                "ru": "Обновлен тип соединения и источник данных в io-package.json",
-                "pt": "ConnectionType e dataSource atualizados em io-package.json",
-                "nl": "Bijgewerkt verbindingstype en gegevensbron in io-pakket.json",
-                "fr": "ConnectionType et dataSource mis à jour dans io-package.json",
-                "it": "Tipo di connessione e dataSource aggiornati in io-package.json",
-                "es": "ConnectionType y dataSource actualizados en io-package.json",
-                "pl": "Zaktualizowano typ połączenia i źródło danych w io-package.json",
-                "zh-cn": "更新了io-package.json中的connectionType和dataSource",
-                "uk": "Оновлено ConnectionType і dataSource в io-package.json"
-            },
-            "1.0.3": {
-                "en": "Added connectionType in io-package.json and updated dependencies.",
-                "de": "ConnectionType in io-package.json hinzugefügt und Abhängigkeiten aktualisiert.",
-                "ru": "Добавлен connectionType в io-package.json и обновлены зависимости.",
-                "pt": "Adicionado connectionType no io-package.json e dependências atualizadas.",
-                "nl": "ConnectionType toegevoegd in io-package.json en bijgewerkte afhankelijkheden.",
-                "fr": "ConnectionType ajouté dans io-package.json et mises à jour des dépendances.",
-                "it": "Aggiunto connectionType in io-package.json e dipendenze aggiornate.",
-                "es": "ConnectionType agregado en io-package.json y dependencias actualizadas.",
-                "pl": "Dodano connectionType w pliku io-package.json i zaktualizowano zależności.",
-                "zh-cn": "在io-package.json中添加了connectionType并更新了依赖项。",
-                "uk": "Додано ConnectionType в io-package.json і оновлено залежності."
-            },
-            "1.0.2": {
-                "en": "Minimum required js-controller version is now 1.5.7",
-                "de": "Die minimal erforderliche Version von js-controller ist jetzt 1.5.7",
-                "ru": "Минимально необходимая версия js-controller теперь 1.5.7",
-                "pt": "A versão mínima necessária do js-controller agora é 1.5.7",
-                "nl": "De minimaal vereiste js-controller-versie is nu 1.5.7",
-                "fr": "La version minimale requise de js-controller est 1.5.7",
-                "it": "La versione js-controller minima richiesta è ora 1.5.7",
-                "es": "La versión mínima requerida de js-controller ahora es 1.5.7",
-                "pl": "Minimalna wymagana wersja js-controller to teraz 1.5.7",
-                "zh-cn": "现在所需的最低js-controller版本为1.5.7",
-                "uk": "Мінімальна необхідна версія js-контролера тепер 1.5.7"
-            },
-            "1.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版",
-                "uk": "початковий випуск"
-            }
-        },
-        "title": "Ortsdosisleistung",
-        "titleLang": {
-            "en": "Abient Dose Rate",
-            "de": "Ortsdosisleistung",
-            "ru": "Абиентная мощность дозы",
-            "pt": "Taxa de Dose Abiente",
-            "nl": "Abient dosistempo",
-            "fr": "Débit de dose ambiant",
-            "it": "Dose Abitante",
-            "es": "Tasa de dosis ambiental",
-            "pl": "Abient Dawka",
-            "zh-cn": "体外剂量率",
-            "uk": "Абіентна потужність дози"
-        },
-        "desc": {
-            "en": "Ambient dose rate data from the German Federal Office for Radiation Protection.",
-            "de": "Ortsdosisleistungsdaten des Bundesamtes für Strahlenschutz (BfS).",
-            "ru": "Данные о мощности дозы от Федерального ведомства по радиационной защите Германии.",
-            "pt": "Dados da taxa de dose ambiente do Escritório Federal Alemão para Proteção contra Radiação.",
-            "nl": "Omgevingsdosisgegevens van het Duitse federale kantoor voor stralingsbescherming.",
-            "fr": "Données relatives au débit de dose ambiante fournies par l'Office fédéral allemand de protection contre les radiations.",
-            "it": "Dati sulla velocità di dose ambientale dall'Ufficio federale tedesco per la radioprotezione.",
-            "es": "Datos de la tasa de dosis ambiental de la Oficina Federal Alemana de Protección Radiológica.",
-            "pl": "Dane dotyczące dawki w warunkach otoczenia z niemieckiego Federalnego Urzędu Ochrony przed Promieniowaniem.",
-            "zh-cn": "来自德国联邦辐射防护局的环境剂量率数据。",
-            "uk": "Дані про потужність дози навколишнього середовища від Федерального відомства радіаційного захисту Німеччини."
-        },
-        "authors": [
-            "Peter Müller <peter@crycode.de>"
-        ],
-        "keywords": [
-            "ODL",
-            "Gamma Ortsdosisleistung",
-            "Umweltradioaktivität",
-            "BfS",
-            "µSv/h"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "build/main.js",
-        "icon": "odl.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/crycode-de/ioBroker.odl/master/admin/odl.png",
-        "readme": "https://github.com/crycode-de/ioBroker.odl/blob/master/README.md",
-        "loglevel": "info",
-        "mode": "schedule",
-        "schedule": "30 * * * *",
-        "allowInit": true,
-        "type": "misc-data",
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "compact": true,
-        "adminUI": {
-            "config": "materialize"
-        },
-        "messagebox": false,
-        "messages": [
-            {
-                "condition": {
-                    "operand": "and",
-                    "rules": [
-                        "oldVersion<2.0.0",
-                        "newVersion>=2.0.0"
-                    ]
-                },
-                "title": {
-                    "en": "Important notice!",
-                    "de": "Wichtiger Hinweis!",
-                    "ru": "Важное замечание!",
-                    "pt": "Notícia importante!",
-                    "nl": "Belangrijke mededeling!",
-                    "fr": "Avis important!",
-                    "it": "Avviso IMPORTANTE!",
-                    "es": "Noticia importante!",
-                    "pl": "Ważna uwaga!",
-                    "zh-cn": "重要通知!",
-                    "uk": "Важливе повідомлення!"
-                },
-                "text": {
-                    "en": "Breaking changes: Since version 2.x new ioBroker states and station identifiers are used. The adapter tries to migrate your configured stations, but you need to update your custom settings like history manually. Also the old ioBroker objects have to be deleted manually. Additionally the default schedule of the adapter will be randomized on first start.",
-                    "de": "Wichtige Änderungen: Seit Version 2.x werden neue ioBroker-States und Messstellenkennungen verwendet. Der Adapter versucht, die konfigurierten Messstellen automatisch zu migrieren, aber die benutzerdefinierten Einstellungen, wie z.B. der Verlauf, müssen manuell angepasst werden. Auch die alten ioBroker-Objekte müssen manuell gelöscht werden. Zusätzlich wird der Zeitplan zum Starten des Adapters beim ersten Start randomisiert.",
-                    "ru": "Критические изменения: Начиная с версии 2.x используются новые состояния ioBroker и идентификаторы станций. Адаптер пытается перенести настроенные вами станции, но вам необходимо вручную обновить пользовательские настройки, такие как история. Также старые объекты ioBroker необходимо удалить вручную. Кроме того, расписание адаптера по умолчанию будет выбрано случайным образом при первом запуске.",
-                    "pt": "Mudanças importantes: Desde a versão 2.x, novos estados ioBroker e identificadores de estação são usados. O adaptador tenta migrar suas estações configuradas, mas você precisa atualizar manualmente suas configurações personalizadas, como histórico. Além disso, os objetos ioBroker antigos devem ser excluídos manualmente. Além disso, o agendamento padrão do adaptador será randomizado na primeira inicialização.",
-                    "nl": "Belangrijke wijzigingen: sinds versie 2.x worden nieuwe ioBroker-statussen en station-ID's gebruikt. De adapter probeert uw geconfigureerde stations te migreren, maar u moet uw aangepaste instellingen zoals geschiedenis handmatig bijwerken. Ook de oude ioBroker-objecten moeten handmatig worden verwijderd. Bovendien wordt het standaardschema van de adapter bij de eerste start willekeurig verdeeld.",
-                    "fr": "Modifications majeures : depuis la version 2.x, de nouveaux états et identifiants de station ioBroker sont utilisés. L'adaptateur tente de migrer vos stations configurées, mais vous devez mettre à jour manuellement vos paramètres personnalisés, tels que l'historique. De plus, les anciens objets ioBroker doivent être supprimés manuellement. De plus, la planification par défaut de l'adaptateur sera randomisée au premier démarrage.",
-                    "it": "Modifiche di rilievo: dalla versione 2.x vengono utilizzati nuovi stati ioBroker e identificatori di stazione. L'adattatore tenta di migrare le stazioni configurate, ma è necessario aggiornare manualmente le impostazioni personalizzate come la cronologia. Anche i vecchi oggetti ioBroker devono essere eliminati manualmente. Inoltre, la pianificazione predefinita dell'adattatore verrà randomizzata al primo avvio.",
-                    "es": "Cambios importantes: desde la versión 2.x, se utilizan nuevos estados de ioBroker e identificadores de estación. El adaptador intenta migrar sus estaciones configuradas, pero necesita actualizar su configuración personalizada, como el historial, manualmente. Además, los objetos antiguos de ioBroker deben eliminarse manualmente. Además, la programación predeterminada del adaptador se aleatorizará en el primer inicio.",
-                    "pl": "Najważniejsze zmiany: Od wersji 2.x używane są nowe stany ioBroker oraz identyfikatory stacji. Adapter próbuje przeprowadzić migrację skonfigurowanych stacji roboczych, ale należy ręcznie zaktualizować ustawienia niestandardowe, takie jak historia. Również stare obiekty ioBroker muszą zostać usunięte ręcznie. Dodatkowo domyślny harmonogram adaptera będzie losowany przy pierwszym uruchomieniu.",
-                    "zh-cn": "重大更改：从 2.x 版开始，使用了新的 ioBroker 状态和站点标识符。适配器会尝试迁移您配置的工作站，但您需要手动更新自定义设置，例如历史记录。旧的 ioBroker 对象也必须手动删除。此外，适配器的默认计划将在第一次启动时随机化。",
-                    "uk": "Основні зміни: починаючи з версії 2.x використовуються нові стани ioBroker та ідентифікатори станцій. Адаптер намагається перенести ваші налаштовані станції, але вам потрібно вручну оновити власні параметри, наприклад історію. Також старі об’єкти ioBroker потрібно видалити вручну. Крім того, розклад за замовчуванням адаптера буде рандомізовано під час першого запуску."
-                },
-                "link": "https://github.com/crycode-de/ioBroker.odl#changelog",
-                "linkText": {
-                    "en": "See Changelog",
-                    "de": "Siehe Änderungsprotokoll",
-                    "ru": "См. журнал изменений",
-                    "pt": "Ver registro de alterações",
-                    "nl": "Zie Changelog",
-                    "fr": "Voir le journal des modifications",
-                    "it": "Vedi Registro delle modifiche",
-                    "es": "Ver registro de cambios",
-                    "pl": "Zobacz listę zmian",
-                    "zh-cn": "查看变更日志",
-                    "uk": "Перегляньте журнал змін"
-                },
-                "level": "warn",
-                "buttons": [
-                    "ok",
-                    "cancel"
-                ]
-            },
-            {
-                "condition": {
-                    "operand": "and",
-                    "rules": [
-                        "oldVersion<3.0.0",
-                        "newVersion>=3.0.0"
-                    ]
-                },
-                "title": {
-                    "en": "Important notice!",
-                    "de": "Wichtiger Hinweis!",
-                    "ru": "Важное замечание!",
-                    "pt": "Notícia importante!",
-                    "nl": "Belangrijke mededeling!",
-                    "fr": "Avis important!",
-                    "it": "Avviso IMPORTANTE!",
-                    "es": "Noticia importante!",
-                    "pl": "Ważna uwaga!",
-                    "zh-cn": "重要通知!",
-                    "uk": "Важливе повідомлення!"
-                },
-                "text": {
-                    "en": "Breaking changes: Since version 3.x at least Node.js 16 is required.",
-                    "de": "Wichtige Änderung: Ab Version 3.x ist mindestens Node.js 16 erforderlich.",
-                    "ru": "Критические изменения: начиная с версии 3.x требуется как минимум Node.js 16.",
-                    "pt": "Mudanças importantes: desde a versão 3.x, pelo menos o Node.js 16 é necessário.",
-                    "nl": "Belangrijke wijzigingen: sinds versie 3.x is minimaal Node.js 16 vereist.",
-                    "fr": "Modifications majeures : depuis la version 3.x, au moins Node.js 16 est requis.",
-                    "it": "Modifiche importanti: dalla versione 3.x è richiesto almeno Node.js 16.",
-                    "es": "Cambios importantes: desde la versión 3.x se requiere al menos Node.js 16.",
-                    "pl": "Najważniejsze zmiany: Od wersji 3.x wymagany jest co najmniej Node.js 16.",
-                    "uk": "Головні зміни: починаючи з версії 3.x, потрібен принаймні Node.js 16.",
-                    "zh-cn": "重大更改：从版本 3.x 开始，至少需要 Node.js 16。"
-                },
-                "level": "warn",
-                "buttons": [
-                    "ok",
-                    "cancel"
-                ]
-            }
-        ],
-        "dependencies": [
-            {
-                "js-controller": ">=2.0.0"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.28"
-            }
-        ],
-        "plugins": {
-            "sentry": {
-                "dsn": "https://b949776de36f4caead135cd0a6380f21@sentry.cryhost.de/6"
-            }
-        }
+  "common": {
+    "name": "odl",
+    "version": "3.0.0",
+    "news": {
+      "3.0.0": {
+        "en": "Node.js >= 16 is required\nFixed issue with history adapters\nUpdated dependencies",
+        "de": "Node.js >= 16 ist erforderlich\nProbleme mit Verlaufsadaptern behoben\nAbhängigkeiten aktualisiert",
+        "ru": "Node.js >= 16 требуется\nИсправлена проблема с переходниками истории\nОбновленные зависимости",
+        "pt": "Node.js > 16 é necessário\nProblema fixo com adaptadores de histórico\nDependências atualizadas",
+        "nl": "Node. 16 is vereist\nQuality over Quantity (QoQ) Releases Vertaling:\nVerouderde afhankelijkheid",
+        "fr": "Node.js ACIA= 16 est nécessaire\nProblème fixe avec adaptateurs d'histoire\nMise à jour des dépendances",
+        "it": "Node.js >= 16 è richiesto\nProblema fisso con adattatori di storia\nDipendenze aggiornate",
+        "es": "Node.js Se requiere 16\nEdición fija con adaptadores de historia\nDependencias actualizadas",
+        "pl": "Node (ang.). wymagana jest 16\nProblem z adapterami historii\nZależność od upoważnienia",
+        "uk": "Node.js >= 16 потрібно\nВиправлено проблему з історичними адаптерами\nОновлені залежності",
+        "zh-cn": "不适用 需要16个\n与历史适应者混合问题\nA. 最新依赖情况"
+      },
+      "2.0.5": {
+        "en": "Fixed spelling issue in german translation",
+        "de": "Rechtschreibfehler in der deutschen Übersetzung behoben",
+        "ru": "Исправлена проблема с орфографией в немецком переводе.",
+        "pt": "Corrigido problema de ortografia na tradução alemã",
+        "nl": "Spellingsprobleem opgelost in Duitse vertaling",
+        "fr": "Correction d'un problème d'orthographe dans la traduction allemande",
+        "it": "Risolto problema di ortografia nella traduzione tedesca",
+        "es": "Solucionado el problema de ortografía en la traducción al alemán.",
+        "pl": "Naprawiono problem z pisownią w tłumaczeniu na język niemiecki",
+        "zh-cn": "修复了德语翻译中的拼写问题",
+        "uk": "Виправлена ​​проблема орфографії в німецькому перекладі"
+      },
+      "2.0.4": {
+        "en": "Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0",
+        "de": "Infomeldung über wichtige Änderungen beim Upgrade von <2.0.0 auf >=2.0.0 hinzugefügt",
+        "ru": "Добавлено информационное сообщение о критических изменениях при обновлении с <2.0.0 до >=2.0.0.",
+        "pt": "Adicionada mensagem informativa sobre alterações de quebra ao atualizar de <2.0.0 para >=2.0.0",
+        "nl": "Infobericht toegevoegd over het verbreken van wijzigingen bij het upgraden van <2.0.0 naar >=2.0.0",
+        "fr": "Ajout d'un message d'information sur les changements cassants lors de la mise à niveau de <2.0.0 à >=2.0.0",
+        "it": "Aggiunto messaggio informativo sulle modifiche sostanziali durante l'aggiornamento da <2.0.0 a >=2.0.0",
+        "es": "Se agregó un mensaje de información sobre cambios importantes al actualizar de <2.0.0 a> = 2.0.0",
+        "pl": "Dodano komunikat informacyjny o przerwaniu zmian podczas aktualizacji z <2.0.0 do >=2.0.0",
+        "zh-cn": "从 <2.0.0 升级到 >=2.0.0 时添加了有关重大更改的信息消息",
+        "uk": "Додано інформаційне повідомлення про критичні зміни під час оновлення з <2.0.0 до >=2.0.0"
+      },
+      "2.0.3": {
+        "en": "Optimized Sentry integration in admin",
+        "de": "Optimierte Sentry-Integration im Admin",
+        "ru": "Оптимизирована интеграция Sentry в админку",
+        "pt": "Integração otimizada do Sentry no admin",
+        "nl": "Geoptimaliseerde Sentry-integratie in admin",
+        "fr": "Intégration optimisée de Sentry dans l'administration",
+        "it": "Integrazione ottimizzata di Sentry in admin",
+        "es": "Integración optimizada de Sentry en administración",
+        "pl": "Zoptymalizowana integracja Sentry w admin",
+        "zh-cn": "管理员中优化的哨兵集成",
+        "uk": "Оптимізована інтеграція Sentry в адмін"
+      },
+      "2.0.2": {
+        "en": "Fixed config error, Updated dependencies",
+        "de": "Konfigurationsfehler behoben, Abhängigkeiten aktualisiert",
+        "ru": "Исправлена ошибка конфигурации, обновлены зависимости",
+        "pt": "Erro de configuração corrigido, dependências atualizadas",
+        "nl": "Configuratiefout opgelost, afhankelijkheden bijgewerkt",
+        "fr": "Erreur de configuration fixe, dépendances mises à jour",
+        "it": "Risolto errore di configurazione, dipendenze aggiornate",
+        "es": "Error de configuración fijo, dependencias actualizadas",
+        "pl": "Naprawiono błąd konfiguracji, Zaktualizowano zależności",
+        "zh-cn": "修复配置错误，更新依赖",
+        "uk": "Виправлена ​​помилка конфігурації, оновлені залежності"
+      },
+      "2.0.1": {
+        "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
+        "de": "Großer Umbau des Adapters, Verwendung der offiziellen API, Neue States, ...",
+        "ru": "Огромный ребилд адаптера, Используйте официальный API, Новые состояния, ...",
+        "pt": "Grande reconstrução do adaptador, Use a API oficial, Novos estados, ...",
+        "nl": "Enorme herbouw van de adapter, gebruik de officiële API, nieuwe staten, ...",
+        "fr": "Énorme reconstruction de l'adaptateur, Utiliser l'API officielle, Nouveaux états, ...",
+        "it": "Ricostruzione enorme dell'adattatore, Usa l'API ufficiale, Nuovi stati, ...",
+        "es": "Enorme reconstrucción del adaptador, use la API oficial, nuevos estados, ...",
+        "pl": "Ogromna przebudowa adaptera, Użyj oficjalnego API, Nowe stany, ...",
+        "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ...",
+        "uk": "Величезна перебудова адаптера, використання офіційного API, нові стани, ..."
+      },
+      "1.1.4": {
+        "en": "Updated BfS logo, Updated dependencies",
+        "de": "Aktualisiertes BfS-Logo, Aktualisierte Abhängigkeiten",
+        "ru": "Обновлен логотип BfS, обновлены зависимости",
+        "pt": "Logotipo BfS atualizado, dependências atualizadas",
+        "nl": "Bijgewerkt BfS-logo, bijgewerkte afhankelijkheden",
+        "fr": "Logo BfS mis à jour, dépendances mises à jour",
+        "it": "Logo BfS aggiornato, dipendenze aggiornate",
+        "es": "Logotipo BfS actualizado, dependencias actualizadas",
+        "pl": "Zaktualizowane logo BfS, zaktualizowane zależności",
+        "zh-cn": "更新了BfS徽标，更新了依赖项",
+        "uk": "Оновлений логотип BfS, оновлені залежності"
+      }
     },
-    "native": {
-        "msts": [],
-        "timeout": 30,
-        "useCosmicTerrestrial": false,
-        "updateHistory": false
+    "title": "Ortsdosisleistung",
+    "titleLang": {
+      "en": "Abient Dose Rate",
+      "de": "Ortsdosisleistung",
+      "ru": "Абиентная мощность дозы",
+      "pt": "Taxa de Dose Abiente",
+      "nl": "Abient dosistempo",
+      "fr": "Débit de dose ambiant",
+      "it": "Dose Abitante",
+      "es": "Tasa de dosis ambiental",
+      "pl": "Abient Dawka",
+      "zh-cn": "体外剂量率",
+      "uk": "Абіентна потужність дози"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "statistics",
-            "type": "channel",
-            "common": {
-                "name": {
-                    "de": "Statistiken",
-                    "en": "Statistics"
-                },
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+    "desc": {
+      "en": "Ambient dose rate data from the German Federal Office for Radiation Protection.",
+      "de": "Ortsdosisleistungsdaten des Bundesamtes für Strahlenschutz (BfS).",
+      "ru": "Данные о мощности дозы от Федерального ведомства по радиационной защите Германии.",
+      "pt": "Dados da taxa de dose ambiente do Escritório Federal Alemão para Proteção contra Radiação.",
+      "nl": "Omgevingsdosisgegevens van het Duitse federale kantoor voor stralingsbescherming.",
+      "fr": "Données relatives au débit de dose ambiante fournies par l'Office fédéral allemand de protection contre les radiations.",
+      "it": "Dati sulla velocità di dose ambientale dall'Ufficio federale tedesco per la radioprotezione.",
+      "es": "Datos de la tasa de dosis ambiental de la Oficina Federal Alemana de Protección Radiológica.",
+      "pl": "Dane dotyczące dawki w warunkach otoczenia z niemieckiego Federalnego Urzędu Ochrony przed Promieniowaniem.",
+      "zh-cn": "来自德国联邦辐射防护局的环境剂量率数据。",
+      "uk": "Дані про потужність дози навколишнього середовища від Федерального відомства радіаційного захисту Німеччини."
+    },
+    "authors": [
+      "Peter Müller <peter@crycode.de>"
+    ],
+    "keywords": [
+      "ODL",
+      "Gamma Ortsdosisleistung",
+      "Umweltradioaktivität",
+      "BfS",
+      "µSv/h"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "build/main.js",
+    "icon": "odl.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/crycode-de/ioBroker.odl/master/admin/odl.png",
+    "readme": "https://github.com/crycode-de/ioBroker.odl/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "schedule",
+    "schedule": "30 * * * *",
+    "allowInit": true,
+    "type": "misc-data",
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "compact": true,
+    "adminUI": {
+      "config": "materialize"
+    },
+    "messagebox": false,
+    "messages": [
+      {
+        "condition": {
+          "operand": "and",
+          "rules": [
+            "oldVersion<2.0.0",
+            "newVersion>=2.0.0"
+          ]
         },
-        {
-            "_id": "statistics.total",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "Messstellen ingesamt",
-                    "en": "Measuring points total"
-                },
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "title": {
+          "en": "Important notice!",
+          "de": "Wichtiger Hinweis!",
+          "ru": "Важное замечание!",
+          "pt": "Notícia importante!",
+          "nl": "Belangrijke mededeling!",
+          "fr": "Avis important!",
+          "it": "Avviso IMPORTANTE!",
+          "es": "Noticia importante!",
+          "pl": "Ważna uwaga!",
+          "zh-cn": "重要通知!",
+          "uk": "Важливе повідомлення!"
         },
-        {
-            "_id": "statistics.inOperation",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "Messstellen in Betrieb",
-                    "en": "Measuring points in operation"
-                },
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "text": {
+          "en": "Breaking changes: Since version 2.x new ioBroker states and station identifiers are used. The adapter tries to migrate your configured stations, but you need to update your custom settings like history manually. Also the old ioBroker objects have to be deleted manually. Additionally the default schedule of the adapter will be randomized on first start.",
+          "de": "Wichtige Änderungen: Seit Version 2.x werden neue ioBroker-States und Messstellenkennungen verwendet. Der Adapter versucht, die konfigurierten Messstellen automatisch zu migrieren, aber die benutzerdefinierten Einstellungen, wie z.B. der Verlauf, müssen manuell angepasst werden. Auch die alten ioBroker-Objekte müssen manuell gelöscht werden. Zusätzlich wird der Zeitplan zum Starten des Adapters beim ersten Start randomisiert.",
+          "ru": "Критические изменения: Начиная с версии 2.x используются новые состояния ioBroker и идентификаторы станций. Адаптер пытается перенести настроенные вами станции, но вам необходимо вручную обновить пользовательские настройки, такие как история. Также старые объекты ioBroker необходимо удалить вручную. Кроме того, расписание адаптера по умолчанию будет выбрано случайным образом при первом запуске.",
+          "pt": "Mudanças importantes: Desde a versão 2.x, novos estados ioBroker e identificadores de estação são usados. O adaptador tenta migrar suas estações configuradas, mas você precisa atualizar manualmente suas configurações personalizadas, como histórico. Além disso, os objetos ioBroker antigos devem ser excluídos manualmente. Além disso, o agendamento padrão do adaptador será randomizado na primeira inicialização.",
+          "nl": "Belangrijke wijzigingen: sinds versie 2.x worden nieuwe ioBroker-statussen en station-ID's gebruikt. De adapter probeert uw geconfigureerde stations te migreren, maar u moet uw aangepaste instellingen zoals geschiedenis handmatig bijwerken. Ook de oude ioBroker-objecten moeten handmatig worden verwijderd. Bovendien wordt het standaardschema van de adapter bij de eerste start willekeurig verdeeld.",
+          "fr": "Modifications majeures : depuis la version 2.x, de nouveaux états et identifiants de station ioBroker sont utilisés. L'adaptateur tente de migrer vos stations configurées, mais vous devez mettre à jour manuellement vos paramètres personnalisés, tels que l'historique. De plus, les anciens objets ioBroker doivent être supprimés manuellement. De plus, la planification par défaut de l'adaptateur sera randomisée au premier démarrage.",
+          "it": "Modifiche di rilievo: dalla versione 2.x vengono utilizzati nuovi stati ioBroker e identificatori di stazione. L'adattatore tenta di migrare le stazioni configurate, ma è necessario aggiornare manualmente le impostazioni personalizzate come la cronologia. Anche i vecchi oggetti ioBroker devono essere eliminati manualmente. Inoltre, la pianificazione predefinita dell'adattatore verrà randomizzata al primo avvio.",
+          "es": "Cambios importantes: desde la versión 2.x, se utilizan nuevos estados de ioBroker e identificadores de estación. El adaptador intenta migrar sus estaciones configuradas, pero necesita actualizar su configuración personalizada, como el historial, manualmente. Además, los objetos antiguos de ioBroker deben eliminarse manualmente. Además, la programación predeterminada del adaptador se aleatorizará en el primer inicio.",
+          "pl": "Najważniejsze zmiany: Od wersji 2.x używane są nowe stany ioBroker oraz identyfikatory stacji. Adapter próbuje przeprowadzić migrację skonfigurowanych stacji roboczych, ale należy ręcznie zaktualizować ustawienia niestandardowe, takie jak historia. Również stare obiekty ioBroker muszą zostać usunięte ręcznie. Dodatkowo domyślny harmonogram adaptera będzie losowany przy pierwszym uruchomieniu.",
+          "zh-cn": "重大更改：从 2.x 版开始，使用了新的 ioBroker 状态和站点标识符。适配器会尝试迁移您配置的工作站，但您需要手动更新自定义设置，例如历史记录。旧的 ioBroker 对象也必须手动删除。此外，适配器的默认计划将在第一次启动时随机化。",
+          "uk": "Основні зміни: починаючи з версії 2.x використовуються нові стани ioBroker та ідентифікатори станцій. Адаптер намагається перенести ваші налаштовані станції, але вам потрібно вручну оновити власні параметри, наприклад історію. Також старі об’єкти ioBroker потрібно видалити вручну. Крім того, розклад за замовчуванням адаптера буде рандомізовано під час першого запуску."
         },
-        {
-            "_id": "statistics.defective",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "Messstellen defekt",
-                    "en": "Measuring points defective"
-                },
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "link": "https://github.com/crycode-de/ioBroker.odl#changelog",
+        "linkText": {
+          "en": "See Changelog",
+          "de": "Siehe Änderungsprotokoll",
+          "ru": "См. журнал изменений",
+          "pt": "Ver registro de alterações",
+          "nl": "Zie Changelog",
+          "fr": "Voir le journal des modifications",
+          "it": "Vedi Registro delle modifiche",
+          "es": "Ver registro de cambios",
+          "pl": "Zobacz listę zmian",
+          "zh-cn": "查看变更日志",
+          "uk": "Перегляньте журнал змін"
         },
-        {
-            "_id": "statistics.testOperation",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "Messstellen Testbetrieb",
-                    "en": "Measuring points test operation"
-                },
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "level": "warn",
+        "buttons": [
+          "ok",
+          "cancel"
+        ]
+      },
+      {
+        "condition": {
+          "operand": "and",
+          "rules": [
+            "oldVersion<3.0.0",
+            "newVersion>=3.0.0"
+          ]
         },
-        {
-            "_id": "statistics.valueMin",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "aktuell niedrigste ODL",
-                    "en": "current minimum GDR"
-                },
-                "role": "value",
-                "type": "number",
-                "unit": "µSv/h",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "title": {
+          "en": "Important notice!",
+          "de": "Wichtiger Hinweis!",
+          "ru": "Важное замечание!",
+          "pt": "Notícia importante!",
+          "nl": "Belangrijke mededeling!",
+          "fr": "Avis important!",
+          "it": "Avviso IMPORTANTE!",
+          "es": "Noticia importante!",
+          "pl": "Ważna uwaga!",
+          "zh-cn": "重要通知!",
+          "uk": "Важливе повідомлення!"
         },
-        {
-            "_id": "statistics.valueMinLocation",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "Ort der aktuell niedrigsten ODL",
-                    "en": "location of the current minimum GDR"
-                },
-                "role": "value",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "text": {
+          "en": "Breaking changes: Since version 3.x at least Node.js 16 is required.",
+          "de": "Wichtige Änderung: Ab Version 3.x ist mindestens Node.js 16 erforderlich.",
+          "ru": "Критические изменения: начиная с версии 3.x требуется как минимум Node.js 16.",
+          "pt": "Mudanças importantes: desde a versão 3.x, pelo menos o Node.js 16 é necessário.",
+          "nl": "Belangrijke wijzigingen: sinds versie 3.x is minimaal Node.js 16 vereist.",
+          "fr": "Modifications majeures : depuis la version 3.x, au moins Node.js 16 est requis.",
+          "it": "Modifiche importanti: dalla versione 3.x è richiesto almeno Node.js 16.",
+          "es": "Cambios importantes: desde la versión 3.x se requiere al menos Node.js 16.",
+          "pl": "Najważniejsze zmiany: Od wersji 3.x wymagany jest co najmniej Node.js 16.",
+          "uk": "Головні зміни: починаючи з версії 3.x, потрібен принаймні Node.js 16.",
+          "zh-cn": "重大更改：从版本 3.x 开始，至少需要 Node.js 16。"
         },
-        {
-            "_id": "statistics.valueMax",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "aktuell höchste ODL",
-                    "en": "current maximum GDR"
-                },
-                "role": "value",
-                "type": "number",
-                "unit": "µSv/h",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "level": "warn",
+        "buttons": [
+          "ok",
+          "cancel"
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "js-controller": ">=2.0.0"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.28"
+      }
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://b949776de36f4caead135cd0a6380f21@sentry.cryhost.de/6"
+      }
+    }
+  },
+  "native": {
+    "msts": [],
+    "timeout": 30,
+    "useCosmicTerrestrial": false,
+    "updateHistory": false
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "statistics",
+      "type": "channel",
+      "common": {
+        "name": {
+          "de": "Statistiken",
+          "en": "Statistics"
         },
-        {
-            "_id": "statistics.valueMaxLocation",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "Ort der aktuell höchsten ODL",
-                    "en": "location of the current maximum GDR"
-                },
-                "role": "value",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.total",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "Messstellen ingesamt",
+          "en": "Measuring points total"
         },
-        {
-            "_id": "statistics.valueAvg",
-            "type": "state",
-            "common": {
-                "name": {
-                    "de": "aktuell durchschnittliche ODL",
-                    "en": "current average GDR"
-                },
-                "role": "value",
-                "type": "number",
-                "unit": "µSv/h",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
-    ]
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.inOperation",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "Messstellen in Betrieb",
+          "en": "Measuring points in operation"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.defective",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "Messstellen defekt",
+          "en": "Measuring points defective"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.testOperation",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "Messstellen Testbetrieb",
+          "en": "Measuring points test operation"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.valueMin",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "aktuell niedrigste ODL",
+          "en": "current minimum GDR"
+        },
+        "role": "value",
+        "type": "number",
+        "unit": "µSv/h",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.valueMinLocation",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "Ort der aktuell niedrigsten ODL",
+          "en": "location of the current minimum GDR"
+        },
+        "role": "value",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.valueMax",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "aktuell höchste ODL",
+          "en": "current maximum GDR"
+        },
+        "role": "value",
+        "type": "number",
+        "unit": "µSv/h",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.valueMaxLocation",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "Ort der aktuell höchsten ODL",
+          "en": "location of the current maximum GDR"
+        },
+        "role": "value",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "statistics.valueAvg",
+      "type": "state",
+      "common": {
+        "name": {
+          "de": "aktuell durchschnittliche ODL",
+          "en": "current average GDR"
+        },
+        "role": "value",
+        "type": "number",
+        "unit": "µSv/h",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }
