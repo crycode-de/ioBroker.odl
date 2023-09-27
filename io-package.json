@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "odl",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "news": {
-      "3.0.0": {
+      "3.0.1": {
         "en": "Node.js >= 16 is required\nFixed issue with history adapters\nUpdated dependencies",
         "de": "Node.js >= 16 ist erforderlich\nProbleme mit Verlaufsadaptern behoben\nAbhängigkeiten aktualisiert",
         "ru": "Node.js >= 16 требуется\nИсправлена проблема с переходниками истории\nОбновленные зависимости",
@@ -80,19 +80,6 @@
         "pl": "Ogromna przebudowa adaptera, Użyj oficjalnego API, Nowe stany, ...",
         "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ...",
         "uk": "Величезна перебудова адаптера, використання офіційного API, нові стани, ..."
-      },
-      "1.1.4": {
-        "en": "Updated BfS logo, Updated dependencies",
-        "de": "Aktualisiertes BfS-Logo, Aktualisierte Abhängigkeiten",
-        "ru": "Обновлен логотип BfS, обновлены зависимости",
-        "pt": "Logotipo BfS atualizado, dependências atualizadas",
-        "nl": "Bijgewerkt BfS-logo, bijgewerkte afhankelijkheden",
-        "fr": "Logo BfS mis à jour, dépendances mises à jour",
-        "it": "Logo BfS aggiornato, dipendenze aggiornate",
-        "es": "Logotipo BfS actualizado, dependencias actualizadas",
-        "pl": "Zaktualizowane logo BfS, zaktualizowane zależności",
-        "zh-cn": "更新了BfS徽标，更新了依赖项",
-        "uk": "Оновлений логотип BfS, оновлені залежності"
       }
     },
     "titleLang": {
