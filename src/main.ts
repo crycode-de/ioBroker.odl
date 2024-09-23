@@ -49,7 +49,7 @@ class OdlAdapter extends Adapter {
    * Constructor to create a new instance of the adapter.
    * @param options The adapter options.
    */
-  constructor(options: Partial<AdapterOptions> = {}) {
+  constructor (options: Partial<AdapterOptions> = {}) {
     super({
       ...options,
       name: 'odl',
@@ -72,7 +72,7 @@ class OdlAdapter extends Adapter {
   /**
    * Is called when databases are connected and adapter received configuration.
    */
-  private async onReady(): Promise<void> {
+  private async onReady (): Promise<void> {
     let instObj: ioBroker.InstanceObject | null | undefined = null;
 
     /*
@@ -91,13 +91,13 @@ class OdlAdapter extends Adapter {
         this.exit(EXIT_CODES.NO_ERROR);
         return;
       }
-    } catch (e) {
+    } catch (_e) {
       this.log.error(`Could not check or adjust the schedule`);
     }
 
     // get the system language
     const objSystemConfig = await this.getForeignObjectAsync('system.config');
-    this.systemLanguage = objSystemConfig?.common?.language || 'en';
+    this.systemLanguage = objSystemConfig?.common?.language ?? 'en';
     this.log.debug(`system language: ${this.systemLanguage}`);
 
     // check config msts is an array
@@ -140,7 +140,11 @@ class OdlAdapter extends Adapter {
       clearTimeout(this.exitTimeout);
     }
 
-    this.terminate ? this.terminate(code) : process.exit(code);
+    if (this.terminate) {
+      this.terminate(code);
+    } else {
+      process.exit(code);
+    }
   }
 
   /**
@@ -158,8 +162,7 @@ class OdlAdapter extends Adapter {
       timeout: (this.config.timeout || 30) * 1000,
     })
       .catch((err) => {
-        this.log.warn('Error loading latest data from server!');
-        this.log.warn(err);
+        this.log.warn(`Error loading latest data from server! ${err}`);
         return null;
       });
 
@@ -191,6 +194,7 @@ class OdlAdapter extends Adapter {
     }
 
     // check if we need to migrate old configurations before v2.0.0
+    /* eslint-disable @typescript-eslint/no-deprecated */
     if (Array.isArray(this.config.localityCode) && this.config.localityCode.length > 0) {
       this.log.info('Found outdated configuration. Will now migrate this from locality codes to identifiers.');
       try {
@@ -199,30 +203,31 @@ class OdlAdapter extends Adapter {
           instObj.native = {
             ...this.config,
           };
-          instObj.native.msts = instObj.native.msts || [];
+          instObj.native.msts = (instObj.native.msts as string[] | undefined) ?? [];
           for (const loc of this.config.localityCode) {
             const feature = featureCollectionLatest.features.find((f) => f.properties.id === loc);
             if (feature) {
-              instObj.native.msts.push(feature.properties.kenn);
+              (instObj.native.msts as string[]).push(feature.properties.kenn);
               this.log.info(`Migrated locality code ${loc} to identifier ${feature.properties.kenn}`);
             } else {
               this.log.warn(`Locality code ${loc} not found in current BfS data!`);
             }
           }
           delete instObj.native.localityCode;
-          this.log.info(`Migrated ${instObj.native.msts.length} localities`);
-          if (instObj.native.msts.length > 0) {
+          this.log.info(`Migrated ${(instObj.native.msts as string[]).length} localities`);
+          if ((instObj.native.msts as string[]).length > 0) {
             this.log.warn('Please check and transfer your history configurations from the old objects to the new ones. Also you may delete the old DEZ… objects as they are no longer used now.');
           }
           await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
           this.exit(EXIT_CODES.NO_ERROR);
           return;
         }
-      } catch (e) {
+      } catch (_e) {
         this.log.error(`Could not adjust outdated configuration!`);
       }
       return;
     }
+    /* eslint-enable @typescript-eslint/no-deprecated */
 
     /*
      * configured measuring points
@@ -245,7 +250,7 @@ class OdlAdapter extends Adapter {
       let objChan: ioBroker.ChannelObject | null = await this.getObjectAsync(mstKenn) as ioBroker.ChannelObject | null;
       if (objChan?.type !== 'channel') {
         objChan = {
-          _id:`${this.namespace}.${mstKenn}`,
+          _id: `${this.namespace}.${mstKenn}`,
           type: 'channel',
           common: {
             name: `${mstKenn} - ${featureLatest.properties.plz} ${featureLatest.properties.name}`,
@@ -255,7 +260,6 @@ class OdlAdapter extends Adapter {
         await this.setObjectAsync(mstKenn, objChan);
         this.log.debug(`created channel ${objChan._id}`);
       }
-
 
       /*
        * value object
@@ -371,20 +375,20 @@ class OdlAdapter extends Adapter {
       };
       const currentState = await this.getStateAsync(`${mstKenn}.value`);
       if (!currentState || currentState.val !== (newState as ioBroker.State).val || currentState.ts !== (newState as ioBroker.State).ts) {
-        await this.setStateAsync(`${mstKenn}.value`, newState);
+        await this.setState(`${mstKenn}.value`, newState);
 
         if (objValueCosmic) {
           (newState as ioBroker.State).val = featureLatest.properties.value_cosmic;
-          await this.setStateAsync(`${mstKenn}.valueCosmic`, newState);
+          await this.setState(`${mstKenn}.valueCosmic`, newState);
         }
         if (objValueTerrestrial) {
           (newState as ioBroker.State).val = featureLatest.properties.value_terrestrial;
-          await this.setStateAsync(`${mstKenn}.valueTerrestrial`, newState);
+          await this.setState(`${mstKenn}.valueTerrestrial`, newState);
         }
       }
 
       // set status
-      await this.setStateAsync(`${mstKenn}.status`, featureLatest.properties.site_status, true);
+      await this.setState(`${mstKenn}.status`, featureLatest.properties.site_status, true);
 
       /*
        * check history when updating the history enabled, status is in operation and values are provided
@@ -399,14 +403,15 @@ class OdlAdapter extends Adapter {
 
         const currentHistory: Record<string, Record<string, ioBroker.State[]>> = {};
 
-        for (const obj of [objValue, objValueCosmic, objValueTerrestrial]) {
+        for (const obj of [ objValue, objValueCosmic, objValueTerrestrial ]) {
           if (!obj) continue;
 
           currentHistory[obj._id] = {};
 
           for (const historyKey in obj.common.custom) {
             // check if history is found and enabled
-            if (historyKey.match(/^(history|influxdb|sql)\.\d+$/) && obj.common.custom[historyKey].enabled === true) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            if ((/^(history|influxdb|sql)\.\d+$/.exec(historyKey)) && obj.common.custom[historyKey].enabled === true) {
               // history instance found and enabled
               this.log.debug(`history adapter ${historyKey} found for ${obj._id}`);
 
@@ -448,8 +453,7 @@ class OdlAdapter extends Adapter {
             timeout: (this.config.timeout || 30) * 1000,
           })
             .catch((err) => {
-              this.log.warn(`Error loading timeseries data for ${mstKenn} from server!`);
-              this.log.warn(err);
+              this.log.warn(`Error loading timeseries data for ${mstKenn} from server! ${err}`);
               return null;
             });
 
@@ -482,7 +486,7 @@ class OdlAdapter extends Adapter {
 
           // loop over the three value objects to reuse code ;-)
           // cosmic and terrestrial may be null
-          for (const obj of [objValue, objValueCosmic, objValueTerrestrial]) {
+          for (const obj of [ objValue, objValueCosmic, objValueTerrestrial ]) {
             if (!obj) continue;
 
             for (const historyKey in currentHistory[obj._id]) {
@@ -541,13 +545,13 @@ class OdlAdapter extends Adapter {
     }
 
     await Promise.all([
-      this.setStateAsync('statistics.total', featureCollectionLatest.features.length, true),
-      this.setStateAsync('statistics.inOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
-      this.setStateAsync('statistics.defective', featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
-      this.setStateAsync('statistics.testOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true),
+      this.setState('statistics.total', featureCollectionLatest.features.length, true),
+      this.setState('statistics.inOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
+      this.setState('statistics.defective', featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
+      this.setState('statistics.testOperation', featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true),
     ]);
 
-    const fValues = featureCollectionLatest.features.filter((f) => f.properties.value !== null).map((f) => f.properties.value as number);
+    const fValues = featureCollectionLatest.features.filter((f) => f.properties.value !== null).map((f) => f.properties.value!);
     if (fValues.length > 0) {
       const valMin = Math.min(...fValues);
       const valMax = Math.max(...fValues);
@@ -559,19 +563,19 @@ class OdlAdapter extends Adapter {
       const fMaxStr = fMax ? `${fMax.properties.kenn} - ${fMax.properties.plz} ${fMax.properties.name}` : '';
 
       await Promise.all([
-        this.setStateAsync('statistics.valueMin', valMin, true),
-        this.setStateAsync('statistics.valueMinLocation', fMinStr, true),
-        this.setStateAsync('statistics.valueMax', valMax, true),
-        this.setStateAsync('statistics.valueMaxLocation', fMaxStr, true),
-        this.setStateAsync('statistics.valueAvg', valAvg, true),
+        this.setState('statistics.valueMin', valMin, true),
+        this.setState('statistics.valueMinLocation', fMinStr, true),
+        this.setState('statistics.valueMax', valMax, true),
+        this.setState('statistics.valueMaxLocation', fMaxStr, true),
+        this.setState('statistics.valueAvg', valAvg, true),
       ]);
     } else {
       await Promise.all([
-        this.setStateAsync('statistics.valueMin', { val: null, q: 0x01 }, true),
-        this.setStateAsync('statistics.valueMinLocation', { val: null, q: 0x01 }, true),
-        this.setStateAsync('statistics.valueMax', { val: null, q: 0x01 }, true),
-        this.setStateAsync('statistics.valueMaxLocation', { val: null, q: 0x01 }, true),
-        this.setStateAsync('statistics.valueAvg', { val: null, q: 0x01 }, true),
+        this.setState('statistics.valueMin', { val: null, q: 0x01 }, true),
+        this.setState('statistics.valueMinLocation', { val: null, q: 0x01 }, true),
+        this.setState('statistics.valueMax', { val: null, q: 0x01 }, true),
+        this.setState('statistics.valueMaxLocation', { val: null, q: 0x01 }, true),
+        this.setState('statistics.valueAvg', { val: null, q: 0x01 }, true),
       ]);
     }
   }

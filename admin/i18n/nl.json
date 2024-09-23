@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Datalicentie Duitsland – Naamsvermelding – Versie 2.0",
+    "Enter one or more measuring stations to load data for.": "Voer een of meer meetpunten in om gegevens voor te laden.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Federaal Bureau voor Stralingsbescherming (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Indien ingeschakeld, zullen aanvullende statussen voor de kosmische en terrestrische ADR-componenten worden gebruikt.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Als dit is ingeschakeld en een geschiedenis voor een waardestatus is geconfigureerd, probeert de adapter ontbrekende geschiedeniswaarden van de afgelopen 7 dagen te laden om de geschiedenis te vullen.",
+    "Measuring stations": "Meetpunten",
+    "See also detailed information from the BfS.": "Zie ook gedetailleerde informatie van de BfS.",
+    "Settings": "Instellingen",
+    "Timeout for each request to the server in seconds. Default is 30.": "Time-out voor elk verzoek aan de server in seconden. ",
+    "Timeout while loading data": "Time-out tijdens het laden van gegevens",
+    "Update history": "Geschiedenis bijwerken",
+    "Use cosmic and terrestrial components": "Gebruik kosmische en terrestrische componenten",
+    "info_text": "Het OAO-meetnet van het Bundesamt für Strahlenschutz (BfS) bewaakt de natuurlijke blootstelling aan straling met behulp van ongeveer 1700 OAO-meetstations. De intensiteit van het lokale dosistempo wordt soms beïnvloed door externe factoren. Onderhoudswerkzaamheden, reconstructie van de locatie, storingen van zenders, storingen van sondes en regelmatig radiologisch testen van de sondes kunnen leiden tot een korte of lange termijn downtime van meetstations."
+}

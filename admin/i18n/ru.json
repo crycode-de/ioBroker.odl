@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Лицензия на данные Германия – атрибуция – Версия 2.0",
+    "Enter one or more measuring stations to load data for.": "Введите одну или несколько точек измерения, для которых необходимо загрузить данные.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Федеральное управление по радиационной защите (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Если включено, будут использоваться дополнительные состояния для космического и земного компонентов ADR.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Если этот параметр включен и настроен журнал для состояния значения, адаптер пытается загрузить отсутствующие значения журнала за последние 7 дней, чтобы заполнить журнал.",
+    "Measuring stations": "Точки измерения",
+    "See also detailed information from the BfS.": "См. также подробную информацию от BfS.",
+    "Settings": "Настройки",
+    "Timeout for each request to the server in seconds. Default is 30.": "Тайм-аут для каждого запроса к серверу в секундах. ",
+    "Timeout while loading data": "Тайм-аут при загрузке данных",
+    "Update history": "История обновлений",
+    "Use cosmic and terrestrial components": "Используйте космические и земные компоненты",
+    "info_text": "Измерительная сеть ODL Федерального управления по радиационной защите (Bundesamt für Strahlenschutz, BfS) контролирует естественное радиационное воздействие с использованием около 1700 измерительных станций ODL. На интенсивность локальной мощности дозы иногда влияют внешние факторы. Работы по техническому обслуживанию, реконструкция объекта, неисправности передатчиков, неисправности датчиков и регулярные радиологические проверки датчиков могут привести к краткосрочному или длительному простою измерительных станций."
+}

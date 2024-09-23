@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Licença de dados Alemanha – atribuição – Versão 2.0",
+    "Enter one or more measuring stations to load data for.": "Insira um ou mais pontos de medição para carregar dados.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Escritório Federal de Proteção Radiológica (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Se ativado, serão usados ​​estados adicionais para os componentes ADR cósmicos e terrestres.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Se estiver ativado e um histórico para um estado de valor estiver configurado, o adaptador tentará carregar valores de histórico ausentes nos últimos 7 dias para preencher o histórico.",
+    "Measuring stations": "Pontos de medição",
+    "See also detailed information from the BfS.": "Veja também informações detalhadas do BfS.",
+    "Settings": "Configurações",
+    "Timeout for each request to the server in seconds. Default is 30.": "Tempo limite para cada solicitação ao servidor em segundos. ",
+    "Timeout while loading data": "Tempo limite ao carregar dados",
+    "Update history": "Atualizar histórico",
+    "Use cosmic and terrestrial components": "Use componentes cósmicos e terrestres",
+    "info_text": "A rede de medição ODL do Departamento Federal de Proteção contra Radiação (Bundesamt für Strahlenschutz, BfS) monitora a exposição natural à radiação usando cerca de 1700 estações de medição ODL. A intensidade da taxa de dose local às vezes é afetada por fatores externos. Trabalhos de manutenção, reconstrução do local, mau funcionamento dos transmissores, mau funcionamento das sondas e testes radiológicos regulares das sondas podem levar a um tempo de inatividade de curto ou longo prazo das estações de medição."
+}

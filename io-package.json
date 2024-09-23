@@ -134,7 +134,7 @@
     "dataSource": "poll",
     "compact": true,
     "adminUI": {
-      "config": "materialize"
+      "config": "json"
     },
     "messagebox": false,
     "messages": [
@@ -235,12 +235,12 @@
     ],
     "dependencies": [
       {
-        "js-controller": ">=2.0.0"
+        "js-controller": ">=5.0.19"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=5.1.28"
+        "admin": ">=6.17"
       }
     ],
     "plugins": {

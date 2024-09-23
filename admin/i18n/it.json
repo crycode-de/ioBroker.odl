@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Licenza dati Germania – attribuzione – Versione 2.0",
+    "Enter one or more measuring stations to load data for.": "Immettere uno o più punti di misurazione per cui caricare i dati.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Ufficio federale della radioprotezione (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Se abilitato, verranno utilizzati stati aggiuntivi per le componenti ADR cosmica e terrestre.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Se questa opzione è abilitata ed è configurata una cronologia per uno stato del valore, l'adattatore tenta di caricare i valori della cronologia mancanti degli ultimi 7 giorni per riempire la cronologia.",
+    "Measuring stations": "Punti di misura",
+    "See also detailed information from the BfS.": "Vedi anche informazioni dettagliate dal BfS.",
+    "Settings": "Impostazioni",
+    "Timeout for each request to the server in seconds. Default is 30.": "Timeout per ogni richiesta al server in secondi. ",
+    "Timeout while loading data": "Timeout durante il caricamento dei dati",
+    "Update history": "Aggiorna cronologia",
+    "Use cosmic and terrestrial components": "Usa componenti cosmiche e terrestri",
+    "info_text": "La rete di misurazione ODL dell'Ufficio federale per la radioprotezione (Bundesamt für Strahlenschutz, BfS) monitora l'esposizione naturale alle radiazioni utilizzando circa 1700 stazioni di misurazione ODL. L'intensità della dose locale è talvolta influenzata da fattori esterni. Lavori di manutenzione, ricostruzione del sito, malfunzionamenti dei trasmettitori, malfunzionamenti delle sonde e controlli radiologici regolari delle sonde possono portare a tempi di fermo delle stazioni di misura a breve oa lungo termine."
+}

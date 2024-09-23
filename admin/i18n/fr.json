@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Licence de données Allemagne – attribution – Version 2.0",
+    "Enter one or more measuring stations to load data for.": "Saisissez un ou plusieurs stations de mesure pour lesquels charger les données.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Office fédéral de radioprotection (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Si cette option est activée, des états supplémentaires pour les composants ADR cosmique et terrestre seront utilisés.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Si cette option est activée et qu'un historique pour un état de valeur est configuré, l'adaptateur essaie de charger les valeurs d'historique manquantes des 7 derniers jours pour remplir l'historique.",
+    "Measuring stations": "stations de mesure",
+    "See also detailed information from the BfS.": "Voir également les informations détaillées du BfS.",
+    "Settings": "Réglages",
+    "Timeout for each request to the server in seconds. Default is 30.": "Délai d'attente pour chaque demande au serveur en secondes. ",
+    "Timeout while loading data": "Délai d'attente lors du chargement des données",
+    "Update history": "Historique des mises à jour",
+    "Use cosmic and terrestrial components": "Utiliser des composants cosmiques et terrestres",
+    "info_text": "Le réseau de mesure ODL de l'Office fédéral de radioprotection (Bundesamt für Strahlenschutz, BfS) surveille l'exposition aux rayonnements naturels à l'aide d'environ 1700 stations de mesure ODL. L'intensité du débit de dose local est parfois affectée par des facteurs externes. Les travaux de maintenance, la reconstruction du site, les dysfonctionnements des émetteurs, les dysfonctionnements des sondes et les contrôles radiologiques réguliers des sondes peuvent entraîner une indisponibilité de courte ou de longue durée des stations de mesure."
+}

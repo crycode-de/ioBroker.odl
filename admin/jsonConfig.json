@@ -1,0 +1,93 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "_settingsHeader": {
+      "type": "header",
+      "size": 2,
+      "text": "Settings"
+    },
+    "msts": {
+      "type": "chips",
+      "newLine": true,
+      "sm": 12,
+      "label": "Measuring stations",
+      "help": "Enter one or more measuring stations to load data for."
+    },
+    "_info": {
+      "type": "staticText",
+      "style": {
+        "fontSize": "1.1em"
+      },
+      "text": "To find the identifiers for the measuring stations use the list of measuring stations provided by the Federal Office for Radiation Protection."
+    },
+    "_linkList": {
+      "type": "staticLink",
+      "style": {
+        "fontSize": "1.1em"
+      },
+      "label": "List of measuring stations",
+      "href": "https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/liste/liste_node.html"
+    },
+    "useCosmicTerrestrial": {
+      "type": "checkbox",
+      "newLine": true,
+      "sm": 12,
+      "lg": 4,
+      "label": "Use cosmic and terrestrial components",
+      "help": "If enabled, additional states for the cosmic and terrestrial ADR components will be used."
+    },
+    "updateHistory": {
+      "type": "checkbox",
+      "sm": 12,
+      "lg": 4,
+      "label": "Update history",
+      "help": "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history."
+    },
+    "timeout": {
+      "type": "number",
+      "sm": 12,
+      "lg": 4,
+      "label": "Timeout while loading data",
+      "help": "Timeout for each request to the server in seconds. Default is 30.",
+      "placeholder": "30",
+      "min": 1,
+      "max": 360
+    },
+
+    "_infoHeader": {
+      "type": "header",
+      "size": 2,
+      "text": "Information"
+    },
+    "_infoText1": {
+      "type": "staticText",
+      "newLine": true,
+      "style": {
+        "fontSize": "1.1em"
+      },
+      "text": "info_text"
+    },
+    "_infoText2": {
+      "type": "staticLink",
+      "newLine": true,
+      "style": {
+        "fontSize": "1.1em"
+      },
+      "href": "https://odlinfo.bfs.de/ODL/DE/themen/was-ist-odl/einflussfaktoren/einflussfaktoren_node.html",
+      "label": "See also detailed information from the BfS."
+    },
+    "_infoText3": {
+      "type": "staticLink",
+      "newLine": true,
+      "href": "https://www.bfs.de",
+      "label": "Data © Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)"
+    },
+    "_infoText4": {
+      "type": "staticLink",
+      "newLine": true,
+      "href": "http://www.govdata.de/dl-de/by-2-0",
+      "label": "Data license Germany – attribution – Version 2.0"
+    }
+  }
+}

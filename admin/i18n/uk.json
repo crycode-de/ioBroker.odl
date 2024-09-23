@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Ліцензія даних Німеччина – посилання на джерело – Версія 2.0",
+    "Enter one or more measuring stations to load data for.": "Введіть одну або кілька точок вимірювання, для яких потрібно завантажити дані.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Федеральне відомство радіаційного захисту (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Якщо ввімкнено, будуть використані додаткові стани для космічних і земних компонентів ADR.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Якщо це ввімкнено та налаштовано історію для стану значення, адаптер намагається завантажити відсутні значення історії за останні 7 днів, щоб заповнити історію.",
+    "Measuring stations": "Точки вимірювання",
+    "See also detailed information from the BfS.": "Дивіться також детальну інформацію від BfS.",
+    "Settings": "Налаштування",
+    "Timeout for each request to the server in seconds. Default is 30.": "Тайм-аут для кожного запиту до сервера в секундах. За замовчуванням 30.",
+    "Timeout while loading data": "Час очікування під час завантаження даних",
+    "Update history": "Історія оновлення",
+    "Use cosmic and terrestrial components": "Використовуйте космічні та земні компоненти",
+    "info_text": "Вимірювальна мережа ODL Федерального відомства радіаційного захисту (Bundesamt für Strahlenschutz, BfS) контролює природне опромінення за допомогою приблизно 1700 вимірювальних станцій ODL. На інтенсивність місцевої потужності дози іноді впливають зовнішні фактори. До них відносяться дощ, сніг і вітер. Технічні роботи, реконструкція майданчика, несправності передавачів, несправності зондів і регулярні радіологічні перевірки зондів можуть призвести до короткочасного або тривалого простою вимірювальних станцій."
+}

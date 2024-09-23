@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "德国数据许可证 – 归属 – 2.0 版",
+    "Enter one or more measuring stations to load data for.": "输入一个或多个测量点以加载数据。",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "如果启用，将使用宇宙和陆地 ADR 组件的其他状态。",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "如果启用此功能并配置了值状态的历史记录，则适配器会尝试加载过去 7 天缺失的历史记录值以填充历史记录。",
+    "Measuring stations": "测量点",
+    "See also detailed information from the BfS.": "另请参阅 BfS 的详细信息。",
+    "Settings": "设置",
+    "Timeout for each request to the server in seconds. Default is 30.": "对服务器的每个请求的超时时间（以秒为单位）。",
+    "Timeout while loading data": "加载数据时超时",
+    "Update history": "更新历史",
+    "Use cosmic and terrestrial components": "使用宇宙和地球组件",
+    "info_text": "联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS) 的 ODL 测量网络使用大约 1700 个 ODL 测量站监测自然辐射暴露。 局部剂量率的强度有时会受到外部因素的影响。 维护工作、现场重建、发射器故障、探头故障和探头的定期放射测试可能导致测量站的短期或长期停机。"
+}

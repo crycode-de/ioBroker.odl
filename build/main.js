@@ -26,6 +26,27 @@ var import_adapter_core = require("@iobroker/adapter-core");
 var import_axios = __toESM(require("axios"));
 class OdlAdapter extends import_adapter_core.Adapter {
   /**
+   * URL to get the latest data.
+   */
+  urlLatest = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_odl_1h_latest&outputFormat=application/json";
+  /**
+   * URL to get the latest 168 features (24h * 7d = 168 features).
+   * `#kenn#` will be replaced by the identifier.
+   */
+  urlTimeseries = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_timeseries_odl_1h&outputFormat=application/json&viewparams=kenn:#kenn#&sortBy=end_measure+A&maxFeatures=168";
+  /**
+   * Timeout to force adapter exit after some time.
+   */
+  exitTimeout = null;
+  /**
+   * If the adapter is unloaded (should stop).
+   */
+  unloaded = false;
+  /**
+   * Configured system language.
+   */
+  systemLanguage = "en";
+  /**
    * Constructor to create a new instance of the adapter.
    * @param options The adapter options.
    */
@@ -34,27 +55,6 @@ class OdlAdapter extends import_adapter_core.Adapter {
       ...options,
       name: "odl"
     });
-    /**
-     * URL to get the latest data.
-     */
-    this.urlLatest = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_odl_1h_latest&outputFormat=application/json";
-    /**
-     * URL to get the latest 168 features (24h * 7d = 168 features).
-     * `#kenn#` will be replaced by the identifier.
-     */
-    this.urlTimeseries = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_timeseries_odl_1h&outputFormat=application/json&viewparams=kenn:#kenn#&sortBy=end_measure+A&maxFeatures=168";
-    /**
-     * Timeout to force adapter exit after some time.
-     */
-    this.exitTimeout = null;
-    /**
-     * If the adapter is unloaded (should stop).
-     */
-    this.unloaded = false;
-    /**
-     * Configured system language.
-     */
-    this.systemLanguage = "en";
     this.on("ready", this.onReady.bind(this));
     this.on("unload", this.onUnload.bind(this));
     this.exitTimeout = setTimeout(() => {
@@ -69,7 +69,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
    * Is called when databases are connected and adapter received configuration.
    */
   async onReady() {
-    var _a, _b;
+    var _a, _b, _c;
     let instObj = null;
     try {
       instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
@@ -82,11 +82,11 @@ class OdlAdapter extends import_adapter_core.Adapter {
         this.exit(import_adapter_core.EXIT_CODES.NO_ERROR);
         return;
       }
-    } catch (e) {
+    } catch (_e) {
       this.log.error(`Could not check or adjust the schedule`);
     }
     const objSystemConfig = await this.getForeignObjectAsync("system.config");
-    this.systemLanguage = ((_b = objSystemConfig == null ? void 0 : objSystemConfig.common) == null ? void 0 : _b.language) || "en";
+    this.systemLanguage = (_c = (_b = objSystemConfig == null ? void 0 : objSystemConfig.common) == null ? void 0 : _b.language) != null ? _c : "en";
     this.log.debug(`system language: ${this.systemLanguage}`);
     if (!Array.isArray(this.config.msts)) {
       this.config.msts = [];
@@ -119,12 +119,17 @@ class OdlAdapter extends import_adapter_core.Adapter {
     if (this.exitTimeout) {
       clearTimeout(this.exitTimeout);
     }
-    this.terminate ? this.terminate(code) : process.exit(code);
+    if (this.terminate) {
+      this.terminate(code);
+    } else {
+      process.exit(code);
+    }
   }
   /**
    * Read the data, create objects and states.
    */
   async read() {
+    var _a;
     const resLatest = await import_axios.default.request({
       url: this.urlLatest,
       method: "get",
@@ -134,8 +139,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
       },
       timeout: (this.config.timeout || 30) * 1e3
     }).catch((err) => {
-      this.log.warn("Error loading latest data from server!");
-      this.log.warn(err);
+      this.log.warn(`Error loading latest data from server! ${err}`);
       return null;
     });
     if (this.unloaded) {
@@ -165,7 +169,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
           instObj.native = {
             ...this.config
           };
-          instObj.native.msts = instObj.native.msts || [];
+          instObj.native.msts = (_a = instObj.native.msts) != null ? _a : [];
           for (const loc of this.config.localityCode) {
             const feature = featureCollectionLatest.features.find((f) => f.properties.id === loc);
             if (feature) {
@@ -184,7 +188,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
           this.exit(import_adapter_core.EXIT_CODES.NO_ERROR);
           return;
         }
-      } catch (e) {
+      } catch (_e) {
         this.log.error(`Could not adjust outdated configuration!`);
       }
       return;
@@ -312,17 +316,17 @@ class OdlAdapter extends import_adapter_core.Adapter {
       };
       const currentState = await this.getStateAsync(`${mstKenn}.value`);
       if (!currentState || currentState.val !== newState.val || currentState.ts !== newState.ts) {
-        await this.setStateAsync(`${mstKenn}.value`, newState);
+        await this.setState(`${mstKenn}.value`, newState);
         if (objValueCosmic) {
           newState.val = featureLatest.properties.value_cosmic;
-          await this.setStateAsync(`${mstKenn}.valueCosmic`, newState);
+          await this.setState(`${mstKenn}.valueCosmic`, newState);
         }
         if (objValueTerrestrial) {
           newState.val = featureLatest.properties.value_terrestrial;
-          await this.setStateAsync(`${mstKenn}.valueTerrestrial`, newState);
+          await this.setState(`${mstKenn}.valueTerrestrial`, newState);
         }
       }
-      await this.setStateAsync(`${mstKenn}.status`, featureLatest.properties.site_status, true);
+      await this.setState(`${mstKenn}.status`, featureLatest.properties.site_status, true);
       if (this.config.updateHistory && featureLatest.properties.site_status === 1 && featureLatest.properties.end_measure && featureLatest.properties.value && featureLatest.properties.value_cosmic) {
         let updateHistory = false;
         const histroyEndDate = new Date(featureLatest.properties.end_measure);
@@ -334,7 +338,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
             continue;
           currentHistory[obj._id] = {};
           for (const historyKey in obj.common.custom) {
-            if (historyKey.match(/^(history|influxdb|sql)\.\d+$/) && obj.common.custom[historyKey].enabled === true) {
+            if (/^(history|influxdb|sql)\.\d+$/.exec(historyKey) && obj.common.custom[historyKey].enabled === true) {
               this.log.debug(`history adapter ${historyKey} found for ${obj._id}`);
               const getHistoryResult = await this.sendToAsync(historyKey, "getHistory", {
                 id: obj._id,
@@ -368,8 +372,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
             },
             timeout: (this.config.timeout || 30) * 1e3
           }).catch((err) => {
-            this.log.warn(`Error loading timeseries data for ${mstKenn} from server!`);
-            this.log.warn(err);
+            this.log.warn(`Error loading timeseries data for ${mstKenn} from server! ${err}`);
             return null;
           });
           if (this.unloaded) {
@@ -433,10 +436,10 @@ class OdlAdapter extends import_adapter_core.Adapter {
       return;
     }
     await Promise.all([
-      this.setStateAsync("statistics.total", featureCollectionLatest.features.length, true),
-      this.setStateAsync("statistics.inOperation", featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
-      this.setStateAsync("statistics.defective", featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
-      this.setStateAsync("statistics.testOperation", featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true)
+      this.setState("statistics.total", featureCollectionLatest.features.length, true),
+      this.setState("statistics.inOperation", featureCollectionLatest.features.filter((f) => f.properties.site_status === 1).length, true),
+      this.setState("statistics.defective", featureCollectionLatest.features.filter((f) => f.properties.site_status === 2).length, true),
+      this.setState("statistics.testOperation", featureCollectionLatest.features.filter((f) => f.properties.site_status === 3).length, true)
     ]);
     const fValues = featureCollectionLatest.features.filter((f) => f.properties.value !== null).map((f) => f.properties.value);
     if (fValues.length > 0) {
@@ -448,19 +451,19 @@ class OdlAdapter extends import_adapter_core.Adapter {
       const fMinStr = fMin ? `${fMin.properties.kenn} - ${fMin.properties.plz} ${fMin.properties.name}` : "";
       const fMaxStr = fMax ? `${fMax.properties.kenn} - ${fMax.properties.plz} ${fMax.properties.name}` : "";
       await Promise.all([
-        this.setStateAsync("statistics.valueMin", valMin, true),
-        this.setStateAsync("statistics.valueMinLocation", fMinStr, true),
-        this.setStateAsync("statistics.valueMax", valMax, true),
-        this.setStateAsync("statistics.valueMaxLocation", fMaxStr, true),
-        this.setStateAsync("statistics.valueAvg", valAvg, true)
+        this.setState("statistics.valueMin", valMin, true),
+        this.setState("statistics.valueMinLocation", fMinStr, true),
+        this.setState("statistics.valueMax", valMax, true),
+        this.setState("statistics.valueMaxLocation", fMaxStr, true),
+        this.setState("statistics.valueAvg", valAvg, true)
       ]);
     } else {
       await Promise.all([
-        this.setStateAsync("statistics.valueMin", { val: null, q: 1 }, true),
-        this.setStateAsync("statistics.valueMinLocation", { val: null, q: 1 }, true),
-        this.setStateAsync("statistics.valueMax", { val: null, q: 1 }, true),
-        this.setStateAsync("statistics.valueMaxLocation", { val: null, q: 1 }, true),
-        this.setStateAsync("statistics.valueAvg", { val: null, q: 1 }, true)
+        this.setState("statistics.valueMin", { val: null, q: 1 }, true),
+        this.setState("statistics.valueMinLocation", { val: null, q: 1 }, true),
+        this.setState("statistics.valueMax", { val: null, q: 1 }, true),
+        this.setState("statistics.valueMaxLocation", { val: null, q: 1 }, true),
+        this.setState("statistics.valueAvg", { val: null, q: 1 }, true)
       ]);
     }
   }

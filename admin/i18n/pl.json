@@ -1,0 +1,15 @@
+{
+    "Data license Germany – attribution – Version 2.0": "Licencja na dane Niemcy – przypisanie – Wersja 2.0",
+    "Enter one or more measuring stations to load data for.": "Wprowadź jeden lub więcej punktów pomiarowych, dla których chcesz załadować dane.",
+    "Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Federalny Urząd Ochrony Radiologicznej (Bundesamt für Strahlenschutz, BfS)",
+    "If enabled, additional states for the cosmic and terrestrial ADR components will be used.": "Jeśli włączone, zostaną użyte dodatkowe stany dla kosmicznych i naziemnych komponentów ADR.",
+    "If this is enabled and a history for a value state is configured, the adapter tries to load missing history values for the last 7 days to fill up the history.": "Jeśli ta opcja jest włączona i skonfigurowana jest historia dla stanu wartości, adapter próbuje załadować brakujące wartości historii z ostatnich 7 dni, aby wypełnić historię.",
+    "Measuring stations": "Punkty pomiarowe",
+    "See also detailed information from the BfS.": "Zobacz także szczegółowe informacje BfS.",
+    "Settings": "Ustawienia",
+    "Timeout for each request to the server in seconds. Default is 30.": "Limit czasu dla każdego żądania do serwera w sekundach. ",
+    "Timeout while loading data": "Limit czasu podczas ładowania danych",
+    "Update history": "Historia aktualizacji",
+    "Use cosmic and terrestrial components": "Używaj komponentów kosmicznych i naziemnych",
+    "info_text": "Sieć pomiarowa ODL Federalnego Urzędu Ochrony przed Promieniowaniem (Bundesamt für Strahlenschutz, BfS) monitoruje naturalne narażenie na promieniowanie za pomocą około 1700 stacji pomiarowych ODL. Intensywność lokalnej mocy dawki jest czasami uzależniona od czynników zewnętrznych. Prace konserwacyjne, przebudowa obiektu, awarie nadajników, awarie sond oraz regularne badania radiologiczne sond mogą prowadzić do krótkotrwałego lub długotrwałego przestoju stacji pomiarowych."
+}

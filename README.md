@@ -50,6 +50,12 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Migrate to jsonConfig
+* (crycode-de) Updated dependencies
+
 ### 3.0.1 (2023-09-27)
 
 * (crycode-de) Node.js >= 16 is required
