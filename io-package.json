@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "odl",
-    "version": "3.0.1",
+    "version": "4.0.0",
     "news": {
+      "4.0.0": {
+        "en": "Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required\nMigrate to jsonConfig\nUpdated dependencies",
+        "de": "Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 sind erforderlich\nMigration auf jsonConfig\nAbhängigkeiten aktualisiert",
+        "ru": "Node.js >= 18, Админ >= 6.17, js-contoller >= 5.0.19 требуется\nMigrate to jsonConfig\nОбновленные зависимости",
+        "pt": "Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 são necessários\nMigrar para jsonConfig\nDependências atualizadas",
+        "nl": "Voor de toepassing van deze onderverdeling wordt verstaan onder: 5.0.19 zijn vereist\nMigreren naar jsonConfig\nBijgewerkte afhankelijkheden",
+        "fr": "Node.js >= 18, Admin >= 6,17, js-contoller >= 5.0.19 sont nécessaires\nMigrer vers jsonConfig\nDépendances actualisées",
+        "it": "Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 sono necessari\nMigrare a jsonConfig\nDipendenze aggiornate",
+        "es": "Node.js \"= 18, Admin \"= 6.17, js-contoller \"= 5.0.19 Se requieren\nMigrar a jsonConfig\nDependencias actualizadas",
+        "pl": "Node.js > = 18, Admin > = 6,17, js- contoller > = 5.0.19 są wymagane\nMigracja do jsonConfig\nAktualizacja zależności",
+        "uk": "Node.js >= 18, Адміністратор >= 6.17, js-contoller >= 5.0.19 потрібно\nМіграція в jsonConfig\nОновлені залежності",
+        "zh-cn": "节点.js QQ 18,行政 QQ 6.17,js-contoller QQ 所需经费5.0.19美元\n迁移到 jsonConfig\n更新的依赖关系"
+      },
       "3.0.1": {
         "en": "Node.js >= 16 is required\nFixed issue with history adapters\nUpdated dependencies",
         "de": "Node.js >= 16 ist erforderlich\nProbleme mit Verlaufsadaptern behoben\nAbhängigkeiten aktualisiert",
@@ -118,7 +131,7 @@
       "BfS",
       "µSv/h"
     ],
-    "licenseInformation":{
+    "licenseInformation": {
       "license": "MIT",
       "type": "free"
     },
