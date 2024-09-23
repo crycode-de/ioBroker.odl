@@ -14,6 +14,10 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
@@ -21,15 +25,35 @@ var import_register = require("source-map-support/register");
 var import_adapter_core = require("@iobroker/adapter-core");
 var import_axios = __toESM(require("axios"));
 class OdlAdapter extends import_adapter_core.Adapter {
+  /**
+   * Constructor to create a new instance of the adapter.
+   * @param options The adapter options.
+   */
   constructor(options = {}) {
     super({
       ...options,
       name: "odl"
     });
+    /**
+     * URL to get the latest data.
+     */
     this.urlLatest = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_odl_1h_latest&outputFormat=application/json";
+    /**
+     * URL to get the latest 168 features (24h * 7d = 168 features).
+     * `#kenn#` will be replaced by the identifier.
+     */
     this.urlTimeseries = "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_timeseries_odl_1h&outputFormat=application/json&viewparams=kenn:#kenn#&sortBy=end_measure+A&maxFeatures=168";
+    /**
+     * Timeout to force adapter exit after some time.
+     */
     this.exitTimeout = null;
+    /**
+     * If the adapter is unloaded (should stop).
+     */
     this.unloaded = false;
+    /**
+     * Configured system language.
+     */
     this.systemLanguage = "en";
     this.on("ready", this.onReady.bind(this));
     this.on("unload", this.onUnload.bind(this));
@@ -41,6 +65,9 @@ class OdlAdapter extends import_adapter_core.Adapter {
       this.exit(import_adapter_core.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
     }, 6e5);
   }
+  /**
+   * Is called when databases are connected and adapter received configuration.
+   */
   async onReady() {
     var _a, _b;
     let instObj = null;
@@ -77,16 +104,26 @@ class OdlAdapter extends import_adapter_core.Adapter {
     }
     this.exit(import_adapter_core.EXIT_CODES.NO_ERROR);
   }
+  /**
+   * Adapter should unload.
+   */
   onUnload(cb) {
     this.unloaded = true;
     cb == null ? void 0 : cb();
   }
+  /**
+   * Terminate or exit the adapter.
+   * @param code The exit code.
+   */
   exit(code) {
     if (this.exitTimeout) {
       clearTimeout(this.exitTimeout);
     }
     this.terminate ? this.terminate(code) : process.exit(code);
   }
+  /**
+   * Read the data, create objects and states.
+   */
   async read() {
     const resLatest = await import_axios.default.request({
       url: this.urlLatest,
@@ -271,6 +308,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
         ack: true,
         ts: featureLatest.properties.end_measure ? new Date(featureLatest.properties.end_measure).getTime() : Date.now(),
         q: featureLatest.properties.value !== null ? 0 : 129
+        // 0x00 = good, 0x81 = general problem by sensor
       };
       const currentState = await this.getStateAsync(`${mstKenn}.value`);
       if (!currentState || currentState.val !== newState.val || currentState.ts !== newState.ts) {
