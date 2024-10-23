@@ -10,6 +10,7 @@
     "msts": {
       "type": "chips",
       "newLine": true,
+      "xs": 12,
       "sm": 12,
       "label": "Measuring stations",
       "help": "Enter one or more measuring stations to load data for."
@@ -32,6 +33,7 @@
     "useCosmicTerrestrial": {
       "type": "checkbox",
       "newLine": true,
+      "xs": 12,
       "sm": 12,
       "lg": 4,
       "label": "Use cosmic and terrestrial components",
@@ -39,6 +41,7 @@
     },
     "updateHistory": {
       "type": "checkbox",
+      "xs": 12,
       "sm": 12,
       "lg": 4,
       "label": "Update history",
@@ -46,6 +49,7 @@
     },
     "timeout": {
       "type": "number",
+      "xs": 12,
       "sm": 12,
       "lg": 4,
       "label": "Timeout while loading data",

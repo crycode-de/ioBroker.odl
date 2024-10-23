@@ -33,6 +33,8 @@ For more information about the ambient dose rate in germany visit <https://odlin
 -->
 ### **WORK IN PROGRESS**
 
+* (crycode-de) Added support for tiny screens to jsonConfig
+
 ### 4.0.0 (2024-09-23)
 
 * (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
