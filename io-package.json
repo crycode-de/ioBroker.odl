@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "odl",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "news": {
+      "4.0.1": {
+        "en": "Added support for tiny screens to jsonConfig\nUpdated dependencies",
+        "de": "Unterstützung für winzige Bildschirme zu jsonConfig hinzugefügt\nAbhängigkeiten aktualisiert",
+        "ru": "Добавлена поддержка крошечных экранов для jsonConfig\nОбновленные зависимости",
+        "pt": "Adicionado suporte para telas minúsculas para jsonConfig\nDependências atualizadas",
+        "nl": "Ondersteuning voor kleine schermen toegevoegd aan jsonConfig\nBijgewerkte afhankelijkheden",
+        "fr": "Ajout du support pour les petits écrans à jsonConfig\nDépendances actualisées",
+        "it": "Aggiunto il supporto per piccoli schermi a jsonConfig\nDipendenze aggiornate",
+        "es": "Añadido soporte para pequeñas pantallas a jsonConfig\nDependencias actualizadas",
+        "pl": "Dodano wsparcie dla małych ekranów do jsonConfig\nAktualizacja zależności",
+        "uk": "Додано підтримку крихітних екранів в jsonConfig\nОновлені залежності",
+        "zh-cn": "向 jsonConfig 添加小屏幕支持\n更新的依赖关系"
+      },
       "4.0.0": {
         "en": "Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required\nMigrate to jsonConfig\nUpdated dependencies",
         "de": "Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 sind erforderlich\nMigration auf jsonConfig\nAbhängigkeiten aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "Naprawiono błąd konfiguracji, Zaktualizowano zależności",
         "zh-cn": "修复配置错误，更新依赖",
         "uk": "Виправлена ​​помилка конфігурації, оновлені залежності"
-      },
-      "2.0.1": {
-        "en": "Huge rebuild of the adapter, Use the official API, New states, ...",
-        "de": "Großer Umbau des Adapters, Verwendung der offiziellen API, Neue States, ...",
-        "ru": "Огромный ребилд адаптера, Используйте официальный API, Новые состояния, ...",
-        "pt": "Grande reconstrução do adaptador, Use a API oficial, Novos estados, ...",
-        "nl": "Enorme herbouw van de adapter, gebruik de officiële API, nieuwe staten, ...",
-        "fr": "Énorme reconstruction de l'adaptateur, Utiliser l'API officielle, Nouveaux états, ...",
-        "it": "Ricostruzione enorme dell'adattatore, Usa l'API ufficiale, Nuovi stati, ...",
-        "es": "Enorme reconstrucción del adaptador, use la API oficial, nuevos estados, ...",
-        "pl": "Ogromna przebudowa adaptera, Użyj oficjalnego API, Nowe stany, ...",
-        "zh-cn": "适配器的大规模重建，使用官方 API，新状态, ...",
-        "uk": "Величезна перебудова адаптера, використання офіційного API, нові стани, ..."
       }
     },
     "titleLang": {
