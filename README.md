@@ -18,27 +18,8 @@ This adapter integrates the ODL (Ortsdosisleistung / Ambient Dose Rate) values o
 
 For more information about the ambient dose rate in germany visit <https://odlinfo.bfs.de/>.
 
----
-
-## Die aktuelle Umweltradioaktivität in ioBroker
-
-Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
-
-Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
-
-Für weitere Informationen zur ODL siehe <https://odlinfo.bfs.de/>.
-
-Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
-Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
-
-Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) für einen Werte-State erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
-
-Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.  
-Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
-
-[![Screenshot 1](./docs/ioBroker-odl-01.png)](./docs/ioBroker-odl-01.png)
-
-[![Screenshot 2](./docs/ioBroker-odl-02.png)](./docs/ioBroker-odl-02.png)
+* [English description](./docs/en/README.md)
+* [German description](./docs/de/README.md)
 
 ---
 
@@ -50,6 +31,8 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
 ### 4.0.0 (2024-09-23)
 
 * (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
