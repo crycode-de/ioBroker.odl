@@ -4,6 +4,11 @@
   "items": {
     "_settingsHeader": {
       "type": "header",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "size": 2,
       "text": "Settings"
     },
@@ -20,6 +25,11 @@
     },
     "_info": {
       "type": "staticText",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "style": {
         "fontSize": "1.1em"
       },
@@ -27,6 +37,11 @@
     },
     "_linkList": {
       "type": "staticLink",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "style": {
         "fontSize": "1.1em"
       },
@@ -70,12 +85,22 @@
 
     "_infoHeader": {
       "type": "header",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "size": 2,
       "text": "Information"
     },
     "_infoText1": {
       "type": "staticText",
       "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "style": {
         "fontSize": "1.1em"
       },
@@ -84,6 +109,11 @@
     "_infoText2": {
       "type": "staticLink",
       "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "style": {
         "fontSize": "1.1em"
       },
@@ -93,12 +123,22 @@
     "_infoText3": {
       "type": "staticLink",
       "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "href": "https://www.bfs.de",
       "label": "Data © Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)"
     },
     "_infoText4": {
       "type": "staticLink",
       "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "href": "http://www.govdata.de/dl-de/by-2-0",
       "label": "Data license Germany – attribution – Version 2.0"
     }
