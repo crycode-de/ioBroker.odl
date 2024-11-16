@@ -31,6 +31,10 @@ For more information about the ambient dose rate in germany visit <https://odlin
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (crycode-de) Added missing sizes to jsonConfig
+
 ### 4.0.1 (2024-10-23)
 
 * (crycode-de) Added support for tiny screens to jsonConfig
