@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "odl",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "news": {
+      "4.0.2": {
+        "en": "Added missing sizes to jsonConfig",
+        "de": "Fehlende Größen zu jsonConfig hinzugefügt",
+        "ru": "Добавить недостающие размеры для jsonConfig",
+        "pt": "Adicionado tamanhos falta para jsonConfig",
+        "nl": "Ontbrekende maten toegevoegd aan jsonConfig",
+        "fr": "Ajout de tailles manquantes à jsonConfig",
+        "it": "Aggiunti taglie mancanti a jsonConfig",
+        "es": "Añadido tamaños perdidos a jsonConfig",
+        "pl": "Dodano brakujące rozmiary do jsonConfig",
+        "uk": "Додано відсутні розміри в jsonConfig",
+        "zh-cn": "添加到 JsonConfig 的缺失大小"
+      },
       "4.0.1": {
         "en": "Added support for tiny screens to jsonConfig\nUpdated dependencies",
         "de": "Unterstützung für winzige Bildschirme zu jsonConfig hinzugefügt\nAbhängigkeiten aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "Zoptymalizowana integracja Sentry w admin",
         "zh-cn": "管理员中优化的哨兵集成",
         "uk": "Оптимізована інтеграція Sentry в адмін"
-      },
-      "2.0.2": {
-        "en": "Fixed config error, Updated dependencies",
-        "de": "Konfigurationsfehler behoben, Abhängigkeiten aktualisiert",
-        "ru": "Исправлена ошибка конфигурации, обновлены зависимости",
-        "pt": "Erro de configuração corrigido, dependências atualizadas",
-        "nl": "Configuratiefout opgelost, afhankelijkheden bijgewerkt",
-        "fr": "Erreur de configuration fixe, dépendances mises à jour",
-        "it": "Risolto errore di configurazione, dipendenze aggiornate",
-        "es": "Error de configuración fijo, dependencias actualizadas",
-        "pl": "Naprawiono błąd konfiguracji, Zaktualizowano zależności",
-        "zh-cn": "修复配置错误，更新依赖",
-        "uk": "Виправлена ​​помилка конфігурації, оновлені залежності"
       }
     },
     "titleLang": {
