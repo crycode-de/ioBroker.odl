@@ -146,7 +146,7 @@ For more information about the ambient dose rate in germany visit <https://odlin
 
 Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
 
-Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
+Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 
 ### MIT License
 
