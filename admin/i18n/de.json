@@ -7,15 +7,13 @@
     "Measuring stations": "Messstellen",
     "See also detailed information from the BfS.": "Siehe auch detaillierte Informationen des BfS.",
     "Settings": "Einstellungen",
-
     "Timeout for each request to the server in seconds. Default is 30.": "Zeitlimit für jede Anforderung an den Server in Sekunden. Die Standardeinstellung ist 30.",
     "Timeout while loading data": "Zeitlimit beim Laden der Daten",
-
     "Update history": "Verlauf nachladen",
     "Use cosmic and terrestrial components": "Kosmische und terrestrische Anteile nutzen",
-
     "To find the identifiers for the measuring stations use the list of measuring stations provided by the Federal Office for Radiation Protection.": "Bitte die Liste der Messstellen in Deutschland vom Bundesamt für Strahlenschutz nutzen, um die Kennungen der Messstellen zu finden.",
     "List of measuring stations": "Liste der Messstellen",
     "info_text": "Das ODL-Messnetz des Bundesamtes für Strahlenschutz (BfS) überwacht mit seinen rund 1700 ODL-Messsonden die natürliche Strahlenbelastung. Die Ortsdosisleistung wird zeitweise von äußeren Faktoren beeinflusst. Dazu gehören insbesondere Regen, Schnee und Wind. Wartungsarbeiten, Umbauten an den Liegenschaften, defekte Messwertsender, defekte Sonden sowie regelmäßige radiologische Prüfungen der Sonden können zu kurzen oder längeren Ausfällen von Messstationen führen.",
-    "Data © Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Daten © Bundesamt für Strahlenschutz, BfS"
+    "Data © Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)": "Daten © Bundesamt für Strahlenschutz, BfS",
+    "When opening the link to a measuring station, you will find the identifier in the URL ('?id='). For example, the identifier for the station 'Berlin-Karlshorst' is '110000006'.": "Beim öffnen des Links zu einer Messstelle, findet man die Kennung in der URL ('?id='). Zum Beispiel ist die Kennung für die Messstelle 'Berlin-Karlshorst' die '110000006'."
 }

@@ -24,3 +24,14 @@ When the adapter is started for the first time, the time for retrieving the data
 [![Screenshot 1](../ioBroker-odl-01.png)](../ioBroker-odl-01.png)
 
 [![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
+
+## Find the ID of measuring stations
+
+To find the ID required by the adapter, you need to open the [List of measuring stations on ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) and search for the measuring station.
+
+If you open the desired measuring station, you can find the ID in URL of the browser as `?id=...`.
+
+Example for the measuring point _Berlin-Karlshorst_:
+
+* URL: `https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+* ID: `110000006`

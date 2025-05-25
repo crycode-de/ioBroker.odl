@@ -11,5 +11,8 @@
     "Timeout while loading data": "加载数据时超时",
     "Update history": "更新历史",
     "Use cosmic and terrestrial components": "使用宇宙和地球组件",
-    "info_text": "联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS) 的 ODL 测量网络使用大约 1700 个 ODL 测量站监测自然辐射暴露。 局部剂量率的强度有时会受到外部因素的影响。 维护工作、现场重建、发射器故障、探头故障和探头的定期放射测试可能导致测量站的短期或长期停机。"
+    "info_text": "联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS) 的 ODL 测量网络使用大约 1700 个 ODL 测量站监测自然辐射暴露。 局部剂量率的强度有时会受到外部因素的影响。 维护工作、现场重建、发射器故障、探头故障和探头的定期放射测试可能导致测量站的短期或长期停机。",
+    "To find the identifiers for the measuring stations use the list of measuring stations provided by the Federal Office for Radiation Protection.": "为了找到测量站的标识符，请使用联邦辐射保护办公室提供的测量站列表。",
+    "When opening the link to a measuring station, you will find the identifier in the URL ('?id='). For example, the identifier for the station 'Berlin-Karlshorst' is '110000006'.": "打开指向测量站的链接时，您会在URL中找到标识符（'？id='）。例如，车站“柏林 - 卡尔肖斯特”的标识符是“ 110000006”。",
+    "List of measuring stations": "测量站清单"
 }

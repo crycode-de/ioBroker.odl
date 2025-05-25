@@ -22,3 +22,14 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 [![Screenshot 1](../ioBroker-odl-01.png)](../ioBroker-odl-01.png)
 
 [![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
+
+## Kennungen der Messstellen finden
+
+Um die für den Adapter benötigten Kennungen der Messstellen zu finden, ruft man die [Liste der Messstellen auf ODL-Info](https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/liste/liste_node.html) auf und sucht dort nach der Messstelle.
+
+Wenn man nun die gewünschte Messstelle öffnet, dann steht die Kennung als `?id=...` in der URL im Browser.
+
+Beispiel für die Messstelle _Berlin-Karlshorst_:
+
+* URL: `https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/karte/_documents/Messstelle.html?id=110000006`
+* Kennung (ID): `110000006`

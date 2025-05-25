@@ -35,6 +35,7 @@ For more information about the ambient dose rate in germany visit <https://odlin
 
 * (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
 * (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
 
 ### 4.0.2 (2024-11-16)
 
