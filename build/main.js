@@ -334,8 +334,7 @@ class OdlAdapter extends import_adapter_core.Adapter {
         const historyStart = histroyEndDate.setDate(histroyEndDate.getDate() - 7) + 100;
         const currentHistory = {};
         for (const obj of [objValue, objValueCosmic, objValueTerrestrial]) {
-          if (!obj)
-            continue;
+          if (!obj) continue;
           currentHistory[obj._id] = {};
           for (const historyKey in obj.common.custom) {
             if (/^(history|influxdb|sql)\.\d+$/.exec(historyKey) && obj.common.custom[historyKey].enabled === true) {
@@ -395,15 +394,13 @@ class OdlAdapter extends import_adapter_core.Adapter {
             continue;
           }
           for (const obj of [objValue, objValueCosmic, objValueTerrestrial]) {
-            if (!obj)
-              continue;
+            if (!obj) continue;
             for (const historyKey in currentHistory[obj._id]) {
               const oldHistory = currentHistory[obj._id][historyKey];
               const newHistory = [];
               for (const feature of featureCollectionTimeseries.features) {
                 const endMeasureTs = new Date(feature.properties.end_measure).getTime();
-                if (feature.properties.end_measure === featureLatest.properties.end_measure || oldHistory.find((state) => state.ts === endMeasureTs))
-                  continue;
+                if (feature.properties.end_measure === featureLatest.properties.end_measure || oldHistory.find((state) => state.ts === endMeasureTs)) continue;
                 let val;
                 if (obj._id.endsWith(".valueCosmic")) {
                   val = featureLatest.properties.value_cosmic;

@@ -31,6 +31,11 @@ For more information about the ambient dose rate in germany visit <https://odlin
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+
 ### 4.0.2 (2024-11-16)
 
 * (crycode-de) Added missing sizes to jsonConfig
