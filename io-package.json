@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "odl",
-    "version": "4.0.2",
+    "version": "5.0.0",
     "news": {
+      "5.0.0": {
+        "en": "Node.js >= 20, Admin >= 7.4.10 required\nUpdated dependencies\nAdded information how to get the required IDs of the measuring stations",
+        "de": "Node.js >= 20, Admin >= 7.4.10 erforderlich\nAbhängigkeiten aktualisiert\nZusätzliche Informationen hinzugefügt, wie man die erforderlichen IDs der Messstellen erhält",
+        "ru": "Node.js >= 20, Admin >= 7.4.10 требуется\nОбновленные зависимости\nДобавлена информация, как получить необходимые идентификаторы измерительных станций",
+        "pt": "Node.js >= 20, Admin >= 7.4.10 necessário\nDependências atualizadas\nInformaÃ§Ãμes adicionais como obter as identificaÃ§Ãμes exigidas das estações de mediÃ§Ã£o",
+        "nl": "Voor de toepassing van deze onderverdeling wordt verstaan onder:\nBijgewerkte afhankelijkheden\nToegevoegde informatie over het verkrijgen van de vereiste ID's van de meetstations",
+        "fr": "Node.js >= 20, Admin >= 7.4.10 requis\nDépendances actualisées\nAjout d'informations sur la façon d'obtenir les identifiants requis des stations de mesure",
+        "it": "Node.js >= 20, Admin >= 7.4.10 richiesto\nDipendenze aggiornate\nInformazioni aggiuntive come ottenere gli ID richiesti delle stazioni di misura",
+        "es": "Node.js \"= 20, Admin \"= 7.4.10\nDependencias actualizadas\nInformación adicional sobre cómo obtener los IDs requeridos de las estaciones de medición",
+        "pl": "Node.js > = 20, Admin > = 7.4.10 wymagane\nAktualizacja zależności\nDodano informacje jak uzyskać wymagane identyfikatory stacji pomiarowych",
+        "uk": "Node.js >= 20, Адміністратор >= 7.4.10 потрібно\nОновлені залежності\nДодана інформація про те, як отримати необхідні ідентифікатори вимірювальних станцій",
+        "zh-cn": "节点.js _____________________________________________________________________\n更新的依赖关系\n添加信息以获取测量站所需的身份证"
+      },
       "4.0.2": {
         "en": "Added missing sizes to jsonConfig",
         "de": "Fehlende Größen zu jsonConfig hinzugefügt",
