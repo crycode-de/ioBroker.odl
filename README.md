@@ -33,6 +33,7 @@ For more information about the ambient dose rate in germany visit <https://odlin
 -->
 ### **WORK IN PROGRESS**
 
+* (crycode-de) js-controller >= 6.0.11, Admin >= 7.6.17 required
 * (crycode-de) Updated dependencies
 
 ### 5.0.0 (2025-05-25)
