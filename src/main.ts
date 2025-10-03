@@ -87,7 +87,7 @@ class OdlAdapter extends Adapter {
         const minute = Math.floor(Math.random() * 31) + 15; // 15 to 45
         instObj.common.schedule = `${second} ${minute} * * * *`;
         this.log.info(`Schedule adjusted to spread calls better over a half hour!`);
-        await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
+        await this.setForeignObject(`system.adapter.${this.namespace}`, instObj);
         this.exit(EXIT_CODES.NO_ERROR);
         return;
       }
@@ -257,7 +257,7 @@ class OdlAdapter extends Adapter {
           },
           native: {},
         };
-        await this.setObjectAsync(mstKenn, objChan);
+        await this.setObject(mstKenn, objChan);
         this.log.debug(`created channel ${objChan._id}`);
       }
 
@@ -282,7 +282,7 @@ class OdlAdapter extends Adapter {
           },
           native: {},
         };
-        await this.setObjectAsync(`${mstKenn}.value`, objValue);
+        await this.setObject(`${mstKenn}.value`, objValue);
         this.log.debug(`created state ${objValue._id}`);
       }
 
@@ -310,7 +310,7 @@ class OdlAdapter extends Adapter {
             },
             native: {},
           };
-          await this.setObjectAsync(`${mstKenn}.valueCosmic`, objValueCosmic);
+          await this.setObject(`${mstKenn}.valueCosmic`, objValueCosmic);
           this.log.debug(`created state ${objValueCosmic._id}`);
         }
 
@@ -332,7 +332,7 @@ class OdlAdapter extends Adapter {
             },
             native: {},
           };
-          await this.setObjectAsync(`${mstKenn}.valueTerrestrial`, objValueTerrestrial);
+          await this.setObject(`${mstKenn}.valueTerrestrial`, objValueTerrestrial);
           this.log.debug(`created state ${objValueTerrestrial._id}`);
         }
       }
@@ -362,7 +362,7 @@ class OdlAdapter extends Adapter {
           },
           native: {},
         };
-        await this.setObjectAsync(`${mstKenn}.status`, objStatus);
+        await this.setObject(`${mstKenn}.status`, objStatus);
         this.log.debug(`created state ${objStatus._id}`);
       }
 
