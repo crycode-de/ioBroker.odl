@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "odl",
-    "version": "5.0.0",
+    "version": "5.1.0",
     "news": {
+      "5.1.0": {
+        "en": "js-controller >= 6.0.11, Admin >= 7.6.17 required\nUpdated dependencies",
+        "de": "js-controller >= 6.0.11, Admin >= 7.6.17 erforderlich\nAbhängigkeiten aktualisiert",
+        "ru": "js-контроллер >= 6.0.11, администратор >= 7.6.17 требуется\nОбновленные зависимости",
+        "pt": "js-controller >= 6,0.11, Admin >= 7,617\nDependências atualizadas",
+        "nl": "voor de toepassing van deze onderverdeling wordt verstaan onder:\nBijgewerkte afhankelijkheden",
+        "fr": "js-contrôleur >= 6.0.11, Admin >= 7.6.17 requis\nDépendances actualisées",
+        "it": "js-controller >= 6.0.11, Admin >= 7.6.17 richiesto\nDipendenze aggiornate",
+        "es": "js-controller н= 6.0.11, Admin √= 7.6.17 requerido\nDependencias actualizadas",
+        "pl": "ss- controller > = 6.0.11, Admin > = 7.6.17 wymagane\nAktualizacja zależności",
+        "uk": "js-controller >= 6.0.11, Admin >= 7.6.17 потрібно\nОновлені залежності",
+        "zh-cn": "js控制器 >= 6.0.11, 所需管理员 >= 7.6.17\n更新的依赖关系"
+      },
       "5.0.0": {
         "en": "Node.js >= 20, Admin >= 7.4.10 required\nUpdated dependencies\nAdded information how to get the required IDs of the measuring stations",
         "de": "Node.js >= 20, Admin >= 7.4.10 erforderlich\nAbhängigkeiten aktualisiert\nZusätzliche Informationen hinzugefügt, wie man die erforderlichen IDs der Messstellen erhält",
@@ -80,19 +93,6 @@
         "pl": "Naprawiono problem z pisownią w tłumaczeniu na język niemiecki",
         "zh-cn": "修复了德语翻译中的拼写问题",
         "uk": "Виправлена ​​проблема орфографії в німецькому перекладі"
-      },
-      "2.0.4": {
-        "en": "Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0",
-        "de": "Infomeldung über wichtige Änderungen beim Upgrade von <2.0.0 auf >=2.0.0 hinzugefügt",
-        "ru": "Добавлено информационное сообщение о критических изменениях при обновлении с <2.0.0 до >=2.0.0.",
-        "pt": "Adicionada mensagem informativa sobre alterações de quebra ao atualizar de <2.0.0 para >=2.0.0",
-        "nl": "Infobericht toegevoegd over het verbreken van wijzigingen bij het upgraden van <2.0.0 naar >=2.0.0",
-        "fr": "Ajout d'un message d'information sur les changements cassants lors de la mise à niveau de <2.0.0 à >=2.0.0",
-        "it": "Aggiunto messaggio informativo sulle modifiche sostanziali durante l'aggiornamento da <2.0.0 a >=2.0.0",
-        "es": "Se agregó un mensaje de información sobre cambios importantes al actualizar de <2.0.0 a> = 2.0.0",
-        "pl": "Dodano komunikat informacyjny o przerwaniu zmian podczas aktualizacji z <2.0.0 do >=2.0.0",
-        "zh-cn": "从 <2.0.0 升级到 >=2.0.0 时添加了有关重大更改的信息消息",
-        "uk": "Додано інформаційне повідомлення про критичні зміни під час оновлення з <2.0.0 до >=2.0.0"
       }
     },
     "titleLang": {

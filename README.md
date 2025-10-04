@@ -31,7 +31,7 @@ For more information about the ambient dose rate in germany visit <https://odlin
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.1.0 (2025-10-04)
 
 * (crycode-de) js-controller >= 6.0.11, Admin >= 7.6.17 required
 * (crycode-de) Updated dependencies
