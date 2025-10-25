@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "odl",
-    "version": "5.1.0",
+    "version": "5.1.1",
     "news": {
+      "5.1.1": {
+        "en": "Updated Sentry DSN\nUpdated dependencies",
+        "de": "Sentry DSN aktualisiert\nAbhängigkeiten aktualisiert",
+        "ru": "Обновленный Sentry DSN\nОбновленные зависимости",
+        "pt": "Atualizado Sentry DSN\nDependências atualizadas",
+        "nl": "Bijgewerkt Sentry DSN\nBijgewerkte afhankelijkheden",
+        "fr": "Mise à jour de la déclaration DSN\nDépendances actualisées",
+        "it": "Aggiornato Sentry DSN\nDipendenze aggiornate",
+        "es": "Actualizado Sentry DSN\nDependencias actualizadas",
+        "pl": "Aktualizacja Sentry DSN\nAktualizacja zależności",
+        "uk": "Оновлена Sentry DSN\nОновлені залежності",
+        "zh-cn": "更新的哨兵 DSN\n更新的依赖关系"
+      },
       "5.1.0": {
         "en": "js-controller >= 6.0.11, Admin >= 7.6.17 required\nUpdated dependencies",
         "de": "js-controller >= 6.0.11, Admin >= 7.6.17 erforderlich\nAbhängigkeiten aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "Node (ang.). wymagana jest 16\nProblem z adapterami historii\nZależność od upoważnienia",
         "uk": "Node.js >= 16 потрібно\nВиправлено проблему з історичними адаптерами\nОновлені залежності",
         "zh-cn": "不适用 需要16个\n与历史适应者混合问题\nA. 最新依赖情况"
-      },
-      "2.0.5": {
-        "en": "Fixed spelling issue in german translation",
-        "de": "Rechtschreibfehler in der deutschen Übersetzung behoben",
-        "ru": "Исправлена проблема с орфографией в немецком переводе.",
-        "pt": "Corrigido problema de ortografia na tradução alemã",
-        "nl": "Spellingsprobleem opgelost in Duitse vertaling",
-        "fr": "Correction d'un problème d'orthographe dans la traduction allemande",
-        "it": "Risolto problema di ortografia nella traduzione tedesca",
-        "es": "Solucionado el problema de ortografía en la traducción al alemán.",
-        "pl": "Naprawiono problem z pisownią w tłumaczeniu na język niemiecki",
-        "zh-cn": "修复了德语翻译中的拼写问题",
-        "uk": "Виправлена ​​проблема орфографії в німецькому перекладі"
       }
     },
     "titleLang": {
