@@ -162,6 +162,8 @@ For more information about the ambient dose rate in germany visit <https://odlin
 
 * (crycode-de) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 Copyright (c) 2019-2026 Peter Müller <peter@crycode.de>
