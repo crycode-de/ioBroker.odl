@@ -33,6 +33,7 @@
     "@iobroker/adapter-dev": "^1.5.0",
     "@iobroker/testing": "^5.1.1",
     "@sentry/integrations": "^7.114.0",
+    "@tsconfig/node20": "^20.1.9",
     "@types/node": "^24.9.2",
     "eslint": "^9.39.0",
     "proxyquire": "^2.1.3",
