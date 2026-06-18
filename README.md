@@ -32,6 +32,7 @@ For more information about the ambient dose rate in germany visit <https://odlin
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
 * (crycode-de) Updated dependencies
 
